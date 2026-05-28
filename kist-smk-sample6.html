@@ -1,760 +1,818 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>홍보기술6</title>
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
-    <style>
-      :root {
-        --kraken-purple: #7132f5;
-        --purple-dark: #5741d8;
-        --purple-deep: #5b1ecf;
-        --purple-subtle: rgba(133, 91, 251, 0.16);
-        --near-black: #101114;
-        --cool-gray: #686b82;
-        --silver-blue: #9497a9;
-        --border-gray: #dedee5;
-        --soft-line: rgba(104, 107, 130, 0.24);
-        --green: #149e61;
-        --green-dark: #026b3f;
-        --white: #ffffff;
-        --surface: #f7f7fb;
-        --panel: #f2f0ff;
-      }
 
-      * {
-        box-sizing: border-box;
-      }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>홍보기술6</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+  <style>
+    :root {
+      --kraken-purple: #7132f5;
+      --purple-dark: #5741d8;
+      --purple-deep: #5b1ecf;
+      --purple-subtle: rgba(133, 91, 251, 0.16);
+      --near-black: #101114;
+      --cool-gray: #686b82;
+      --silver-blue: #9497a9;
+      --border-gray: #dedee5;
+      --soft-line: rgba(104, 107, 130, 0.24);
+      --green: #149e61;
+      --green-dark: #026b3f;
+      --white: #ffffff;
+      --surface: #f7f7fb;
+      --panel: #f2f0ff;
+    }
 
-      html,
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      margin: 0;
+    }
+
+    body {
+      overflow: hidden;
+      background: #eef0f6;
+      color: var(--near-black);
+      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    }
+
+    .slide-stage {
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding: 8px;
+    }
+
+    .slide-wrapper {
+      position: relative;
+      width: calc(1600px * var(--slide-scale, 1));
+      height: calc(900px * var(--slide-scale, 1));
+    }
+
+    .smk-slide {
+      position: absolute;
+      inset: 0;
+      width: 1600px;
+      height: 900px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: rgba(0, 0, 0, 0.08) 0 16px 50px;
+      transform: scale(var(--slide-scale, 1));
+      transform-origin: top left;
+    }
+
+    .slide-header {
+      position: relative;
+      padding: 16px 24px 0;
+    }
+
+    .document-id {
+      position: absolute;
+      top: 10px;
+      right: 24px;
+      color: var(--near-black);
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .tag-list {
+      display: flex;
+      gap: 6px;
+      height: 28px;
+      align-items: flex-end;
+    }
+
+    .slide-tag {
+      display: inline-flex;
+      min-width: 124px;
+      height: 26px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border-radius: 12px 12px 0 0;
+      background: var(--purple-dark);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .slide-tag.secondary {
+      background: var(--kraken-purple);
+    }
+
+    .hero-box {
+      height: 130px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 380px;
+      gap: 26px;
+      align-items: center;
+      padding: 18px 28px 18px 38px;
+      border-top: 5px solid var(--purple-dark);
+      border-radius: 0 0 10px 10px;
+      background: linear-gradient(135deg, #f0edff 0%, #f9f8ff 62%, #ffffff 100%);
+      box-shadow: rgba(0, 0, 0, 0.03) 0 4px 24px;
+    }
+
+    .technology-title {
+      max-width: 1010px;
+      margin: 0;
+      color: var(--near-black);
+      font-size: 31px;
+      font-weight: 800;
+      line-height: 1.24;
+      letter-spacing: 0;
+      word-break: keep-all;
+    }
+
+    .researcher-card {
+      min-width: 0;
+      padding-left: 22px;
+      border-left: 1px solid rgba(113, 50, 245, 0.22);
+      text-align: right;
+    }
+
+    .researcher-label {
+      margin-bottom: 6px;
+      color: var(--purple-dark);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .researcher-name-line {
+      display: flex;
+      justify-content: flex-end;
+      align-items: baseline;
+      gap: 9px;
+      margin-bottom: 5px;
+    }
+
+    .researcher-name {
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    .researcher-position {
+      color: var(--cool-gray);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .researcher-email,
+    .researcher-affiliation {
+      margin: 3px 0;
+      color: var(--cool-gray);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 710px 710px;
+      gap: 54px;
+      height: 716px;
+      padding: 18px 24px 0;
+    }
+
+    .content-column {
+      display: grid;
+      gap: 12px;
+      height: 100%;
+      align-content: space-between;
+    }
+
+    .section-block {
+      min-width: 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 24px;
+      margin: 0 0 5px;
+      padding-bottom: 3px;
+      border-bottom: 2px solid var(--soft-line);
+      color: var(--near-black);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .section-heading::before {
+      content: "";
+      width: 16px;
+      height: 16px;
+      flex: 0 0 16px;
+      border-radius: 50%;
+      background: var(--kraken-purple);
+      box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.72);
+    }
+
+    .classification-table,
+    .ip-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .classification-table th {
+      height: 26px;
+      border-right: 2px solid var(--white);
+      background: var(--purple-dark);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .classification-table th:nth-child(3),
+    .classification-table th:nth-child(4) {
+      background: #7659d5;
+    }
+
+    .classification-table td {
+      height: 32px;
+      border: 1px solid var(--border-gray);
+      border-top: 0;
+      color: #3b3d4a;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .overview-layout,
+    .market-layout,
+    .business-layout,
+    .tech-layout {
+      display: grid;
+      gap: 14px;
+    }
+
+    .overview-layout {
+      grid-template-columns: minmax(0, 1fr) 285px;
+      align-items: stretch;
+    }
+
+    .tech-layout {
+      grid-template-columns: minmax(0, 1fr) 315px;
+      align-items: stretch;
+    }
+
+    .market-layout {
+      grid-template-columns: minmax(0, 1fr) 330px;
+      align-items: stretch;
+    }
+
+    .business-layout {
+      grid-template-columns: minmax(0, 1fr) 354px;
+      align-items: stretch;
+    }
+
+    .bullet-list {
+      margin: 0;
+      padding-left: 18px;
+      color: #2e3039;
+      font-size: 13.2px;
+      font-weight: 500;
+      line-height: 1.47;
+      word-break: keep-all;
+    }
+
+    .bullet-list li {
+      margin: 0 0 6px;
+      padding-left: 2px;
+    }
+
+    .bullet-list.tight li {
+      margin-bottom: 5px;
+    }
+
+    .keyword-panel {
+      min-height: 106px;
+      display: grid;
+      place-items: center;
+      padding: 8px;
+      border: 1px solid rgba(113, 50, 245, 0.18);
+      border-radius: 10px;
+      background: #fbfaff;
+    }
+
+    .image-slot {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-gray);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: rgba(16, 24, 40, 0.04) 0 1px 4px;
+    }
+
+    .image-slot img,
+    .business-application-images img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .keyword-panel .image-slot {
+      width: 100%;
+      height: 100%;
+      min-height: 92px;
+    }
+
+    .keyword-search-badge {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-width: 152px;
+      height: 30px;
+      justify-content: center;
+      padding: 0 13px;
+      border: 2px solid rgba(104, 107, 130, 0.58);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--near-black);
+      font-size: 13px;
+      font-weight: 800;
+      transform: translateX(-50%);
+      box-shadow: rgba(16, 24, 40, 0.08) 0 2px 8px;
+    }
+
+    .keyword-search-icon {
+      width: 17px;
+      height: 17px;
+      color: var(--purple-dark);
+      stroke-width: 2.6;
+    }
+
+    .tech-image-slot {
+      height: 142px;
+    }
+
+    .market-image-slot {
+      height: 140px;
+    }
+
+    .caption-text {
+      margin-top: 3px;
+      color: var(--cool-gray);
+      font-size: 10px;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .caption-text:empty {
+      display: none;
+    }
+
+    .business-application-images {
+      --business-image-count: 2;
+      display: grid;
+      grid-template-columns: repeat(var(--business-image-count), minmax(0, 1fr));
+      gap: 6px;
+      height: 112px;
+    }
+
+    .business-application-images img {
+      min-width: 0;
+      border: 1px solid var(--border-gray);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .business-application-images[data-image-count="1"] {
+      --business-image-count: 1;
+    }
+
+    .business-application-images[data-image-count="2"] {
+      --business-image-count: 2;
+    }
+
+    .business-application-images[data-image-count="3"] {
+      --business-image-count: 3;
+    }
+
+    .business-application-images img[hidden] {
+      display: none;
+    }
+
+    .comparison-panel {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 92px minmax(0, 1fr);
+      min-height: 150px;
+      overflow: hidden;
+      border: 2px solid rgba(113, 50, 245, 0.34);
+      border-radius: 8px;
+      background: #f8f7ff;
+    }
+
+    .comparison-side {
+      padding: 14px 20px 12px;
+    }
+
+    .comparison-title {
+      margin: 0 0 9px;
+      color: var(--near-black);
+      font-size: 14px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .comparison-side .bullet-list {
+      font-size: 12.2px;
+      line-height: 1.44;
+    }
+
+    .comparison-chevron {
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: visible;
+    }
+
+    .comparison-chevron::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 138px;
+      background: linear-gradient(90deg, var(--purple-dark), var(--kraken-purple));
+      clip-path: polygon(0 0, 58% 0, 100% 50%, 58% 100%, 0 100%, 34% 50%);
+      box-shadow: rgba(87, 65, 216, 0.18) 0 10px 24px;
+      transform: translateX(-50%);
+    }
+
+    .comparison-arrow-icon {
+      position: relative;
+      z-index: 1;
+      width: 48px;
+      height: 48px;
+      color: #ffffff;
+      filter: drop-shadow(0 5px 12px rgba(16, 17, 20, 0.22));
+      stroke-width: 2.4;
+      transform: translateX(8px);
+    }
+
+    .maturity-scale {
+      --active-index: 5;
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(9, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .maturity-scale[data-level="1"] {
+      --active-index: 1;
+    }
+
+    .maturity-scale[data-level="2"] {
+      --active-index: 2;
+    }
+
+    .maturity-scale[data-level="3"] {
+      --active-index: 3;
+    }
+
+    .maturity-scale[data-level="4"] {
+      --active-index: 4;
+    }
+
+    .maturity-scale[data-level="5"] {
+      --active-index: 5;
+    }
+
+    .maturity-scale[data-level="6"] {
+      --active-index: 6;
+    }
+
+    .maturity-scale[data-level="7"] {
+      --active-index: 7;
+    }
+
+    .maturity-scale[data-level="8"] {
+      --active-index: 8;
+    }
+
+    .maturity-scale[data-level="9"] {
+      --active-index: 9;
+    }
+
+    .maturity-item {
+      position: relative;
+      display: grid;
+      grid-template-rows: 16px 42px;
+      gap: 2px;
+      align-items: end;
+      text-align: center;
+    }
+
+    .maturity-number {
+      color: var(--near-black);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .maturity-bars {
+      position: relative;
+      width: 100%;
+      height: 42px;
+      align-self: end;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(104, 107, 130, 0.32);
+
+      /* 회색 바 9줄 */
+      background-image: linear-gradient(to top,
+          rgba(148, 151, 169, 0.24) 0 2px,
+          transparent 2px 5px);
+      background-size: 100% 5px;
+      background-repeat: repeat-y;
+      background-position: left bottom;
+    }
+
+    .maturity-fill {
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      bottom: 0;
+
+      /* n단계 = 정확히 n줄 */
+      height: calc(var(--bar-level) * 5px - 3px);
+      min-height: 2px;
+
+      /* 보라색 채움 바 */
+      background-image: linear-gradient(to top,
+          var(--purple-dark) 0 2px,
+          transparent 2px 5px);
+      background-size: 100% 5px;
+      background-repeat: repeat-y;
+      background-position: left bottom;
+    }
+
+    .maturity-marker {
+      position: absolute;
+      z-index: 3;
+      bottom: 8px;
+      left: calc(100% / 18);
+      width: 34px;
+      height: 34px;
+      color: #ffffff;
+      transform: translateX(-50%);
+      filter: drop-shadow(0 5px 12px rgba(87, 65, 216, 0.34));
+      pointer-events: none;
+    }
+
+    .maturity-marker-icon {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .maturity-marker-bg {
+      fill: var(--kraken-purple);
+      stroke: #ffffff;
+      stroke-width: 2.5;
+    }
+
+    .maturity-marker-check {
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 2.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .maturity-scale[data-level="1"] .maturity-marker {
+      left: calc(100% * 1 / 18);
+    }
+
+    .maturity-scale[data-level="2"] .maturity-marker {
+      left: calc(100% * 3 / 18);
+    }
+
+    .maturity-scale[data-level="3"] .maturity-marker {
+      left: calc(100% * 5 / 18);
+    }
+
+    .maturity-scale[data-level="4"] .maturity-marker {
+      left: calc(100% * 7 / 18);
+    }
+
+    .maturity-scale[data-level="5"] .maturity-marker {
+      left: calc(100% * 9 / 18);
+    }
+
+    .maturity-scale[data-level="6"] .maturity-marker {
+      left: calc(100% * 11 / 18);
+    }
+
+    .maturity-scale[data-level="7"] .maturity-marker {
+      left: calc(100% * 13 / 18);
+    }
+
+    .maturity-scale[data-level="8"] .maturity-marker {
+      left: calc(100% * 15 / 18);
+    }
+
+    .maturity-scale[data-level="9"] .maturity-marker {
+      left: calc(100% * 17 / 18);
+    }
+
+    .maturity-scale[data-level="1"] .maturity-item:nth-child(1) .maturity-fill,
+    .maturity-scale[data-level="2"] .maturity-item:nth-child(2) .maturity-fill,
+    .maturity-scale[data-level="3"] .maturity-item:nth-child(3) .maturity-fill,
+    .maturity-scale[data-level="4"] .maturity-item:nth-child(4) .maturity-fill,
+    .maturity-scale[data-level="5"] .maturity-item:nth-child(5) .maturity-fill,
+    .maturity-scale[data-level="6"] .maturity-item:nth-child(6) .maturity-fill,
+    .maturity-scale[data-level="7"] .maturity-item:nth-child(7) .maturity-fill,
+    .maturity-scale[data-level="8"] .maturity-item:nth-child(8) .maturity-fill,
+    .maturity-scale[data-level="9"] .maturity-item:nth-child(9) .maturity-fill {
+      background:
+        repeating-linear-gradient(to top,
+          var(--kraken-purple) 0,
+          var(--kraken-purple) 3px,
+          transparent 3px,
+          transparent 5px);
+    }
+
+    .maturity-note {
+      margin: 10px 0 0;
+      color: #30323b;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .ip-table th {
+      height: 22px;
+      border: 1px solid var(--white);
+      background: #ebe9f5;
+      color: var(--near-black);
+      font-size: 11.5px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .ip-table td {
+      min-height: 38px;
+      padding: 4px 6px;
+      border: 1px solid var(--border-gray);
+      color: #2f313a;
+      font-size: 10.5px;
+      font-weight: 500;
+      line-height: 1.2;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .ip-table td:nth-child(2) {
+      text-align: left;
+    }
+
+    .contact-bar {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 24px;
+      align-items: center;
+      height: 30px;
+      padding: 0 20px;
+      border-radius: 6px;
+      background: #f0eff6;
+      color: var(--near-black);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      white-space: nowrap;
+    }
+
+    .contact-icon {
+      width: 16px;
+      height: 16px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--purple-subtle);
+      color: var(--purple-dark);
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .placeholder-label {
+      font-family: inherit;
+    }
+
+
+    /* Responsive promotion link map
+         - data-x/y/w/h are based on data-base-width/data-base-height.
+         - Set data-debug="true" on .promotion-link-map to display link areas while adjusting. */
+    .promotion-link-map {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 60;
+      width: min(600px, 78%);
+      aspect-ratio: 600 / 320;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .promotion-hotspot {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: transparent;
+      text-decoration: none;
+      pointer-events: auto;
+      outline-offset: 4px;
+    }
+
+    .promotion-hotspot:focus-visible {
+      outline: 3px solid rgba(113, 50, 245, 0.72);
+    }
+
+    .promotion-hotspot-label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .promotion-link-map[data-debug="true"] .promotion-hotspot {
+      border: 2px solid rgba(113, 50, 245, 0.82);
+      background: rgba(113, 50, 245, 0.14);
+      color: var(--purple-deep);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .promotion-link-map[data-debug="true"] .promotion-hotspot-label {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      clip: auto;
+      white-space: normal;
+    }
+
+    @media print {
       body {
-        width: 100%;
-        height: 100%;
-        min-height: 100%;
-        margin: 0;
-      }
-
-      body {
-        overflow: hidden;
-        background: #eef0f6;
-        color: var(--near-black);
-        font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+        background: #ffffff;
+        overflow: visible;
       }
 
       .slide-stage {
-        width: 100vw;
-        height: 100vh;
-        display: grid;
-        place-items: center;
-        overflow: hidden;
-        padding: 8px;
+        width: 1600px;
+        height: 900px;
+        padding: 0;
       }
 
       .slide-wrapper {
-        position: relative;
-        width: calc(1600px * var(--slide-scale, 1));
-        height: calc(900px * var(--slide-scale, 1));
+        width: 1600px;
+        height: 900px;
       }
 
       .smk-slide {
-        position: absolute;
-        inset: 0;
-        width: 1600px;
-        height: 900px;
-        overflow: hidden;
-        background: var(--white);
-        box-shadow: rgba(0, 0, 0, 0.08) 0 16px 50px;
-        transform: scale(var(--slide-scale, 1));
-        transform-origin: top left;
-      }
-
-      .slide-header {
-        position: relative;
-        padding: 16px 24px 0;
-      }
-
-      .document-id {
-        position: absolute;
-        top: 10px;
-        right: 24px;
-        color: var(--near-black);
-        font-size: 15px;
-        font-weight: 500;
-        line-height: 1;
-      }
-
-      .tag-list {
-        display: flex;
-        gap: 6px;
-        height: 28px;
-        align-items: flex-end;
-      }
-
-      .slide-tag {
-        display: inline-flex;
-        min-width: 124px;
-        height: 26px;
-        align-items: center;
-        justify-content: center;
-        padding: 0 18px;
-        border-radius: 12px 12px 0 0;
-        background: var(--purple-dark);
-        color: var(--white);
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 0;
-      }
-
-      .slide-tag.secondary {
-        background: var(--kraken-purple);
-      }
-
-      .hero-box {
-        height: 130px;
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) 380px;
-        gap: 26px;
-        align-items: center;
-        padding: 18px 28px 18px 38px;
-        border-top: 5px solid var(--purple-dark);
-        border-radius: 0 0 10px 10px;
-        background: linear-gradient(135deg, #f0edff 0%, #f9f8ff 62%, #ffffff 100%);
-        box-shadow: rgba(0, 0, 0, 0.03) 0 4px 24px;
-      }
-
-      .technology-title {
-        max-width: 1010px;
-        margin: 0;
-        color: var(--near-black);
-        font-size: 31px;
-        font-weight: 800;
-        line-height: 1.24;
-        letter-spacing: 0;
-        word-break: keep-all;
-      }
-
-      .researcher-card {
-        min-width: 0;
-        padding-left: 22px;
-        border-left: 1px solid rgba(113, 50, 245, 0.22);
-        text-align: right;
-      }
-
-      .researcher-label {
-        margin-bottom: 6px;
-        color: var(--purple-dark);
-        font-size: 14px;
-        font-weight: 800;
-      }
-
-      .researcher-name-line {
-        display: flex;
-        justify-content: flex-end;
-        align-items: baseline;
-        gap: 9px;
-        margin-bottom: 5px;
-      }
-
-      .researcher-name {
-        font-size: 19px;
-        font-weight: 800;
-      }
-
-      .researcher-position {
-        color: var(--cool-gray);
-        font-size: 14px;
-        font-weight: 600;
-      }
-
-      .researcher-email,
-      .researcher-affiliation {
-        margin: 3px 0;
-        color: var(--cool-gray);
-        font-size: 13px;
-        font-weight: 500;
-        line-height: 1.3;
-      }
-
-      .content-grid {
-        display: grid;
-        grid-template-columns: 710px 710px;
-        gap: 54px;
-        height: 716px;
-        padding: 18px 24px 0;
-      }
-
-      .content-column {
-        display: grid;
-        gap: 12px;
-        height: 100%;
-        align-content: space-between;
-      }
-
-      .section-block {
-        min-width: 0;
-      }
-
-      .section-heading {
-        display: flex;
-        align-items: center;
-        gap: 7px;
-        min-height: 24px;
-        margin: 0 0 5px;
-        padding-bottom: 3px;
-        border-bottom: 2px solid var(--soft-line);
-        color: var(--near-black);
-        font-size: 18px;
-        font-weight: 800;
-        line-height: 1.1;
-        letter-spacing: 0;
-      }
-
-      .section-heading::before {
-        content: "";
-        width: 16px;
-        height: 16px;
-        flex: 0 0 16px;
-        border-radius: 50%;
-        background: var(--kraken-purple);
-        box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.72);
-      }
-
-      .classification-table,
-      .ip-table {
-        width: 100%;
-        border-collapse: collapse;
-        table-layout: fixed;
-      }
-
-      .classification-table th {
-        height: 26px;
-        border-right: 2px solid var(--white);
-        background: var(--purple-dark);
-        color: var(--white);
-        font-size: 13px;
-        font-weight: 800;
-      }
-
-      .classification-table th:nth-child(3),
-      .classification-table th:nth-child(4) {
-        background: #7659d5;
-      }
-
-      .classification-table td {
-        height: 32px;
-        border: 1px solid var(--border-gray);
-        border-top: 0;
-        color: #3b3d4a;
-        font-size: 14px;
-        font-weight: 500;
-        text-align: center;
-      }
-
-      .overview-layout,
-      .market-layout,
-      .business-layout,
-      .tech-layout {
-        display: grid;
-        gap: 14px;
-      }
-
-      .overview-layout {
-        grid-template-columns: minmax(0, 1fr) 285px;
-        align-items: stretch;
-      }
-
-      .tech-layout {
-        grid-template-columns: minmax(0, 1fr) 315px;
-        align-items: stretch;
-      }
-
-      .market-layout {
-        grid-template-columns: minmax(0, 1fr) 330px;
-        align-items: stretch;
-      }
-
-      .business-layout {
-        grid-template-columns: minmax(0, 1fr) 354px;
-        align-items: stretch;
-      }
-
-      .bullet-list {
-        margin: 0;
-        padding-left: 18px;
-        color: #2e3039;
-        font-size: 13.2px;
-        font-weight: 500;
-        line-height: 1.47;
-        word-break: keep-all;
-      }
-
-      .bullet-list li {
-        margin: 0 0 6px;
-        padding-left: 2px;
-      }
-
-      .bullet-list.tight li {
-        margin-bottom: 5px;
-      }
-
-      .keyword-panel {
-        min-height: 106px;
-        display: grid;
-        place-items: center;
-        padding: 8px;
-        border: 1px solid rgba(113, 50, 245, 0.18);
-        border-radius: 10px;
-        background: #fbfaff;
-      }
-
-      .image-slot {
-        position: relative;
-        overflow: hidden;
-        border: 1px solid var(--border-gray);
-        border-radius: 8px;
-        background: #ffffff;
-        box-shadow: rgba(16, 24, 40, 0.04) 0 1px 4px;
-      }
-
-      .image-slot img,
-      .business-application-images img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .keyword-panel .image-slot {
-        width: 100%;
-        height: 100%;
-        min-height: 92px;
-      }
-
-      .keyword-search-badge {
-        position: absolute;
-        top: 14px;
-        left: 50%;
-        z-index: 2;
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        min-width: 152px;
-        height: 30px;
-        justify-content: center;
-        padding: 0 13px;
-        border: 2px solid rgba(104, 107, 130, 0.58);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.96);
-        color: var(--near-black);
-        font-size: 13px;
-        font-weight: 800;
-        transform: translateX(-50%);
-        box-shadow: rgba(16, 24, 40, 0.08) 0 2px 8px;
-      }
-
-      .keyword-search-icon {
-        width: 17px;
-        height: 17px;
-        color: var(--purple-dark);
-        stroke-width: 2.6;
-      }
-
-      .tech-image-slot {
-        height: 142px;
-      }
-
-      .market-image-slot {
-        height: 140px;
-      }
-
-      .caption-text {
-        margin-top: 3px;
-        color: var(--cool-gray);
-        font-size: 10px;
-        font-weight: 600;
-        text-align: right;
-      }
-
-      .caption-text:empty {
-        display: none;
-      }
-
-      .business-application-images {
-        --business-image-count: 2;
-        display: grid;
-        grid-template-columns: repeat(var(--business-image-count), minmax(0, 1fr));
-        gap: 6px;
-        height: 112px;
-      }
-
-      .business-application-images img {
-        min-width: 0;
-        border: 1px solid var(--border-gray);
-        border-radius: 8px;
-        background: #ffffff;
-      }
-
-      .business-application-images[data-image-count="1"] {
-        --business-image-count: 1;
-      }
-
-      .business-application-images[data-image-count="2"] {
-        --business-image-count: 2;
-      }
-
-      .business-application-images[data-image-count="3"] {
-        --business-image-count: 3;
-      }
-
-      .business-application-images img[hidden] {
-        display: none;
-      }
-
-      .comparison-panel {
-        position: relative;
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) 92px minmax(0, 1fr);
-        min-height: 150px;
-        overflow: hidden;
-        border: 2px solid rgba(113, 50, 245, 0.34);
-        border-radius: 8px;
-        background: #f8f7ff;
-      }
-
-      .comparison-side {
-        padding: 14px 20px 12px;
-      }
-
-      .comparison-title {
-        margin: 0 0 9px;
-        color: var(--near-black);
-        font-size: 14px;
-        font-weight: 800;
-        text-align: center;
-      }
-
-      .comparison-side .bullet-list {
-        font-size: 12.2px;
-        line-height: 1.44;
-      }
-
-      .comparison-chevron {
-        position: relative;
-        display: grid;
-        place-items: center;
-        overflow: visible;
-      }
-
-      .comparison-chevron::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        width: 138px;
-        background: linear-gradient(90deg, var(--purple-dark), var(--kraken-purple));
-        clip-path: polygon(0 0, 58% 0, 100% 50%, 58% 100%, 0 100%, 34% 50%);
-        box-shadow: rgba(87, 65, 216, 0.18) 0 10px 24px;
-        transform: translateX(-50%);
-      }
-
-      .comparison-arrow-icon {
-        position: relative;
-        z-index: 1;
-        width: 48px;
-        height: 48px;
-        color: #ffffff;
-        filter: drop-shadow(0 5px 12px rgba(16, 17, 20, 0.22));
-        stroke-width: 2.4;
-        transform: translateX(8px);
-      }
-
-      .maturity-scale {
-        --active-index: 5;
-        position: relative;
-        display: grid;
-        grid-template-columns: repeat(9, minmax(0, 1fr));
-        gap: 8px;
-        margin-top: 4px;
-      }
-
-      .maturity-scale[data-level="1"] { --active-index: 1; }
-      .maturity-scale[data-level="2"] { --active-index: 2; }
-      .maturity-scale[data-level="3"] { --active-index: 3; }
-      .maturity-scale[data-level="4"] { --active-index: 4; }
-      .maturity-scale[data-level="5"] { --active-index: 5; }
-      .maturity-scale[data-level="6"] { --active-index: 6; }
-      .maturity-scale[data-level="7"] { --active-index: 7; }
-      .maturity-scale[data-level="8"] { --active-index: 8; }
-      .maturity-scale[data-level="9"] { --active-index: 9; }
-
-      .maturity-item {
-        position: relative;
-        display: grid;
-        grid-template-rows: 16px 42px;
-        gap: 2px;
-        align-items: end;
-        text-align: center;
-      }
-
-      .maturity-number {
-        color: var(--near-black);
-        font-size: 14px;
-        font-weight: 800;
-      }
-
-      .maturity-bars {
-        width: 100%;
-        height: 39px;
-        align-self: end;
-        border-bottom: 1px solid rgba(104, 107, 130, 0.32);
-        background:
-          repeating-linear-gradient(
-            to top,
-            rgba(148, 151, 169, 0.24) 0,
-            rgba(148, 151, 169, 0.24) 2px,
-            transparent 2px,
-            transparent 5px
-          );
-      }
-
-      .maturity-fill {
-        position: absolute;
-        left: 8%;
-        right: 8%;
-        bottom: 0;
-        height: calc(var(--bar-level) * 3.4px + 6px);
-        background:
-          repeating-linear-gradient(
-            to top,
-            var(--purple-dark) 0,
-            var(--purple-dark) 3px,
-            transparent 3px,
-            transparent 5px
-          );
-      }
-
-      .maturity-marker {
-        position: absolute;
-        z-index: 3;
-        bottom: 8px;
-        left: calc(100% / 18);
-        width: 34px;
-        height: 34px;
-        color: #ffffff;
-        transform: translateX(-50%);
-        filter: drop-shadow(0 5px 12px rgba(87, 65, 216, 0.34));
-        pointer-events: none;
-      }
-
-      .maturity-marker-icon {
-        width: 100%;
-        height: 100%;
-        display: block;
-      }
-
-      .maturity-marker-bg {
-        fill: var(--kraken-purple);
-        stroke: #ffffff;
-        stroke-width: 2.5;
-      }
-
-      .maturity-marker-check {
-        fill: none;
-        stroke: #ffffff;
-        stroke-width: 2.9;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
-
-      .maturity-scale[data-level="1"] .maturity-marker { left: calc(100% * 1 / 18); }
-      .maturity-scale[data-level="2"] .maturity-marker { left: calc(100% * 3 / 18); }
-      .maturity-scale[data-level="3"] .maturity-marker { left: calc(100% * 5 / 18); }
-      .maturity-scale[data-level="4"] .maturity-marker { left: calc(100% * 7 / 18); }
-      .maturity-scale[data-level="5"] .maturity-marker { left: calc(100% * 9 / 18); }
-      .maturity-scale[data-level="6"] .maturity-marker { left: calc(100% * 11 / 18); }
-      .maturity-scale[data-level="7"] .maturity-marker { left: calc(100% * 13 / 18); }
-      .maturity-scale[data-level="8"] .maturity-marker { left: calc(100% * 15 / 18); }
-      .maturity-scale[data-level="9"] .maturity-marker { left: calc(100% * 17 / 18); }
-
-      .maturity-scale[data-level="1"] .maturity-item:nth-child(1) .maturity-fill,
-      .maturity-scale[data-level="2"] .maturity-item:nth-child(2) .maturity-fill,
-      .maturity-scale[data-level="3"] .maturity-item:nth-child(3) .maturity-fill,
-      .maturity-scale[data-level="4"] .maturity-item:nth-child(4) .maturity-fill,
-      .maturity-scale[data-level="5"] .maturity-item:nth-child(5) .maturity-fill,
-      .maturity-scale[data-level="6"] .maturity-item:nth-child(6) .maturity-fill,
-      .maturity-scale[data-level="7"] .maturity-item:nth-child(7) .maturity-fill,
-      .maturity-scale[data-level="8"] .maturity-item:nth-child(8) .maturity-fill,
-      .maturity-scale[data-level="9"] .maturity-item:nth-child(9) .maturity-fill {
-        background:
-          repeating-linear-gradient(
-            to top,
-            var(--kraken-purple) 0,
-            var(--kraken-purple) 3px,
-            transparent 3px,
-            transparent 5px
-          );
-      }
-
-      .maturity-note {
-        margin: 10px 0 0;
-        color: #30323b;
-        font-size: 12px;
-        font-weight: 700;
-        text-align: center;
-      }
-
-      .ip-table th {
-        height: 22px;
-        border: 1px solid var(--white);
-        background: #ebe9f5;
-        color: var(--near-black);
-        font-size: 11.5px;
-        font-weight: 800;
-        text-align: center;
-      }
-
-      .ip-table td {
-        min-height: 38px;
-        padding: 4px 6px;
-        border: 1px solid var(--border-gray);
-        color: #2f313a;
-        font-size: 10.5px;
-        font-weight: 500;
-        line-height: 1.2;
-        text-align: center;
-        vertical-align: middle;
-      }
-
-      .ip-table td:nth-child(2) {
-        text-align: left;
-      }
-
-      .contact-bar {
-        display: grid;
-        grid-template-columns: 1fr auto auto;
-        gap: 24px;
-        align-items: center;
-        height: 30px;
-        padding: 0 20px;
-        border-radius: 6px;
-        background: #f0eff6;
-        color: var(--near-black);
-        font-size: 12px;
-        font-weight: 700;
-      }
-
-      .contact-item {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        white-space: nowrap;
-      }
-
-      .contact-icon {
-        width: 16px;
-        height: 16px;
-        display: inline-grid;
-        place-items: center;
-        border-radius: 50%;
-        background: var(--purple-subtle);
-        color: var(--purple-dark);
-        font-size: 10px;
-        font-weight: 900;
-      }
-
-      .placeholder-label {
-        font-family: inherit;
-      }
-
-
-      /* Responsive promotion link map
-         - data-x/y/w/h are based on data-base-width/data-base-height.
-         - Set data-debug="true" on .promotion-link-map to display link areas while adjusting. */
-      .promotion-link-map {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        z-index: 60;
-        width: min(600px, 78%);
-        aspect-ratio: 600 / 320;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
-      }
-
-      .promotion-hotspot {
-        position: absolute;
-        display: grid;
-        place-items: center;
-        border-radius: 14px;
-        color: transparent;
-        text-decoration: none;
-        pointer-events: auto;
-        outline-offset: 4px;
-      }
-
-      .promotion-hotspot:focus-visible {
-        outline: 3px solid rgba(113, 50, 245, 0.72);
-      }
-
-      .promotion-hotspot-label {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-      }
-
-      .promotion-link-map[data-debug="true"] .promotion-hotspot {
-        border: 2px solid rgba(113, 50, 245, 0.82);
-        background: rgba(113, 50, 245, 0.14);
-        color: var(--purple-deep);
-        font-size: 13px;
-        font-weight: 800;
-      }
-
-      .promotion-link-map[data-debug="true"] .promotion-hotspot-label {
-        position: static;
-        width: auto;
-        height: auto;
-        margin: 0;
-        overflow: visible;
-        clip: auto;
-        white-space: normal;
-      }
-
-      @media print {
-        body {
-          background: #ffffff;
-          overflow: visible;
-        }
-
-        .slide-stage {
-          width: 1600px;
-          height: 900px;
-          padding: 0;
-        }
-
-        .slide-wrapper {
-          width: 1600px;
-          height: 900px;
-        }
-
-        .smk-slide {
-          box-shadow: none;
-          transform: none !important;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <main class="slide-stage" aria-label="SMK 16:9 기술소개 장표">
-      <div class="slide-wrapper" id="slide-wrapper">
+        box-shadow: none;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="slide-stage" aria-label="SMK 16:9 기술소개 장표">
+    <div class="slide-wrapper" id="slide-wrapper">
       <article class="smk-slide" id="smk-slide">
         <header class="slide-header" id="slide-header">
           <div class="document-id" id="document-id">| 2025-73 |</div>
@@ -763,7 +821,8 @@
             <span class="slide-tag secondary" id="tag-secondary">신재생에너지</span>
           </div>
           <section class="hero-box" id="hero-box" aria-label="기술명 및 연구책임자 정보">
-            <h1 class="technology-title" id="technology-title">스쿠아릴륨 화합물, 이를 포함하는 근적외선 흡수용 수지 조성물 및 이를 이용하여 제조된 근적외선 차단 필터</h1>
+            <h1 class="technology-title" id="technology-title">스쿠아릴륨 화합물, 이를 포함하는 근적외선 흡수용 수지 조성물 및 이를 이용하여 제조된 근적외선 차단
+              필터</h1>
             <aside class="researcher-card" id="researcher-card">
               <div class="researcher-label" id="researcher-label">연구책임자</div>
               <div class="researcher-name-line" id="researcher-name-line">
@@ -805,18 +864,18 @@
               <div class="overview-layout" id="overview-layout">
                 <ul class="bullet-list" id="overview-list">
                   <li id="overview-bullet-1">스마트폰, 디지털카메라 등에는 가시광선 영역의 광은 충분히 투과하지만 근적외선 영역의 광은 차폐하는 광학 필터가 사용</li>
-                  <li id="overview-bullet-2">활성 장치를 광학 필터로는 근적외선 영역의 광을 선택적으로 흡수하도록 특수산업계 유리나 안산염계 유리 CuO 등을 첨가한 유리 필터를 사용</li>
+                  <li id="overview-bullet-2">활성 장치를 광학 필터로는 근적외선 영역의 광을 선택적으로 흡수하도록 특수산업계 유리나 안산염계 유리 CuO 등을 첨가한 유리 필터를
+                    사용</li>
                 </ul>
                 <div class="keyword-panel" id="overview-keyword-panel">
                   <div class="image-slot" id="overview-keyword-image-slot">
-                    <img
-                      id="overview-keyword-image"
-                      class="placeholder-image keyword-image"
+                    <img id="overview-keyword-image" class="placeholder-image keyword-image"
                       alt="Core key word 이미지 삽입 영역"
-                      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='240' viewBox='0 0 600 240'%3E%3Crect width='600' height='240' rx='22' fill='%23fbfaff'/%3E%3Crect x='176' y='28' width='248' height='44' rx='10' fill='%23ffffff' stroke='%239497a9' stroke-width='3'/%3E%3Ccircle cx='202' cy='50' r='14' fill='%23686b82'/%3E%3Ctext x='228' y='57' font-family='Arial, sans-serif' font-size='19' font-weight='700' fill='%23101114'%3ECore key word%3C/text%3E%3Ctext x='132' y='124' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23686b82'%3E%23 스쿠아릴륨 화합물%3C/text%3E%3Ctext x='340' y='124' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23686b82'%3E%23 근적외선 차단필터%3C/text%3E%3Ctext x='176' y='164' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23686b82'%3E%23 아크릴계 수지%3C/text%3E%3Ctext x='356' y='164' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23686b82'%3E%23 유리필터 수지%3C/text%3E%3Ctext x='258' y='204' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23686b82'%3E%23 이미지게 수지%3C/text%3E%3C/svg%3E"
-                    >
+                      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='240' viewBox='0 0 600 240'%3E%3Crect width='600' height='240' rx='22' fill='%23fbfaff'/%3E%3Crect x='176' y='28' width='248' height='44' rx='10' fill='%23ffffff' stroke='%239497a9' stroke-width='3'/%3E%3Ccircle cx='202' cy='50' r='14' fill='%23686b82'/%3E%3Ctext x='228' y='57' font-family='Arial, sans-serif' font-size='19' font-weight='700' fill='%23101114'%3ECore key word%3C/text%3E%3Ctext x='132' y='124' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23686b82'%3E%23 스쿠아릴륨 화합물%3C/text%3E%3Ctext x='340' y='124' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23686b82'%3E%23 근적외선 차단필터%3C/text%3E%3Ctext x='176' y='164' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23686b82'%3E%23 아크릴계 수지%3C/text%3E%3Ctext x='356' y='164' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23686b82'%3E%23 유리필터 수지%3C/text%3E%3Ctext x='258' y='204' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23686b82'%3E%23 이미지게 수지%3C/text%3E%3C/svg%3E">
                     <span class="keyword-search-badge" id="overview-keyword-search-badge" aria-hidden="true">
-                      <svg class="keyword-search-icon lucide lucide-search" id="overview-keyword-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <svg class="keyword-search-icon lucide lucide-search" id="overview-keyword-search-icon"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.3-4.3"></path>
                       </svg>
@@ -832,18 +891,17 @@
               <div class="tech-layout" id="tech-content-layout">
                 <div>
                   <ul class="bullet-list" id="tech-content-list">
-                    <li id="tech-content-bullet-1">스쿠아릴륨 화합물을 포함하는 근적외선 흡수용 수지 조성물을 근적외선 차단필터에 사용하여 최대흡수파장이 630~750 nm 영역에서 나타나고, 몰흡광계수가 높으며, 용해성이 우수한 광학 필터용 근적외선 흡수 소재를 제공</li>
-                    <li id="tech-content-bullet-2">적외선 흡수용 수지 조성물에 포함되는 수지는 투명수지는 유리전이온도(Tg)가 120℃~250℃이며, 열안정성 및 유기용제에 대한 용해성 확보 가능</li>
+                    <li id="tech-content-bullet-1">스쿠아릴륨 화합물을 포함하는 근적외선 흡수용 수지 조성물을 근적외선 차단필터에 사용하여 최대흡수파장이 630~750 nm
+                      영역에서 나타나고, 몰흡광계수가 높으며, 용해성이 우수한 광학 필터용 근적외선 흡수 소재를 제공</li>
+                    <li id="tech-content-bullet-2">적외선 흡수용 수지 조성물에 포함되는 수지는 투명수지는 유리전이온도(Tg)가 120℃~250℃이며, 열안정성 및 유기용제에
+                      대한 용해성 확보 가능</li>
                   </ul>
                 </div>
                 <div>
                   <div class="image-slot tech-image-slot" id="tech-representative-image-slot">
-                    <img
-                      id="tech-representative-image"
-                      class="placeholder-image representative-image"
+                    <img id="tech-representative-image" class="placeholder-image representative-image"
                       alt="기술내용 대표 비주얼 예시"
-                      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='320' viewBox='0 0 640 320'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%23f8f7ff'/%3E%3Cstop offset='1' stop-color='%23ffffff'/%3E%3C/linearGradient%3E%3ClinearGradient id='glass' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%237132f5' stop-opacity='.9'/%3E%3Cstop offset='1' stop-color='%23149e61' stop-opacity='.76'/%3E%3C/linearGradient%3E%3Cfilter id='shadow' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeDropShadow dx='0' dy='14' stdDeviation='12' flood-color='%23101114' flood-opacity='.16'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='640' height='320' fill='url(%23bg)'/%3E%3Cg filter='url(%23shadow)'%3E%3Cpath d='M156 226 L224 72 L498 92 L438 246 Z' fill='%23ffffff'/%3E%3Cpath d='M178 207 L236 96 L470 112 L420 225 Z' fill='url(%23glass)' opacity='.92'/%3E%3Cpath d='M205 186 C254 144 305 128 376 133 C404 135 430 141 455 150' fill='none' stroke='%23ffffff' stroke-width='14' stroke-linecap='round' opacity='.55'/%3E%3Ccircle cx='410' cy='146' r='30' fill='%23ffffff' opacity='.28'/%3E%3C/g%3E%3Crect x='70' y='252' width='500' height='34' rx='17' fill='%23ffffff' opacity='.92'/%3E%3Ctext x='320' y='276' text-anchor='middle' font-family='Arial, sans-serif' font-size='24' font-weight='800' fill='%23101114'%3ERepresentative Visual%3C/text%3E%3C/svg%3E"
-                    >
+                      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='320' viewBox='0 0 640 320'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%23f8f7ff'/%3E%3Cstop offset='1' stop-color='%23ffffff'/%3E%3C/linearGradient%3E%3ClinearGradient id='glass' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%237132f5' stop-opacity='.9'/%3E%3Cstop offset='1' stop-color='%23149e61' stop-opacity='.76'/%3E%3C/linearGradient%3E%3Cfilter id='shadow' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeDropShadow dx='0' dy='14' stdDeviation='12' flood-color='%23101114' flood-opacity='.16'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='640' height='320' fill='url(%23bg)'/%3E%3Cg filter='url(%23shadow)'%3E%3Cpath d='M156 226 L224 72 L498 92 L438 246 Z' fill='%23ffffff'/%3E%3Cpath d='M178 207 L236 96 L470 112 L420 225 Z' fill='url(%23glass)' opacity='.92'/%3E%3Cpath d='M205 186 C254 144 305 128 376 133 C404 135 430 141 455 150' fill='none' stroke='%23ffffff' stroke-width='14' stroke-linecap='round' opacity='.55'/%3E%3Ccircle cx='410' cy='146' r='30' fill='%23ffffff' opacity='.28'/%3E%3C/g%3E%3Crect x='70' y='252' width='500' height='34' rx='17' fill='%23ffffff' opacity='.92'/%3E%3Ctext x='320' y='276' text-anchor='middle' font-family='Arial, sans-serif' font-size='24' font-weight='800' fill='%23101114'%3ERepresentative Visual%3C/text%3E%3C/svg%3E">
                   </div>
                   <p class="caption-text" id="tech-representative-caption"></p>
                 </div>
@@ -857,11 +915,14 @@
                   <h3 class="comparison-title" id="comparison-as-is-title">[ 기존기술한계점 ]</h3>
                   <ul class="bullet-list tight" id="comparison-as-is-list">
                     <li id="comparison-as-is-bullet-1">광 흡수율의 우린 필터는 고가이며 박형화가 어려워 최근 촬상 장치의 소형화 및 박형화 요구에 어려움 존재</li>
-                    <li id="comparison-as-is-bullet-2">적외선 차폐 특성이 우수한 고적외선 흡수 색소를 사용하여 소형화, 박형화 및 저비용화가 가능한 광학 필터의 개발에 대한 니즈는 지속적 증가</li>
+                    <li id="comparison-as-is-bullet-2">적외선 차폐 특성이 우수한 고적외선 흡수 색소를 사용하여 소형화, 박형화 및 저비용화가 가능한 광학 필터의 개발에
+                      대한 니즈는 지속적 증가</li>
                   </ul>
                 </div>
                 <div class="comparison-chevron" id="comparison-chevron" aria-hidden="true">
-                  <svg id="comparison-arrow-icon" class="comparison-arrow-icon lucide lucide-circle-arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <svg id="comparison-arrow-icon" class="comparison-arrow-icon lucide lucide-circle-arrow-right"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <circle cx="12" cy="12" r="10"></circle>
                     <path d="M8 12h8"></path>
                     <path d="m12 16 4-4-4-4"></path>
@@ -871,7 +932,8 @@
                   <h3 class="comparison-title" id="comparison-to-be-title">[ 개발기술개선점 ]</h3>
                   <ul class="bullet-list tight" id="comparison-to-be-list">
                     <li id="comparison-to-be-bullet-1">스쿠아릴륨 화합물은 근적외선 차단기능이 우수할 뿐만 아니라, 가시광선 영역에서의 높은 투과율을 가짐</li>
-                    <li id="comparison-to-be-bullet-2">열안정성, 내화학성, 사용 용매에 대한 용해도 등이 우수하여 성능 및 효율성이 향상된 근적외선 차단필터를 제조할 수 있는 소재를 제공</li>
+                    <li id="comparison-to-be-bullet-2">열안정성, 내화학성, 사용 용매에 대한 용해도 등이 우수하여 성능 및 효율성이 향상된 근적외선 차단필터를 제조할 수
+                      있는 소재를 제공</li>
                   </ul>
                 </div>
               </div>
@@ -883,16 +945,14 @@
               <h2 class="section-heading" id="section-market-trend-title">관련시장동향</h2>
               <div class="market-layout" id="market-trend-layout">
                 <ul class="bullet-list" id="market-trend-list">
-                  <li id="market-trend-bullet-1">전 세계 근적외선 차단필터 시장 규모는 2022년 기준 약 2억 9,800만 달러로 평가되고, 2032년까지 연평균 성장률(CAGR) 15.8%로 성장 전망</li>
-                  <li id="market-trend-bullet-2">나노 기반 화학 구조 설계를 통한 파장 선택성 소재와 근적외선 흡수 및 반사 안료의 원천 기술을 활용한 차단 선택성 염료 개발</li>
+                  <li id="market-trend-bullet-1">전 세계 근적외선 차단필터 시장 규모는 2022년 기준 약 2억 9,800만 달러로 평가되고, 2032년까지 연평균
+                    성장률(CAGR) 15.8%로 성장 전망</li>
+                  <li id="market-trend-bullet-2">나노 기반 화학 구조 설계를 통한 파장 선택성 소재와 근적외선 흡수 및 반사 안료의 원천 기술을 활용한 차단 선택성 염료 개발
+                  </li>
                 </ul>
                 <div class="image-slot market-image-slot" id="market-trend-image-slot">
-                  <img
-                    id="market-trend-image"
-                    class="placeholder-image market-image"
-                    alt="관련시장동향 차트 이미지 삽입 영역"
-                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='680' height='360' viewBox='0 0 680 360'%3E%3Crect width='680' height='360' fill='%23ffffff'/%3E%3Ctext x='116' y='36' font-family='Arial, sans-serif' font-size='15' font-weight='700' fill='%23686b82'%3ENear infrared Absorbing Materials Market, By Material Type, USD Million%3C/text%3E%3Cg transform='translate(62 66)'%3E%3Cline x1='0' y1='230' x2='560' y2='230' stroke='%23dedee5'/%3E%3Cg fill='%237132f5'%3E%3Crect x='20' y='145' width='30' height='85'/%3E%3Crect x='80' y='138' width='30' height='92'/%3E%3Crect x='140' y='130' width='30' height='100'/%3E%3Crect x='200' y='118' width='30' height='112'/%3E%3Crect x='260' y='104' width='30' height='126'/%3E%3Crect x='320' y='90' width='30' height='140'/%3E%3Crect x='380' y='70' width='30' height='160'/%3E%3Crect x='440' y='48' width='30' height='182'/%3E%3Crect x='500' y='24' width='30' height='206'/%3E%3C/g%3E%3Cg fill='%23149e61'%3E%3Crect x='50' y='176' width='30' height='54'/%3E%3Crect x='110' y='166' width='30' height='64'/%3E%3Crect x='170' y='154' width='30' height='76'/%3E%3Crect x='230' y='140' width='30' height='90'/%3E%3Crect x='290' y='128' width='30' height='102'/%3E%3Crect x='350' y='112' width='30' height='118'/%3E%3Crect x='410' y='92' width='30' height='138'/%3E%3Crect x='470' y='72' width='30' height='158'/%3E%3Crect x='530' y='52' width='30' height='178'/%3E%3C/g%3E%3C/g%3E%3Ctext x='278' y='328' font-family='Arial, sans-serif' font-size='13' fill='%23686b82'%3Eorganic / inorganic%3C/text%3E%3C/svg%3E"
-                  >
+                  <img id="market-trend-image" class="placeholder-image market-image" alt="관련시장동향 차트 이미지 삽입 영역"
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='680' height='360' viewBox='0 0 680 360'%3E%3Crect width='680' height='360' fill='%23ffffff'/%3E%3Ctext x='116' y='36' font-family='Arial, sans-serif' font-size='15' font-weight='700' fill='%23686b82'%3ENear infrared Absorbing Materials Market, By Material Type, USD Million%3C/text%3E%3Cg transform='translate(62 66)'%3E%3Cline x1='0' y1='230' x2='560' y2='230' stroke='%23dedee5'/%3E%3Cg fill='%237132f5'%3E%3Crect x='20' y='145' width='30' height='85'/%3E%3Crect x='80' y='138' width='30' height='92'/%3E%3Crect x='140' y='130' width='30' height='100'/%3E%3Crect x='200' y='118' width='30' height='112'/%3E%3Crect x='260' y='104' width='30' height='126'/%3E%3Crect x='320' y='90' width='30' height='140'/%3E%3Crect x='380' y='70' width='30' height='160'/%3E%3Crect x='440' y='48' width='30' height='182'/%3E%3Crect x='500' y='24' width='30' height='206'/%3E%3C/g%3E%3Cg fill='%23149e61'%3E%3Crect x='50' y='176' width='30' height='54'/%3E%3Crect x='110' y='166' width='30' height='64'/%3E%3Crect x='170' y='154' width='30' height='76'/%3E%3Crect x='230' y='140' width='30' height='90'/%3E%3Crect x='290' y='128' width='30' height='102'/%3E%3Crect x='350' y='112' width='30' height='118'/%3E%3Crect x='410' y='92' width='30' height='138'/%3E%3Crect x='470' y='72' width='30' height='158'/%3E%3Crect x='530' y='52' width='30' height='178'/%3E%3C/g%3E%3C/g%3E%3Ctext x='278' y='328' font-family='Arial, sans-serif' font-size='13' fill='%23686b82'%3Eorganic / inorganic%3C/text%3E%3C/svg%3E">
                 </div>
               </div>
             </section>
@@ -906,43 +966,49 @@
                   <li id="business-idea-bullet-3">적용제품 : 휴대폰, 카메라</li>
                 </ul>
                 <div class="business-application-images" id="business-application-images" data-image-count="2">
-                  <img
-                    id="business-image-1"
-                    class="business-image placeholder-image"
-                    alt="응용·적용분야 이미지 1"
-                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='240' viewBox='0 0 360 240'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%23f7f7fb'/%3E%3Cstop offset='1' stop-color='%23d8d1ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='360' height='240' fill='url(%23g1)'/%3E%3Cpath d='M82 160 C126 96 185 62 282 48 L294 142 C230 146 172 164 118 202 Z' fill='%237132f5' opacity='.72'/%3E%3Cpath d='M70 178 C120 118 178 84 270 72' fill='none' stroke='%23ffffff' stroke-width='18' stroke-linecap='round' opacity='.82'/%3E%3Ctext x='32' y='218' font-family='Arial, sans-serif' font-size='22' font-weight='700' fill='%23101114'%3EApplication Image 1%3C/text%3E%3C/svg%3E"
-                  >
-                  <img
-                    id="business-image-2"
-                    class="business-image placeholder-image"
-                    alt="응용·적용분야 이미지 2"
-                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='240' viewBox='0 0 360 240'%3E%3Crect width='360' height='240' fill='%23f9f8ff'/%3E%3Crect x='58' y='42' width='244' height='156' rx='20' fill='%23ffffff' stroke='%23dedee5' stroke-width='5'/%3E%3Ccircle cx='180' cy='120' r='58' fill='none' stroke='%237132f5' stroke-width='17'/%3E%3Ccircle cx='180' cy='120' r='28' fill='%23149e61' opacity='.7'/%3E%3Crect x='250' y='66' width='44' height='92' rx='6' fill='%23101114'/%3E%3Ctext x='260' y='91' font-family='Arial, sans-serif' font-size='12' font-weight='700' fill='%23ffffff'%3ESMK%3C/text%3E%3Ctext x='32' y='222' font-family='Arial, sans-serif' font-size='22' font-weight='700' fill='%23101114'%3EApplication Image 2%3C/text%3E%3C/svg%3E"
-                  >
-                  <img
-                    id="business-image-3"
-                    class="business-image placeholder-image"
-                    alt="응용·적용분야 이미지 3"
-                    hidden
-                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='240' viewBox='0 0 360 240'%3E%3Crect width='360' height='240' fill='%23fbfaff'/%3E%3Crect x='52' y='52' width='256' height='136' rx='14' fill='%237132f5' opacity='.16' stroke='%237132f5' stroke-width='5'/%3E%3Cpath d='M82 150 L142 96 L190 132 L226 86 L286 150' fill='none' stroke='%237132f5' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='244' cy='78' r='16' fill='%23149e61'/%3E%3Ctext x='32' y='222' font-family='Arial, sans-serif' font-size='22' font-weight='700' fill='%23101114'%3EApplication Image 3%3C/text%3E%3C/svg%3E"
-                  >
+                  <img id="business-image-1" class="business-image placeholder-image" alt="응용·적용분야 이미지 1"
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='240' viewBox='0 0 360 240'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%23f7f7fb'/%3E%3Cstop offset='1' stop-color='%23d8d1ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='360' height='240' fill='url(%23g1)'/%3E%3Cpath d='M82 160 C126 96 185 62 282 48 L294 142 C230 146 172 164 118 202 Z' fill='%237132f5' opacity='.72'/%3E%3Cpath d='M70 178 C120 118 178 84 270 72' fill='none' stroke='%23ffffff' stroke-width='18' stroke-linecap='round' opacity='.82'/%3E%3Ctext x='32' y='218' font-family='Arial, sans-serif' font-size='22' font-weight='700' fill='%23101114'%3EApplication Image 1%3C/text%3E%3C/svg%3E">
+                  <img id="business-image-2" class="business-image placeholder-image" alt="응용·적용분야 이미지 2"
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='240' viewBox='0 0 360 240'%3E%3Crect width='360' height='240' fill='%23f9f8ff'/%3E%3Crect x='58' y='42' width='244' height='156' rx='20' fill='%23ffffff' stroke='%23dedee5' stroke-width='5'/%3E%3Ccircle cx='180' cy='120' r='58' fill='none' stroke='%237132f5' stroke-width='17'/%3E%3Ccircle cx='180' cy='120' r='28' fill='%23149e61' opacity='.7'/%3E%3Crect x='250' y='66' width='44' height='92' rx='6' fill='%23101114'/%3E%3Ctext x='260' y='91' font-family='Arial, sans-serif' font-size='12' font-weight='700' fill='%23ffffff'%3ESMK%3C/text%3E%3Ctext x='32' y='222' font-family='Arial, sans-serif' font-size='22' font-weight='700' fill='%23101114'%3EApplication Image 2%3C/text%3E%3C/svg%3E">
+                  <img id="business-image-3" class="business-image placeholder-image" alt="응용·적용분야 이미지 3" hidden
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='240' viewBox='0 0 360 240'%3E%3Crect width='360' height='240' fill='%23fbfaff'/%3E%3Crect x='52' y='52' width='256' height='136' rx='14' fill='%237132f5' opacity='.16' stroke='%237132f5' stroke-width='5'/%3E%3Cpath d='M82 150 L142 96 L190 132 L226 86 L286 150' fill='none' stroke='%237132f5' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='244' cy='78' r='16' fill='%23149e61'/%3E%3Ctext x='32' y='222' font-family='Arial, sans-serif' font-size='22' font-weight='700' fill='%23101114'%3EApplication Image 3%3C/text%3E%3C/svg%3E">
                 </div>
               </div>
             </section>
 
             <section class="section-block maturity-section" id="section-maturity">
               <h2 class="section-heading" id="section-maturity-title">기술성숙도</h2>
-              <div class="maturity-scale" id="maturity-scale" data-level="5" aria-label="기술성숙도 5단계">
-                <div class="maturity-item" id="maturity-item-1" style="--bar-level: 1;"><span class="maturity-number" id="maturity-number-1">1</span><span class="maturity-bars" id="maturity-bars-1"><span class="maturity-fill" id="maturity-fill-1"></span></span></div>
-                <div class="maturity-item" id="maturity-item-2" style="--bar-level: 2;"><span class="maturity-number" id="maturity-number-2">2</span><span class="maturity-bars" id="maturity-bars-2"><span class="maturity-fill" id="maturity-fill-2"></span></span></div>
-                <div class="maturity-item" id="maturity-item-3" style="--bar-level: 3;"><span class="maturity-number" id="maturity-number-3">3</span><span class="maturity-bars" id="maturity-bars-3"><span class="maturity-fill" id="maturity-fill-3"></span></span></div>
-                <div class="maturity-item" id="maturity-item-4" style="--bar-level: 4;"><span class="maturity-number" id="maturity-number-4">4</span><span class="maturity-bars" id="maturity-bars-4"><span class="maturity-fill" id="maturity-fill-4"></span></span></div>
-                <div class="maturity-item" id="maturity-item-5" style="--bar-level: 5;"><span class="maturity-number" id="maturity-number-5">5</span><span class="maturity-bars" id="maturity-bars-5"><span class="maturity-fill" id="maturity-fill-5"></span></span></div>
-                <div class="maturity-item" id="maturity-item-6" style="--bar-level: 6;"><span class="maturity-number" id="maturity-number-6">6</span><span class="maturity-bars" id="maturity-bars-6"><span class="maturity-fill" id="maturity-fill-6"></span></span></div>
-                <div class="maturity-item" id="maturity-item-7" style="--bar-level: 7;"><span class="maturity-number" id="maturity-number-7">7</span><span class="maturity-bars" id="maturity-bars-7"><span class="maturity-fill" id="maturity-fill-7"></span></span></div>
-                <div class="maturity-item" id="maturity-item-8" style="--bar-level: 8;"><span class="maturity-number" id="maturity-number-8">8</span><span class="maturity-bars" id="maturity-bars-8"><span class="maturity-fill" id="maturity-fill-8"></span></span></div>
-                <div class="maturity-item" id="maturity-item-9" style="--bar-level: 9;"><span class="maturity-number" id="maturity-number-9">9</span><span class="maturity-bars" id="maturity-bars-9"><span class="maturity-fill" id="maturity-fill-9"></span></span></div>
+              <div class="maturity-scale" id="maturity-scale" data-level="7" aria-label="기술성숙도 5단계">
+                <div class="maturity-item" id="maturity-item-1" style="--bar-level: 1;"><span class="maturity-number"
+                    id="maturity-number-1">1</span><span class="maturity-bars" id="maturity-bars-1"><span
+                      class="maturity-fill" id="maturity-fill-1"></span></span></div>
+                <div class="maturity-item" id="maturity-item-2" style="--bar-level: 2;"><span class="maturity-number"
+                    id="maturity-number-2">2</span><span class="maturity-bars" id="maturity-bars-2"><span
+                      class="maturity-fill" id="maturity-fill-2"></span></span></div>
+                <div class="maturity-item" id="maturity-item-3" style="--bar-level: 3;"><span class="maturity-number"
+                    id="maturity-number-3">3</span><span class="maturity-bars" id="maturity-bars-3"><span
+                      class="maturity-fill" id="maturity-fill-3"></span></span></div>
+                <div class="maturity-item" id="maturity-item-4" style="--bar-level: 4;"><span class="maturity-number"
+                    id="maturity-number-4">4</span><span class="maturity-bars" id="maturity-bars-4"><span
+                      class="maturity-fill" id="maturity-fill-4"></span></span></div>
+                <div class="maturity-item" id="maturity-item-5" style="--bar-level: 5;"><span class="maturity-number"
+                    id="maturity-number-5">5</span><span class="maturity-bars" id="maturity-bars-5"><span
+                      class="maturity-fill" id="maturity-fill-5"></span></span></div>
+                <div class="maturity-item" id="maturity-item-6" style="--bar-level: 6;"><span class="maturity-number"
+                    id="maturity-number-6">6</span><span class="maturity-bars" id="maturity-bars-6"><span
+                      class="maturity-fill" id="maturity-fill-6"></span></span></div>
+                <div class="maturity-item" id="maturity-item-7" style="--bar-level: 7;"><span class="maturity-number"
+                    id="maturity-number-7">7</span><span class="maturity-bars" id="maturity-bars-7"><span
+                      class="maturity-fill" id="maturity-fill-7"></span></span></div>
+                <div class="maturity-item" id="maturity-item-8" style="--bar-level: 8;"><span class="maturity-number"
+                    id="maturity-number-8">8</span><span class="maturity-bars" id="maturity-bars-8"><span
+                      class="maturity-fill" id="maturity-fill-8"></span></span></div>
+                <div class="maturity-item" id="maturity-item-9" style="--bar-level: 9;"><span class="maturity-number"
+                    id="maturity-number-9">9</span><span class="maturity-bars" id="maturity-bars-9"><span
+                      class="maturity-fill" id="maturity-fill-9"></span></span></div>
                 <span class="maturity-marker" id="maturity-marker" aria-hidden="true">
-                  <svg id="maturity-marker-icon" class="maturity-marker-icon lucide lucide-circle-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <svg id="maturity-marker-icon" class="maturity-marker-icon lucide lucide-circle-check"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <circle class="maturity-marker-bg" cx="12" cy="12" r="10"></circle>
                     <path class="maturity-marker-check" d="m9 12 2 2 4-4"></path>
                   </svg>
@@ -978,68 +1044,72 @@
             </section>
 
             <section class="section-block contact-section" id="section-contact">
-              <h2 class="section-heading" id="section-contact-title">기술이전 문의처 <span id="contact-office-name">한국화학연구원 기술사업화실</span></h2>
+              <h2 class="section-heading" id="section-contact-title">기술이전 문의처 <span id="contact-office-name">한국화학연구원
+                  기술사업화실</span></h2>
               <div class="contact-bar" id="contact-bar">
                 <span class="contact-item" id="contact-organization">한국화학연구원 기술사업화실</span>
-                <span class="contact-item" id="contact-phone"><span class="contact-icon" aria-hidden="true">☎</span>042-860-7079</span>
-                <span class="contact-item" id="contact-email"><span class="contact-icon" aria-hidden="true">@</span>ebcho@krict.re.kr</span>
+                <span class="contact-item" id="contact-phone"><span class="contact-icon"
+                    aria-hidden="true">☎</span>042-860-7079</span>
+                <span class="contact-item" id="contact-email"><span class="contact-icon"
+                    aria-hidden="true">@</span>ebcho@krict.re.kr</span>
               </div>
             </section>
           </div>
         </div>
       </article>
-      </div>
-    </main>
+    </div>
+  </main>
 
-    <script>
-      (function () {
-        const slide = document.getElementById("smk-slide");
-        const designWidth = 1600;
-        const designHeight = 900;
+  <script>
+    (function () {
+      const slide = document.getElementById("smk-slide");
+      const designWidth = 1600;
+      const designHeight = 900;
 
-        function fitSlide() {
-          const padding = 16;
-          const scale = Math.min(
-            (window.innerWidth - padding) / designWidth,
-            (window.innerHeight - padding) / designHeight,
-            1
-          );
-          document.documentElement.style.setProperty("--slide-scale", Math.max(scale, 0.1).toString());
-        }
+      function fitSlide() {
+        const padding = 16;
+        const scale = Math.min(
+          (window.innerWidth - padding) / designWidth,
+          (window.innerHeight - padding) / designHeight,
+          1
+        );
+        document.documentElement.style.setProperty("--slide-scale", Math.max(scale, 0.1).toString());
+      }
 
 
 
-        function syncPromotionHotspots() {
-          document.querySelectorAll(".promotion-link-map").forEach((map) => {
-            const baseWidth = Number(map.dataset.baseWidth) || 600;
-            const baseHeight = Number(map.dataset.baseHeight) || 320;
+      function syncPromotionHotspots() {
+        document.querySelectorAll(".promotion-link-map").forEach((map) => {
+          const baseWidth = Number(map.dataset.baseWidth) || 600;
+          const baseHeight = Number(map.dataset.baseHeight) || 320;
 
-            map.querySelectorAll(".promotion-hotspot").forEach((spot) => {
-              const x = Number(spot.dataset.x) || 0;
-              const y = Number(spot.dataset.y) || 0;
-              const w = Number(spot.dataset.w) || 0;
-              const h = Number(spot.dataset.h) || 0;
+          map.querySelectorAll(".promotion-hotspot").forEach((spot) => {
+            const x = Number(spot.dataset.x) || 0;
+            const y = Number(spot.dataset.y) || 0;
+            const w = Number(spot.dataset.w) || 0;
+            const h = Number(spot.dataset.h) || 0;
 
-              spot.style.left = `${(x / baseWidth) * 100}%`;
-              spot.style.top = `${(y / baseHeight) * 100}%`;
-              spot.style.width = `${(w / baseWidth) * 100}%`;
-              spot.style.height = `${(h / baseHeight) * 100}%`;
-            });
+            spot.style.left = `${(x / baseWidth) * 100}%`;
+            spot.style.top = `${(y / baseHeight) * 100}%`;
+            spot.style.width = `${(w / baseWidth) * 100}%`;
+            spot.style.height = `${(h / baseHeight) * 100}%`;
           });
-        }
+        });
+      }
 
-        function syncBusinessImageCount() {
-          const gallery = document.getElementById("business-application-images");
-          const visibleImages = gallery.querySelectorAll("img:not([hidden])").length;
-          gallery.dataset.imageCount = String(Math.min(Math.max(visibleImages, 1), 3));
-        }
+      function syncBusinessImageCount() {
+        const gallery = document.getElementById("business-application-images");
+        const visibleImages = gallery.querySelectorAll("img:not([hidden])").length;
+        gallery.dataset.imageCount = String(Math.min(Math.max(visibleImages, 1), 3));
+      }
 
-        window.addEventListener("resize", fitSlide);
-        window.addEventListener("resize", syncPromotionHotspots);
-        fitSlide();
-        syncBusinessImageCount();
-        syncPromotionHotspots();
-      })();
-    </script>
-  </body>
+      window.addEventListener("resize", fitSlide);
+      window.addEventListener("resize", syncPromotionHotspots);
+      fitSlide();
+      syncBusinessImageCount();
+      syncPromotionHotspots();
+    })();
+  </script>
+</body>
+
 </html>
