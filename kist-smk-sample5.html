@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>홍보기술5</title>
+  <title>홍보기술2</title>
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
   <style>
@@ -125,6 +125,10 @@
       box-shadow: rgba(0, 0, 0, 0.03) 0 4px 24px;
     }
 
+    .hero-copy {
+      min-width: 0;
+    }
+
     .technology-title {
       max-width: 1010px;
       margin: 0;
@@ -133,6 +137,16 @@
       font-weight: 800;
       line-height: 1.24;
       letter-spacing: 0;
+      word-break: keep-all;
+    }
+
+    .technology-subtitle {
+      max-width: 1010px;
+      margin: 8px 0 0;
+      color: var(--cool-gray);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.35;
       word-break: keep-all;
     }
 
@@ -413,6 +427,27 @@
       display: none;
     }
 
+    .business-idea-box {
+      margin-top: 8px;
+      padding: 12px 16px;
+      border: 1px solid rgba(113, 50, 245, 0.22);
+      border-radius: 8px;
+      background: linear-gradient(135deg, #fbfaff 0%, #ffffff 100%);
+    }
+
+    .business-idea-box-title {
+      margin: 0 0 7px;
+      color: var(--purple-dark);
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .business-idea-box .bullet-list {
+      font-size: 12.5px;
+      line-height: 1.4;
+    }
+
     .comparison-panel {
       position: relative;
       display: grid;
@@ -688,39 +723,6 @@
       text-align: left;
     }
 
-    .contact-bar {
-      display: grid;
-      grid-template-columns: 1fr auto auto;
-      gap: 24px;
-      align-items: center;
-      height: 30px;
-      padding: 0 20px;
-      border-radius: 6px;
-      background: #f0eff6;
-      color: var(--near-black);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .contact-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      white-space: nowrap;
-    }
-
-    .contact-icon {
-      width: 16px;
-      height: 16px;
-      display: inline-grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--purple-subtle);
-      color: var(--purple-dark);
-      font-size: 10px;
-      font-weight: 900;
-    }
-
     .placeholder-label {
       font-family: inherit;
     }
@@ -815,21 +817,22 @@
     <div class="slide-wrapper" id="slide-wrapper">
       <article class="smk-slide" id="smk-slide">
         <header class="slide-header" id="slide-header">
-          <div class="document-id" id="document-id">| 2025-73 |</div>
+          <div class="document-id" id="document-id">| 2026 KIST 유망기술 설명회 - 차세대 전지 기술이전 |</div>
           <div class="tag-list" id="tag-list" aria-label="기술 태그">
-            <span class="slide-tag primary" id="tag-primary">에너지 전환 기술</span>
-            <span class="slide-tag secondary" id="tag-secondary">신재생에너지</span>
+            <span class="slide-tag primary" id="tag-primary">01</span>
           </div>
           <section class="hero-box" id="hero-box" aria-label="기술명 및 연구책임자 정보">
-            <h1 class="technology-title" id="technology-title">스쿠아릴륨 화합물, 이를 포함하는 근적외선 흡수용 수지 조성물 및 이를 이용하여 제조된 근적외선 차단
-              필터</h1>
+            <div class="hero-copy" id="hero-copy">
+              <h1 class="technology-title" id="technology-title">스쿠아릴륨 화합물, 이를 포함하는 근적외선 흡수용 수지 조성물 및 이를 이용하여 제조된 근적외선 차단
+                필터</h1>
+              <p class="technology-subtitle" id="technology-subtitle">고투과·고차단 성능을 갖춘 근적외선 흡수 소재 기반 광학 필터 기술</p>
+            </div>
             <aside class="researcher-card" id="researcher-card">
               <div class="researcher-label" id="researcher-label">연구책임자</div>
               <div class="researcher-name-line" id="researcher-name-line">
                 <strong class="researcher-name" id="researcher-name">박 영 일</strong>
                 <span class="researcher-position" id="researcher-position">박사</span>
               </div>
-              <p class="researcher-email" id="researcher-email">ypark@kict.re.kr</p>
               <p class="researcher-affiliation" id="researcher-affiliation">정보·마이크로화학연구센터</p>
             </aside>
           </section>
@@ -840,12 +843,14 @@
             <section class="section-block classification-section" id="section-classification">
               <h2 class="section-heading" id="section-classification-title">기술활용영역 분류/활용 분야</h2>
               <table class="classification-table" id="classification-table" aria-label="기술활용영역 분류표">
+                <colgroup>
+    <col style="width: 25%;"> <col style="width: 25%;"> <col style="width: 50%;"> </colgroup>
                 <thead>
                   <tr>
                     <th id="classification-header-major">대분류</th>
                     <th id="classification-header-middle">중분류</th>
                     <th id="classification-header-small">소분류</th>
-                    <th id="classification-header-detail">세분류</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
@@ -853,7 +858,7 @@
                     <td id="classification-major">신재생 에너지</td>
                     <td id="classification-middle">태양광</td>
                     <td id="classification-small">유기 태양전지</td>
-                    <td id="classification-detail">유기염료</td>
+                    
                   </tr>
                 </tbody>
               </table>
@@ -868,21 +873,23 @@
                     사용</li>
                 </ul>
                 <div class="keyword-panel" id="overview-keyword-panel">
-                  <div class="image-slot" id="overview-keyword-image-slot">
-                    <img id="overview-keyword-image" class="placeholder-image keyword-image"
-                      alt="Core key word 이미지 삽입 영역"
-                      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='240' viewBox='0 0 600 240'%3E%3Crect width='600' height='240' rx='22' fill='%23fbfaff'/%3E%3Crect x='176' y='28' width='248' height='44' rx='10' fill='%23ffffff' stroke='%239497a9' stroke-width='3'/%3E%3Ccircle cx='202' cy='50' r='14' fill='%23686b82'/%3E%3Ctext x='228' y='57' font-family='Arial, sans-serif' font-size='19' font-weight='700' fill='%23101114'%3ECore key word%3C/text%3E%3Ctext x='132' y='124' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23686b82'%3E%23 스쿠아릴륨 화합물%3C/text%3E%3Ctext x='340' y='124' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23686b82'%3E%23 근적외선 차단필터%3C/text%3E%3Ctext x='176' y='164' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23686b82'%3E%23 아크릴계 수지%3C/text%3E%3Ctext x='356' y='164' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23686b82'%3E%23 유리필터 수지%3C/text%3E%3Ctext x='258' y='204' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23686b82'%3E%23 이미지게 수지%3C/text%3E%3C/svg%3E">
-                    <span class="keyword-search-badge" id="overview-keyword-search-badge" aria-hidden="true">
-                      <svg class="keyword-search-icon lucide lucide-search" id="overview-keyword-search-icon"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="m21 21-4.3-4.3"></path>
-                      </svg>
-                      <span id="overview-keyword-search-label">Core key word</span>
-                    </span>
-                  </div>
-                </div>
+  <div class="keyword-content-wrapper" style="width: 100%; height: 100%; padding: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; position: relative;">
+    <span class="keyword-search-badge" style="position: static; transform: none; margin-bottom: 4px;" aria-hidden="true">
+      <svg class="keyword-search-icon lucide lucide-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.3-4.3"></path>
+      </svg>
+      <span>Core key word</span>
+    </span>
+    
+    <div class="hashtag-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 10px; color: var(--cool-gray); font-size: 14px; font-weight: 700; text-align: center; word-break: keep-all;">
+      <span class="hashtag"># 스쿠아릴륨 화합물</span>
+      <span class="hashtag"># 근적외선 차단필터</span>
+      <span class="hashtag"># 아크릴계 수지</span>
+      <span class="hashtag"># 유리필터 수지</span>
+    </div>
+  </div>
+</div>
               </div>
             </section>
 
@@ -974,6 +981,14 @@
                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='240' viewBox='0 0 360 240'%3E%3Crect width='360' height='240' fill='%23fbfaff'/%3E%3Crect x='52' y='52' width='256' height='136' rx='14' fill='%237132f5' opacity='.16' stroke='%237132f5' stroke-width='5'/%3E%3Cpath d='M82 150 L142 96 L190 132 L226 86 L286 150' fill='none' stroke='%237132f5' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='244' cy='78' r='16' fill='%23149e61'/%3E%3Ctext x='32' y='222' font-family='Arial, sans-serif' font-size='22' font-weight='700' fill='%23101114'%3EApplication Image 3%3C/text%3E%3C/svg%3E">
                 </div>
               </div>
+              <div class="business-idea-box" id="business-idea-box">
+                <h3 class="business-idea-box-title" id="business-idea-box-title">비즈니스 아이디어</h3>
+                <ul class="bullet-list tight" id="business-idea-box-list">
+                  <li id="business-idea-box-bullet-1">가</li>
+                  <li id="business-idea-box-bullet-2">나</li>
+                  <li id="business-idea-box-bullet-3">다</li>
+                </ul>
+              </div>
             </section>
 
             <section class="section-block maturity-section" id="section-maturity">
@@ -1020,9 +1035,11 @@
             <section class="section-block ip-portfolio-section" id="section-ip-portfolio">
               <h2 class="section-heading" id="section-ip-portfolio-title">IP Portfolio</h2>
               <table class="ip-table" id="ip-table" aria-label="IP Portfolio 표">
+                <colgroup>
+    <col style="width: 40%;"> <col style="width: 15%;"> <col style="width: 15%;"> <col style="width: 15%;"> <col style="width: 15%;"> </colgroup>
                 <thead>
                   <tr>
-                    <th id="ip-table-header-no">No</th>
+                    
                     <th id="ip-table-header-title">발명의 명칭</th>
                     <th id="ip-table-header-application">출원번호</th>
                     <th id="ip-table-header-date">출원일자</th>
@@ -1032,7 +1049,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td id="ip-row-1-no">250</td>
+                    
                     <td id="ip-row-1-title">스쿠아릴륨 화합물, 이를 포함하는 근적외선 흡수용 수지 조성물 및 이를 이용하여 제조된 근적외선 차단 필터</td>
                     <td id="ip-row-1-application">10-2022-0170203</td>
                     <td id="ip-row-1-date">2023-03-24</td>
@@ -1043,17 +1060,6 @@
               </table>
             </section>
 
-            <section class="section-block contact-section" id="section-contact">
-              <h2 class="section-heading" id="section-contact-title">기술이전 문의처 <span id="contact-office-name">한국화학연구원
-                  기술사업화실</span></h2>
-              <div class="contact-bar" id="contact-bar">
-                <span class="contact-item" id="contact-organization">한국화학연구원 기술사업화실</span>
-                <span class="contact-item" id="contact-phone"><span class="contact-icon"
-                    aria-hidden="true">☎</span>042-860-7079</span>
-                <span class="contact-item" id="contact-email"><span class="contact-icon"
-                    aria-hidden="true">@</span>ebcho@krict.re.kr</span>
-              </div>
-            </section>
           </div>
         </div>
       </article>

@@ -125,6 +125,10 @@
       box-shadow: rgba(0, 0, 0, 0.03) 0 4px 24px;
     }
 
+    .hero-copy {
+      min-width: 0;
+    }
+
     .technology-title {
       max-width: 1010px;
       margin: 0;
@@ -133,6 +137,16 @@
       font-weight: 800;
       line-height: 1.24;
       letter-spacing: 0;
+      word-break: keep-all;
+    }
+
+    .technology-subtitle {
+      max-width: 1010px;
+      margin: 8px 0 0;
+      color: var(--cool-gray);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.35;
       word-break: keep-all;
     }
 
@@ -413,6 +427,27 @@
       display: none;
     }
 
+    .business-idea-box {
+      margin-top: 8px;
+      padding: 12px 16px;
+      border: 1px solid rgba(113, 50, 245, 0.22);
+      border-radius: 8px;
+      background: linear-gradient(135deg, #fbfaff 0%, #ffffff 100%);
+    }
+
+    .business-idea-box-title {
+      margin: 0 0 7px;
+      color: var(--purple-dark);
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .business-idea-box .bullet-list {
+      font-size: 12.5px;
+      line-height: 1.4;
+    }
+
     .comparison-panel {
       position: relative;
       display: grid;
@@ -688,39 +723,6 @@
       text-align: left;
     }
 
-    .contact-bar {
-      display: grid;
-      grid-template-columns: 1fr auto auto;
-      gap: 24px;
-      align-items: center;
-      height: 30px;
-      padding: 0 20px;
-      border-radius: 6px;
-      background: #f0eff6;
-      color: var(--near-black);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .contact-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      white-space: nowrap;
-    }
-
-    .contact-icon {
-      width: 16px;
-      height: 16px;
-      display: inline-grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--purple-subtle);
-      color: var(--purple-dark);
-      font-size: 10px;
-      font-weight: 900;
-    }
-
     .placeholder-label {
       font-family: inherit;
     }
@@ -815,14 +817,20 @@
     <div class="slide-wrapper" id="slide-wrapper">
       <article class="smk-slide" id="smk-slide">
         <header class="slide-header" id="slide-header">
-          <div class="document-id" id="document-id">| 제목 : 부제목 삽입 |</div>
-           <div class="tag-list" id="tag-list" aria-label="기술 태그"></div>
+          <div class="document-id" id="document-id">| 2026 KIST 유망기술 설명회 - 차세대 전지 기술이전 |</div>
+          <div class="tag-list" id="tag-list" aria-label="기술 태그">
+            <span class="slide-tag primary" id="tag-primary">01</span>
+          </div>
           <section class="hero-box" id="hero-box" aria-label="기술명 및 연구책임자 정보">
-            <h1 class="technology-title" id="technology-title">차세대 소듐 전고체전지용 고전도성 비정질 할라이드 고체전해질 기술</h1>
+            <div class="hero-copy" id="hero-copy">
+              <h1 class="technology-title" id="technology-title">스쿠아릴륨 화합물, 이를 포함하는 근적외선 흡수용 수지 조성물 및 이를 이용하여 제조된 근적외선 차단
+                필터</h1>
+              <p class="technology-subtitle" id="technology-subtitle">고투과·고차단 성능을 갖춘 근적외선 흡수 소재 기반 광학 필터 기술</p>
+            </div>
             <aside class="researcher-card" id="researcher-card">
               <div class="researcher-label" id="researcher-label">연구책임자</div>
               <div class="researcher-name-line" id="researcher-name-line">
-                <strong class="researcher-name" id="researcher-name">김 세 영</strong>
+                <strong class="researcher-name" id="researcher-name">박 영 일</strong>
                 <span class="researcher-position" id="researcher-position">박사</span>
               </div>
               <p class="researcher-affiliation" id="researcher-affiliation">정보·마이크로화학연구센터</p>
@@ -836,19 +844,21 @@
               <h2 class="section-heading" id="section-classification-title">기술활용영역 분류/활용 분야</h2>
               <table class="classification-table" id="classification-table" aria-label="기술활용영역 분류표">
                 <colgroup>
-    <col style="width: 25%;"> <col style="width: 25%;"> <col style="width: 50%;"></colgroup>
+    <col style="width: 25%;"> <col style="width: 25%;"> <col style="width: 50%;"> </colgroup>
                 <thead>
                   <tr>
                     <th id="classification-header-major">대분류</th>
                     <th id="classification-header-middle">중분류</th>
                     <th id="classification-header-small">소분류</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td id="classification-major">에너지·환경</td>
-                    <td id="classification-middle">이차전지/전고체전지 소재</td>
-                    <td id="classification-small">소듐 전고체전지용 할라이드계 비정질 고체전해질 및 제조공정</td>
+                    <td id="classification-major">신재생 에너지</td>
+                    <td id="classification-middle">태양광</td>
+                    <td id="classification-small">유기 태양전지</td>
+                    
                   </tr>
                 </tbody>
               </table>
@@ -858,8 +868,9 @@
               <h2 class="section-heading" id="section-overview-title">기술개요 및 개발배경</h2>
               <div class="overview-layout" id="overview-layout">
                 <ul class="bullet-list" id="overview-list">
-                  <li id="overview-bullet-1">기존 소듐 전고체전지용 할라이드계 고체전해질은 상온 이온전도도가 낮고 고에너지와 긴 합성시간이 필요해 생산성과 사업성 제한</li>
-                  <li id="overview-bullet-2">이종 원소 도핑을 적용하여 비정질화 시간을 단축하면서도 이온전도도와 전지 성능을 동시에 향상시키는 방향으로 개발</li>
+                  <li id="overview-bullet-1">스마트폰, 디지털카메라 등에는 가시광선 영역의 광은 충분히 투과하지만 근적외선 영역의 광은 차폐하는 광학 필터가 사용</li>
+                  <li id="overview-bullet-2">활성 장치를 광학 필터로는 근적외선 영역의 광을 선택적으로 흡수하도록 특수산업계 유리나 안산염계 유리 CuO 등을 첨가한 유리 필터를
+                    사용</li>
                 </ul>
                 <div class="keyword-panel" id="overview-keyword-panel">
   <div class="keyword-content-wrapper" style="width: 100%; height: 100%; padding: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; position: relative;">
@@ -887,8 +898,10 @@
               <div class="tech-layout" id="tech-content-layout">
                 <div>
                   <ul class="bullet-list" id="tech-content-list">
-                    <li id="tech-content-bullet-1">Na-Ta-Cl 기반 할라이드계 고체전해질에 이종 원소 소스를 도입해 비정질 구조를 빠르게 형성하도록 설계, 상온 이온전도도 10⁻³ S/cm 이상, 비도핑 대비 최대 37.5배 수준의 전도도 향상이 실험적으로 확인</li>
-                    <li id="tech-content-bullet-2">XRD, PDF 분석, 임피던스, 풀셀 충방전 평가를 통해 공정 단축(약 16~30시간)과 계면 안정성 개선이 함께 검증되어, 차세대 소듐 전고체전지용 핵심 전해질 후보로 제시</li>
+                    <li id="tech-content-bullet-1">스쿠아릴륨 화합물을 포함하는 근적외선 흡수용 수지 조성물을 근적외선 차단필터에 사용하여 최대흡수파장이 630~750 nm
+                      영역에서 나타나고, 몰흡광계수가 높으며, 용해성이 우수한 광학 필터용 근적외선 흡수 소재를 제공</li>
+                    <li id="tech-content-bullet-2">적외선 흡수용 수지 조성물에 포함되는 수지는 투명수지는 유리전이온도(Tg)가 120℃~250℃이며, 열안정성 및 유기용제에
+                      대한 용해성 확보 가능</li>
                   </ul>
                 </div>
                 <div>
@@ -908,8 +921,9 @@
                 <div class="comparison-side as-is" id="comparison-as-is">
                   <h3 class="comparison-title" id="comparison-as-is-title">[ 기존기술한계점 ]</h3>
                   <ul class="bullet-list tight" id="comparison-as-is-list">
-                    <li id="comparison-as-is-bullet-1">기존 황화물계 고체전해질은 높은 이온전도도를 보이더라도 고전압 영역에서 산화 안정성이 떨어지고 양극과의 화학적 반응 위험이 있어 장수명 구현에 불리</li>
-                    <li id="comparison-as-is-bullet-2">기존 할라이드계/NaTaCl₆계 전해질은 상온 전도도가 낮고 장시간 고에너지 볼밀링이 필요해 제조비용과 양산 재현성 측면에서 부담</li>
+                    <li id="comparison-as-is-bullet-1">광 흡수율의 우린 필터는 고가이며 박형화가 어려워 최근 촬상 장치의 소형화 및 박형화 요구에 어려움 존재</li>
+                    <li id="comparison-as-is-bullet-2">적외선 차폐 특성이 우수한 고적외선 흡수 색소를 사용하여 소형화, 박형화 및 저비용화가 가능한 광학 필터의 개발에
+                      대한 니즈는 지속적 증가</li>
                   </ul>
                 </div>
                 <div class="comparison-chevron" id="comparison-chevron" aria-hidden="true">
@@ -924,8 +938,9 @@
                 <div class="comparison-side to-be" id="comparison-to-be">
                   <h3 class="comparison-title" id="comparison-to-be-title">[ 개발기술개선점 ]</h3>
                   <ul class="bullet-list tight" id="comparison-to-be-list">
-                    <li id="comparison-to-be-bullet-1">이종 원소 도핑으로 비정질화를 촉진하여 공정시간을 40시간 이상 수준에서 16~30시간 수준으로 줄이면서, 고체전해질의 핵심 지표인 상온 이온전도도를 10⁻³ S/cm급으로 끌어올린 점이 가장 큰 차별성</li>
-                    <li id="comparison-to-be-bullet-2">비도핑 대비 전도도 향상과 함께 Na-Sn 합금 음극과의 계면 안정성, 높은 초기 효율, 우수한 풀셀 성능을 제시해 단순 소재 개발을 넘어 전지 적용 가능성 제공</li>
+                    <li id="comparison-to-be-bullet-1">스쿠아릴륨 화합물은 근적외선 차단기능이 우수할 뿐만 아니라, 가시광선 영역에서의 높은 투과율을 가짐</li>
+                    <li id="comparison-to-be-bullet-2">열안정성, 내화학성, 사용 용매에 대한 용해도 등이 우수하여 성능 및 효율성이 향상된 근적외선 차단필터를 제조할 수
+                      있는 소재를 제공</li>
                   </ul>
                 </div>
               </div>
@@ -937,8 +952,10 @@
               <h2 class="section-heading" id="section-market-trend-title">관련시장동향</h2>
               <div class="market-layout" id="market-trend-layout">
                 <ul class="bullet-list" id="market-trend-list">
-                  <li id="market-trend-bullet-1">국내 적용 시장은 우선 **배터리 ESS(BESS)**가 가장 유력하며, 한국 BESS 시장은 2022~2027년 연평균 29.6% 성장 전망으로 제시되어 차세대 고안전·저원가 배터리 기술의 진입 여지가 큽니다</li>
-                  <li id="market-trend-bullet-2">ESS 중앙계약시장 도입, 분산에너지 활성화 특별법 시행, RE100 및 직접 PPA 확산이 동시에 진행되며 태양광+ESS 수요 기반이 강화</li>
+                  <li id="market-trend-bullet-1">전 세계 근적외선 차단필터 시장 규모는 2022년 기준 약 2억 9,800만 달러로 평가되고, 2032년까지 연평균
+                    성장률(CAGR) 15.8%로 성장 전망</li>
+                  <li id="market-trend-bullet-2">나노 기반 화학 구조 설계를 통한 파장 선택성 소재와 근적외선 흡수 및 반사 안료의 원천 기술을 활용한 차단 선택성 염료 개발
+                  </li>
                 </ul>
                 <div class="image-slot market-image-slot" id="market-trend-image-slot">
                   <img id="market-trend-image" class="placeholder-image market-image" alt="관련시장동향 차트 이미지 삽입 영역"
@@ -951,7 +968,7 @@
               <h2 class="section-heading" id="section-business-idea-title">Business Idea / 응용·적용분야</h2>
               <div class="business-layout" id="business-idea-layout">
                 <ul class="bullet-list" id="business-idea-list">
-                  <li id="business-idea-bullet-1">기존 배터리 기업의 전고체/소듐 포트폴리오 확장용 소재 라이선스</li>
+                  <li id="business-idea-bullet-1">근적외선 차단 필터를 채용한 카메라, 스마트폰 등 광학 산업 활용</li>
                   <li id="business-idea-bullet-2">응용분야 : 근적외선 차단 필터</li>
                   <li id="business-idea-bullet-3">적용제품 : 휴대폰, 카메라</li>
                 </ul>
@@ -963,6 +980,14 @@
                   <img id="business-image-3" class="business-image placeholder-image" alt="응용·적용분야 이미지 3" hidden
                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='240' viewBox='0 0 360 240'%3E%3Crect width='360' height='240' fill='%23fbfaff'/%3E%3Crect x='52' y='52' width='256' height='136' rx='14' fill='%237132f5' opacity='.16' stroke='%237132f5' stroke-width='5'/%3E%3Cpath d='M82 150 L142 96 L190 132 L226 86 L286 150' fill='none' stroke='%237132f5' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='244' cy='78' r='16' fill='%23149e61'/%3E%3Ctext x='32' y='222' font-family='Arial, sans-serif' font-size='22' font-weight='700' fill='%23101114'%3EApplication Image 3%3C/text%3E%3C/svg%3E">
                 </div>
+              </div>
+              <div class="business-idea-box" id="business-idea-box">
+                <h3 class="business-idea-box-title" id="business-idea-box-title">비즈니스 아이디어</h3>
+                <ul class="bullet-list tight" id="business-idea-box-list">
+                  <li id="business-idea-box-bullet-1">가</li>
+                  <li id="business-idea-box-bullet-2">나</li>
+                  <li id="business-idea-box-bullet-3">다</li>
+                </ul>
               </div>
             </section>
 
@@ -1014,6 +1039,7 @@
     <col style="width: 40%;"> <col style="width: 15%;"> <col style="width: 15%;"> <col style="width: 15%;"> <col style="width: 15%;"> </colgroup>
                 <thead>
                   <tr>
+                    
                     <th id="ip-table-header-title">발명의 명칭</th>
                     <th id="ip-table-header-application">출원번호</th>
                     <th id="ip-table-header-date">출원일자</th>
@@ -1023,6 +1049,7 @@
                 </thead>
                 <tbody>
                   <tr>
+                    
                     <td id="ip-row-1-title">스쿠아릴륨 화합물, 이를 포함하는 근적외선 흡수용 수지 조성물 및 이를 이용하여 제조된 근적외선 차단 필터</td>
                     <td id="ip-row-1-application">10-2022-0170203</td>
                     <td id="ip-row-1-date">2023-03-24</td>
@@ -1032,7 +1059,6 @@
                 </tbody>
               </table>
             </section>
-
 
           </div>
         </div>
