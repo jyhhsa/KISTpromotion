@@ -51,6 +51,7 @@
     }
 
     .slide-stage {
+      position: relative;
       width: 100%;
       height: 100vh;
       overflow: auto;
@@ -110,30 +111,49 @@
       transition: none;
     }
 
-    .slide-pagination {
-      position: absolute;
-      left: 50%;
-      bottom: 14px;
+    .stage-nav-button {
+      position: fixed;
+      top: 50%;
       z-index: 20;
-      display: flex;
-      gap: 7px;
-      align-items: center;
-      justify-content: center;
-      transform: translateX(-50%);
+      display: grid;
+      width: 74px;
+      height: 42px;
+      place-items: center;
+      border: 0;
+      background: transparent;
+      opacity: 0;
+      transform: translateY(-50%);
+      cursor: pointer;
       pointer-events: none;
+      transition: opacity 180ms ease;
     }
 
-    .slide-pagination-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: rgba(104, 107, 130, 0.32);
+    .stage-nav-button.is-visible {
+      opacity: 0.72;
+      pointer-events: auto;
     }
 
-    .slide-pagination-dot.is-active {
-      width: 18px;
-      border-radius: 999px;
-      background: rgba(113, 50, 245, 0.78);
+    .stage-nav-button.is-visible:hover {
+      opacity: 0.9;
+    }
+
+    .stage-nav-button.prev {
+      left: 24px;
+    }
+
+    .stage-nav-button.next {
+      right: 24px;
+    }
+
+    .stage-nav-icon {
+      display: block;
+      width: 58px;
+      height: 20px;
+      color: rgba(87, 65, 216, 0.88);
+    }
+
+    .stage-nav-button.prev .stage-nav-icon {
+      transform: rotate(180deg);
     }
 
     .slide-header {
@@ -1149,11 +1169,19 @@
         </div>
       </article>
       </div>
-      <div class="slide-pagination" id="slide-pagination" aria-hidden="true">
-        <span class="slide-pagination-dot is-active" id="slide-pagination-dot-1"></span>
-        <span class="slide-pagination-dot" id="slide-pagination-dot-2"></span>
-      </div>
     </div>
+    <button class="stage-nav-button prev" id="slide-nav-prev" type="button" aria-label="이전 장표">
+      <svg class="stage-nav-icon" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0 9.5H28V8.5H0V9.5ZM27.6464 9.35355L28.3536 8.64645L20.3536 0.646447L19.6464 1.35355L27.6464 9.35355Z"
+          fill="currentColor" />
+      </svg>
+    </button>
+    <button class="stage-nav-button next is-visible" id="slide-nav-next" type="button" aria-label="다음 장표">
+      <svg class="stage-nav-icon" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0 9.5H28V8.5H0V9.5ZM27.6464 9.35355L28.3536 8.64645L20.3536 0.646447L19.6464 1.35355L27.6464 9.35355Z"
+          fill="currentColor" />
+      </svg>
+    </button>
 
   </main>
 
@@ -1239,6 +1267,8 @@
         const wrapper = document.getElementById("slide-wrapper");
         const track = document.getElementById("slide-track");
         const firstSlide = document.getElementById("smk-slide");
+        const prevButton = document.getElementById("slide-nav-prev");
+        const nextButton = document.getElementById("slide-nav-next");
         if (!wrapper || !track || !firstSlide) return;
 
         if (track.children.length === 1) {
@@ -1262,12 +1292,27 @@
           document.documentElement.style.setProperty("--carousel-offset", `${offset}px`);
         }
 
+        function updateNavButtons() {
+          const wrapperRect = wrapper.getBoundingClientRect();
+          const buttonWidth = 74;
+          const leftSpace = wrapperRect.left;
+          const rightSpace = window.innerWidth - wrapperRect.right;
+
+          if (prevButton) {
+            prevButton.style.left = `${Math.max(12, (leftSpace - buttonWidth) / 2)}px`;
+            prevButton.classList.toggle("is-visible", activeIndex > 0 && leftSpace >= buttonWidth);
+          }
+
+          if (nextButton) {
+            nextButton.style.left = `${wrapperRect.right + Math.max(12, (rightSpace - buttonWidth) / 2)}px`;
+            nextButton.classList.toggle("is-visible", activeIndex < maxIndex && rightSpace >= buttonWidth);
+          }
+        }
+
         function goToSlide(index) {
           activeIndex = Math.max(0, Math.min(index, maxIndex));
           setOffset(-activeIndex * slideWidth);
-          document.querySelectorAll(".slide-pagination-dot").forEach((dot, dotIndex) => {
-            dot.classList.toggle("is-active", dotIndex === activeIndex);
-          });
+          updateNavButtons();
         }
 
         function startDrag(clientX) {
@@ -1312,6 +1357,20 @@
         wrapper.addEventListener("pointerup", endDrag);
         wrapper.addEventListener("pointercancel", endDrag);
         wrapper.addEventListener("lostpointercapture", endDrag);
+
+        if (prevButton) {
+          prevButton.addEventListener("click", () => {
+            goToSlide(activeIndex - 1);
+          });
+        }
+
+        if (nextButton) {
+          nextButton.addEventListener("click", () => {
+            goToSlide(activeIndex + 1);
+          });
+        }
+
+        window.addEventListener("resize", updateNavButtons);
 
         let wheelDelta = 0;
         let isWheelLocked = false;
