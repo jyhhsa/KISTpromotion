@@ -4,9 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>홍보기술1</title>
+  <title>KIST 기술설명회 01 - 고전도성의 비정질 고체전해질 및 이의 제조방법</title>
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     :root {
       --kraken-purple: #7132f5;
@@ -38,25 +43,28 @@
     }
 
     body {
-      overflow: hidden;
+      /* 스크롤 허용 */
+      overflow: auto;
       background: #eef0f6;
       color: var(--near-black);
       font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
     }
 
     .slide-stage {
-      width: 100vw;
+      width: 100%;
       height: 100vh;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      padding: 8px;
+      overflow: auto;
+      /* flex와 margin:auto 조합으로 확대 시에도 좌상단이 잘리지 않고 스크롤 가능하게 처리 */
+      display: flex;
+      padding: 24px;
     }
 
     .slide-wrapper {
       position: relative;
+      margin: auto;
       width: calc(1600px * var(--slide-scale, 1));
       height: calc(900px * var(--slide-scale, 1));
+      flex-shrink: 0;
     }
 
     .smk-slide {
@@ -115,7 +123,7 @@
     .hero-box {
       height: 130px;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 380px;
+      grid-template-columns: minmax(0, 1fr) 240px;
       gap: 26px;
       align-items: center;
       padding: 18px 28px 18px 38px;
@@ -194,7 +202,7 @@
 
     .content-grid {
       display: grid;
-      grid-template-columns: 710px 710px;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 54px;
       height: 716px;
       padding: 18px 24px 0;
@@ -338,7 +346,7 @@
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
 
     .keyword-panel .image-slot {
@@ -380,6 +388,10 @@
       height: 142px;
     }
 
+    .tech-image-slot img {
+      object-fit: contain;
+    }
+
     .market-image-slot {
       height: 140px;
     }
@@ -405,10 +417,18 @@
     }
 
     .business-application-images img {
+      display: block;
+      width: 100%;
+      height: 100%;
       min-width: 0;
       border: 1px solid var(--border-gray);
       border-radius: 8px;
       background: #ffffff;
+
+      /* 핵심: 박스 형태는 1번 짤처럼 고정하고, 이미지만 안 잘리게 쏙 넣음 */
+      object-fit: contain;
+      padding: 6px;
+      box-sizing: border-box;
     }
 
     .business-application-images[data-image-count="1"] {
@@ -508,7 +528,7 @@
     }
 
     .maturity-scale {
-      --active-index: 5;
+      --active-index: 4;
       position: relative;
       display: grid;
       grid-template-columns: repeat(9, minmax(0, 1fr));
@@ -575,7 +595,6 @@
       overflow: hidden;
       border-bottom: 1px solid rgba(104, 107, 130, 0.32);
 
-      /* 회색 바 9줄 */
       background-image: linear-gradient(to top,
           rgba(148, 151, 169, 0.24) 0 2px,
           transparent 2px 5px);
@@ -590,11 +609,9 @@
       right: 8%;
       bottom: 0;
 
-      /* n단계 = 정확히 n줄 */
       height: calc(var(--bar-level) * 5px - 3px);
       min-height: 2px;
 
-      /* 보라색 채움 바 */
       background-image: linear-gradient(to top,
           var(--purple-dark) 0 2px,
           transparent 2px 5px);
@@ -723,68 +740,45 @@
       text-align: left;
     }
 
-    .placeholder-label {
-      font-family: inherit;
+    /* 화면 우측 하단 줌 컨트롤 버튼 스타일 */
+    .zoom-controls {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      display: flex;
+      gap: 8px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 6px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(16, 17, 20, 0.15);
+      border: 1px solid var(--border-gray);
     }
 
-
-    /* Responsive promotion link map
-         - data-x/y/w/h are based on data-base-width/data-base-height.
-         - Set data-debug="true" on .promotion-link-map to display link areas while adjusting. */
-    .promotion-link-map {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      z-index: 60;
-      width: min(600px, 78%);
-      aspect-ratio: 600 / 320;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-    }
-
-    .promotion-hotspot {
-      position: absolute;
+    .zoom-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: #ffffff;
+      color: var(--near-black);
+      border: 1px solid var(--border-gray);
+      font-size: 20px;
+      font-weight: 500;
+      cursor: pointer;
       display: grid;
       place-items: center;
-      border-radius: 14px;
-      color: transparent;
-      text-decoration: none;
-      pointer-events: auto;
-      outline-offset: 4px;
+      transition: all 0.2s;
     }
 
-    .promotion-hotspot:focus-visible {
-      outline: 3px solid rgba(113, 50, 245, 0.72);
+    .zoom-btn:hover {
+      background: var(--surface);
+      color: var(--kraken-purple);
+      border-color: var(--kraken-purple);
     }
 
-    .promotion-hotspot-label {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    .promotion-link-map[data-debug="true"] .promotion-hotspot {
-      border: 2px solid rgba(113, 50, 245, 0.82);
-      background: rgba(113, 50, 245, 0.14);
-      color: var(--purple-deep);
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .promotion-link-map[data-debug="true"] .promotion-hotspot-label {
-      position: static;
-      width: auto;
-      height: auto;
-      margin: 0;
-      overflow: visible;
-      clip: auto;
-      white-space: normal;
+    .zoom-btn svg {
+      width: 18px;
+      height: 18px;
     }
 
     @media print {
@@ -794,19 +788,27 @@
       }
 
       .slide-stage {
-        width: 1600px;
-        height: 900px;
-        padding: 0;
+        width: 100%;
+        /* 스크롤바 영역 제외 */
+        height: 100vh;
+        overflow: auto;
+        display: flex;
+        padding: 24px;
       }
 
       .slide-wrapper {
         width: 1600px;
         height: 900px;
+        margin: 0;
       }
 
       .smk-slide {
         box-shadow: none;
         transform: none !important;
+      }
+
+      .zoom-controls {
+        display: none !important;
       }
     }
   </style>
@@ -817,23 +819,23 @@
     <div class="slide-wrapper" id="slide-wrapper">
       <article class="smk-slide" id="smk-slide">
         <header class="slide-header" id="slide-header">
-          <div class="document-id" id="document-id">| 2026 KIST 유망기술 설명회 - 차세대 전지 기술이전 |</div>
+          <div class="document-id" id="document-id">| 2026 차세대 전지 기술이전 유망기술 설명회 |</div>
           <div class="tag-list" id="tag-list" aria-label="기술 태그">
             <span class="slide-tag primary" id="tag-primary">01</span>
           </div>
           <section class="hero-box" id="hero-box" aria-label="기술명 및 연구책임자 정보">
             <div class="hero-copy" id="hero-copy">
-              <h1 class="technology-title" id="technology-title">스쿠아릴륨 화합물, 이를 포함하는 근적외선 흡수용 수지 조성물 및 이를 이용하여 제조된 근적외선 차단
-                필터</h1>
-              <p class="technology-subtitle" id="technology-subtitle">고투과·고차단 성능을 갖춘 근적외선 흡수 소재 기반 광학 필터 기술</p>
+              <h1 class="technology-title" id="technology-title">고전도성의 비정질 고체전해질 및 이의 제조방법</h1>
+              <p class="technology-subtitle" id="technology-subtitle">이종 원소 도핑과 비정질화 제어로 합성시간 단축 및 상온 이온전도도 10^-3 S/cm급
+                구현 차세대 소듐 전고체전지용 할라이드 고체전해질</p>
             </div>
             <aside class="researcher-card" id="researcher-card">
               <div class="researcher-label" id="researcher-label">연구책임자</div>
               <div class="researcher-name-line" id="researcher-name-line">
-                <strong class="researcher-name" id="researcher-name">박 영 일</strong>
-                <span class="researcher-position" id="researcher-position">박사</span>
+                <strong class="researcher-name" id="researcher-name">김 세 영</strong>
+                <span class="researcher-position" id="researcher-position">선임연구원</span>
               </div>
-              <p class="researcher-affiliation" id="researcher-affiliation">정보·마이크로화학연구센터</p>
+              <p class="researcher-affiliation" id="researcher-affiliation">에너지저장연구센터</p>
             </aside>
           </section>
         </header>
@@ -844,21 +846,22 @@
               <h2 class="section-heading" id="section-classification-title">기술활용영역 분류/활용 분야</h2>
               <table class="classification-table" id="classification-table" aria-label="기술활용영역 분류표">
                 <colgroup>
-    <col style="width: 25%;"> <col style="width: 25%;"> <col style="width: 50%;"> </colgroup>
+                  <col style="width: 25%;">
+                  <col style="width: 25%;">
+                  <col style="width: 50%;">
+                </colgroup>
                 <thead>
                   <tr>
                     <th id="classification-header-major">대분류</th>
                     <th id="classification-header-middle">중분류</th>
                     <th id="classification-header-small">소분류</th>
-                    
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td id="classification-major">신재생 에너지</td>
-                    <td id="classification-middle">태양광</td>
-                    <td id="classification-small">유기 태양전지</td>
-                    
+                    <td id="classification-major">에너지·환경 소재기술</td>
+                    <td id="classification-middle">이차전지 소재기술</td>
+                    <td id="classification-small">소듐전고체전지용 할라이드계 비정질 고체전해질, 제조공정기술</td>
                   </tr>
                 </tbody>
               </table>
@@ -868,28 +871,34 @@
               <h2 class="section-heading" id="section-overview-title">기술개요 및 개발배경</h2>
               <div class="overview-layout" id="overview-layout">
                 <ul class="bullet-list" id="overview-list">
-                  <li id="overview-bullet-1">스마트폰, 디지털카메라 등에는 가시광선 영역의 광은 충분히 투과하지만 근적외선 영역의 광은 차폐하는 광학 필터가 사용</li>
-                  <li id="overview-bullet-2">활성 장치를 광학 필터로는 근적외선 영역의 광을 선택적으로 흡수하도록 특수산업계 유리나 안산염계 유리 CuO 등을 첨가한 유리 필터를
-                    사용</li>
+                  <li id="overview-bullet-1">기존 황화물계 중심 연구의 수분 민감성, 공정 부담, 낮은 상온 전도도로 인한 사업화 제약 및 고안정·고전도 대체 소재 필요성 증대
+                  </li>
+                  <li id="overview-bullet-2">할라이드계 소재에 이종 원소 및 음이온을 도입하여 비정질 구조를 구현함으로써 기존의 낮은 이온전도도와 긴 밀링 공정시간 한계 동시 극복
+                  </li>
                 </ul>
                 <div class="keyword-panel" id="overview-keyword-panel">
-  <div class="keyword-content-wrapper" style="width: 100%; height: 100%; padding: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; position: relative;">
-    <span class="keyword-search-badge" style="position: static; transform: none; margin-bottom: 4px;" aria-hidden="true">
-      <svg class="keyword-search-icon lucide lucide-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8"></circle>
-        <path d="m21 21-4.3-4.3"></path>
-      </svg>
-      <span>Core key word</span>
-    </span>
-    
-    <div class="hashtag-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 10px; color: var(--cool-gray); font-size: 14px; font-weight: 700; text-align: center; word-break: keep-all;">
-      <span class="hashtag"># 스쿠아릴륨 화합물</span>
-      <span class="hashtag"># 근적외선 차단필터</span>
-      <span class="hashtag"># 아크릴계 수지</span>
-      <span class="hashtag"># 유리필터 수지</span>
-    </div>
-  </div>
-</div>
+                  <div class="keyword-content-wrapper"
+                    style="width: 100%; height: 100%; padding: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; position: relative;">
+                    <span class="keyword-search-badge" style="position: static; transform: none; margin-bottom: 4px;"
+                      aria-hidden="true">
+                      <svg class="keyword-search-icon lucide lucide-search" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                      </svg>
+                      <span>Core Keyword</span>
+                    </span>
+                    <div class="hashtag-container"
+                      style="display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 10px; color: var(--cool-gray); font-size: 14px; font-weight: 700; text-align: center; word-break: keep-all;">
+                      <span class="hashtag">#고전도성</span>
+                      <span class="hashtag">#비정질 할라이드</span>
+                      <span class="hashtag">#이종원소 도핑</span>
+                      <span class="hashtag">#소듐 전고체전지</span>
+
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
 
@@ -898,17 +907,18 @@
               <div class="tech-layout" id="tech-content-layout">
                 <div>
                   <ul class="bullet-list" id="tech-content-list">
-                    <li id="tech-content-bullet-1">스쿠아릴륨 화합물을 포함하는 근적외선 흡수용 수지 조성물을 근적외선 차단필터에 사용하여 최대흡수파장이 630~750 nm
-                      영역에서 나타나고, 몰흡광계수가 높으며, 용해성이 우수한 광학 필터용 근적외선 흡수 소재를 제공</li>
-                    <li id="tech-content-bullet-2">적외선 흡수용 수지 조성물에 포함되는 수지는 투명수지는 유리전이온도(Tg)가 120℃~250℃이며, 열안정성 및 유기용제에
-                      대한 용해성 확보 가능</li>
+                    <li id="tech-content-bullet-1">NayTa1-xMxA(5-5x+y)Z2x 계열 기반 Te, Se 등 이종 원소와 O, S, N 계열 음이온 도입으로 구조적
+                      무질서도를 향상시킨 비정질 할라이드 구조 제어 기술</li>
+                    <li id="tech-content-bullet-2">Na0.7Ta0.75Te0.25Cl4.45O0.5 대표 조성 기준 상온 이온전도도 10^-3 S/cm 이상 구현(미도핑 대비
+                      37.5배 증가), 합성시간 16시간 이내 단축, 초기 방전용량 144.45 mAh/g, 초기 쿨롱효율 98% 이상</li>
                   </ul>
                 </div>
                 <div>
                   <div class="image-slot tech-image-slot" id="tech-representative-image-slot">
-                    <img id="tech-representative-image" class="placeholder-image representative-image"
-                      alt="기술내용 대표 비주얼 예시"
-                      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='320' viewBox='0 0 640 320'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%23f8f7ff'/%3E%3Cstop offset='1' stop-color='%23ffffff'/%3E%3C/linearGradient%3E%3ClinearGradient id='glass' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%237132f5' stop-opacity='.9'/%3E%3Cstop offset='1' stop-color='%23149e61' stop-opacity='.76'/%3E%3C/linearGradient%3E%3Cfilter id='shadow' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeDropShadow dx='0' dy='14' stdDeviation='12' flood-color='%23101114' flood-opacity='.16'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='640' height='320' fill='url(%23bg)'/%3E%3Cg filter='url(%23shadow)'%3E%3Cpath d='M156 226 L224 72 L498 92 L438 246 Z' fill='%23ffffff'/%3E%3Cpath d='M178 207 L236 96 L470 112 L420 225 Z' fill='url(%23glass)' opacity='.92'/%3E%3Cpath d='M205 186 C254 144 305 128 376 133 C404 135 430 141 455 150' fill='none' stroke='%23ffffff' stroke-width='14' stroke-linecap='round' opacity='.55'/%3E%3Ccircle cx='410' cy='146' r='30' fill='%23ffffff' opacity='.28'/%3E%3C/g%3E%3Crect x='70' y='252' width='500' height='34' rx='17' fill='%23ffffff' opacity='.92'/%3E%3Ctext x='320' y='276' text-anchor='middle' font-family='Arial, sans-serif' font-size='24' font-weight='800' fill='%23101114'%3ERepresentative Visual%3C/text%3E%3C/svg%3E">
+                    <div class="image-slot tech-image-slot" id="tech-representative-image-slot">
+                      <img id="tech-representative-image" class="representative-image" alt="고전도성 비정질 소듐 고체전해질 구조 대표이미지"
+                        src="./img/01/present_img.jpg">
+                    </div>
                   </div>
                   <p class="caption-text" id="tech-representative-caption"></p>
                 </div>
@@ -921,9 +931,9 @@
                 <div class="comparison-side as-is" id="comparison-as-is">
                   <h3 class="comparison-title" id="comparison-as-is-title">[ 기존기술한계점 ]</h3>
                   <ul class="bullet-list tight" id="comparison-as-is-list">
-                    <li id="comparison-as-is-bullet-1">광 흡수율의 우린 필터는 고가이며 박형화가 어려워 최근 촬상 장치의 소형화 및 박형화 요구에 어려움 존재</li>
-                    <li id="comparison-as-is-bullet-2">적외선 차폐 특성이 우수한 고적외선 흡수 색소를 사용하여 소형화, 박형화 및 저비용화가 가능한 광학 필터의 개발에
-                      대한 니즈는 지속적 증가</li>
+                    <li id="comparison-as-is-bullet-1">통상 10^-4 S/cm 이하의 낮은 상온 이온전도도로 고출력 구동이 제약되며 기계적 밀링 기반 합성 공정이 40시간
+                      이상 소요되어 생산성 확보 불가</li>
+                    <li id="comparison-as-is-bullet-2">전해질-전극 간 계면 적합성 및 변형성 부족으로 전지 구동 시 계면 저항 증가 및 수명 저하 우려</li>
                   </ul>
                 </div>
                 <div class="comparison-chevron" id="comparison-chevron" aria-hidden="true">
@@ -938,9 +948,10 @@
                 <div class="comparison-side to-be" id="comparison-to-be">
                   <h3 class="comparison-title" id="comparison-to-be-title">[ 개발기술개선점 ]</h3>
                   <ul class="bullet-list tight" id="comparison-to-be-list">
-                    <li id="comparison-to-be-bullet-1">스쿠아릴륨 화합물은 근적외선 차단기능이 우수할 뿐만 아니라, 가시광선 영역에서의 높은 투과율을 가짐</li>
-                    <li id="comparison-to-be-bullet-2">열안정성, 내화학성, 사용 용매에 대한 용해도 등이 우수하여 성능 및 효율성이 향상된 근적외선 차단필터를 제조할 수
-                      있는 소재를 제공</li>
+                    <li id="comparison-to-be-bullet-1">이종 원소 도핑 기반 비정질화 설계 기술을 적용하여 10^-3 S/cm급 상온 전도도를 달성하고 상온 전도성을 대폭
+                      향상</li>
+                    <li id="comparison-to-be-bullet-2">합성 공정시간을 16시간 이내로 단축하여 양산 친화성을 제고하고, 우수한 변형성 및 계면 안정성 확보로 셀 적용성
+                      강화</li>
                   </ul>
                 </div>
               </div>
@@ -952,14 +963,14 @@
               <h2 class="section-heading" id="section-market-trend-title">관련시장동향</h2>
               <div class="market-layout" id="market-trend-layout">
                 <ul class="bullet-list" id="market-trend-list">
-                  <li id="market-trend-bullet-1">전 세계 근적외선 차단필터 시장 규모는 2022년 기준 약 2억 9,800만 달러로 평가되고, 2032년까지 연평균
-                    성장률(CAGR) 15.8%로 성장 전망</li>
-                  <li id="market-trend-bullet-2">나노 기반 화학 구조 설계를 통한 파장 선택성 소재와 근적외선 흡수 및 반사 안료의 원천 기술을 활용한 차단 선택성 염료 개발
-                  </li>
+
+                  <li id="market-trend-bullet-2">국내 배터리 산업의 광범위한 인프라(EV·ESS 기준 812GWh 판매, 99.9억 달러 수출) 및 2027~2030년
+                    전고체전지 상용화 본격화 전망에 따른 차세대 소재 진입기 선점</li>
+                  <li id="market-trend-bullet-3">한국의 전고체전지 특허출원 증가율 세계 2위 기록 및 정부의 차세대 배터리 기술개발 2,800억 원 투자 계획 기반
+                    기술이전·공동개발 우호적 환경 조성</li>
                 </ul>
                 <div class="image-slot market-image-slot" id="market-trend-image-slot">
-                  <img id="market-trend-image" class="placeholder-image market-image" alt="관련시장동향 차트 이미지 삽입 영역"
-                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='680' height='360' viewBox='0 0 680 360'%3E%3Crect width='680' height='360' fill='%23ffffff'/%3E%3Ctext x='116' y='36' font-family='Arial, sans-serif' font-size='15' font-weight='700' fill='%23686b82'%3ENear infrared Absorbing Materials Market, By Material Type, USD Million%3C/text%3E%3Cg transform='translate(62 66)'%3E%3Cline x1='0' y1='230' x2='560' y2='230' stroke='%23dedee5'/%3E%3Cg fill='%237132f5'%3E%3Crect x='20' y='145' width='30' height='85'/%3E%3Crect x='80' y='138' width='30' height='92'/%3E%3Crect x='140' y='130' width='30' height='100'/%3E%3Crect x='200' y='118' width='30' height='112'/%3E%3Crect x='260' y='104' width='30' height='126'/%3E%3Crect x='320' y='90' width='30' height='140'/%3E%3Crect x='380' y='70' width='30' height='160'/%3E%3Crect x='440' y='48' width='30' height='182'/%3E%3Crect x='500' y='24' width='30' height='206'/%3E%3C/g%3E%3Cg fill='%23149e61'%3E%3Crect x='50' y='176' width='30' height='54'/%3E%3Crect x='110' y='166' width='30' height='64'/%3E%3Crect x='170' y='154' width='30' height='76'/%3E%3Crect x='230' y='140' width='30' height='90'/%3E%3Crect x='290' y='128' width='30' height='102'/%3E%3Crect x='350' y='112' width='30' height='118'/%3E%3Crect x='410' y='92' width='30' height='138'/%3E%3Crect x='470' y='72' width='30' height='158'/%3E%3Crect x='530' y='52' width='30' height='178'/%3E%3C/g%3E%3C/g%3E%3Ctext x='278' y='328' font-family='Arial, sans-serif' font-size='13' fill='%23686b82'%3Eorganic / inorganic%3C/text%3E%3C/svg%3E">
+                  <canvas id="marketChart"></canvas>
                 </div>
               </div>
             </section>
@@ -968,32 +979,30 @@
               <h2 class="section-heading" id="section-business-idea-title">Business Idea / 응용·적용분야</h2>
               <div class="business-layout" id="business-idea-layout">
                 <ul class="bullet-list" id="business-idea-list">
-                  <li id="business-idea-bullet-1">근적외선 차단 필터를 채용한 카메라, 스마트폰 등 광학 산업 활용</li>
-                  <li id="business-idea-bullet-2">응용분야 : 근적외선 차단 필터</li>
-                  <li id="business-idea-bullet-3">적용제품 : 휴대폰, 카메라</li>
+                  <li id="business-idea-bullet-1">산업분야 및 관련시장: 이차전지 소재, 전기차, ESS, 차세대 배터리 부품, 소듐이온전지 고체전해질 국산화 시장</li>
+                  <li id="business-idea-bullet-2">적용가능 제품: 전기차용 전고체 배터리 셀, ESS용 소듐 배터리 모듈, 고체전해질 분말 및 시트, 전극 복합화 첨가소재
+                  </li>
                 </ul>
                 <div class="business-application-images" id="business-application-images" data-image-count="2">
-                  <img id="business-image-1" class="business-image placeholder-image" alt="응용·적용분야 이미지 1"
-                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='240' viewBox='0 0 360 240'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%23f7f7fb'/%3E%3Cstop offset='1' stop-color='%23d8d1ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='360' height='240' fill='url(%23g1)'/%3E%3Cpath d='M82 160 C126 96 185 62 282 48 L294 142 C230 146 172 164 118 202 Z' fill='%237132f5' opacity='.72'/%3E%3Cpath d='M70 178 C120 118 178 84 270 72' fill='none' stroke='%23ffffff' stroke-width='18' stroke-linecap='round' opacity='.82'/%3E%3Ctext x='32' y='218' font-family='Arial, sans-serif' font-size='22' font-weight='700' fill='%23101114'%3EApplication Image 1%3C/text%3E%3C/svg%3E">
-                  <img id="business-image-2" class="business-image placeholder-image" alt="응용·적용분야 이미지 2"
-                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='240' viewBox='0 0 360 240'%3E%3Crect width='360' height='240' fill='%23f9f8ff'/%3E%3Crect x='58' y='42' width='244' height='156' rx='20' fill='%23ffffff' stroke='%23dedee5' stroke-width='5'/%3E%3Ccircle cx='180' cy='120' r='58' fill='none' stroke='%237132f5' stroke-width='17'/%3E%3Ccircle cx='180' cy='120' r='28' fill='%23149e61' opacity='.7'/%3E%3Crect x='250' y='66' width='44' height='92' rx='6' fill='%23101114'/%3E%3Ctext x='260' y='91' font-family='Arial, sans-serif' font-size='12' font-weight='700' fill='%23ffffff'%3ESMK%3C/text%3E%3Ctext x='32' y='222' font-family='Arial, sans-serif' font-size='22' font-weight='700' fill='%23101114'%3EApplication Image 2%3C/text%3E%3C/svg%3E">
-                  <img id="business-image-3" class="business-image placeholder-image" alt="응용·적용분야 이미지 3" hidden
-                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='240' viewBox='0 0 360 240'%3E%3Crect width='360' height='240' fill='%23fbfaff'/%3E%3Crect x='52' y='52' width='256' height='136' rx='14' fill='%237132f5' opacity='.16' stroke='%237132f5' stroke-width='5'/%3E%3Cpath d='M82 150 L142 96 L190 132 L226 86 L286 150' fill='none' stroke='%237132f5' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='244' cy='78' r='16' fill='%23149e61'/%3E%3Ctext x='32' y='222' font-family='Arial, sans-serif' font-size='22' font-weight='700' fill='%23101114'%3EApplication Image 3%3C/text%3E%3C/svg%3E">
+                  <img id="business-image-1" class="business-image" alt="응용·적용분야 이미지 1" src="./img/01/idea_img1.jpg">
+                  <img id="business-image-2" class="business-image" alt="응용·적용분야 이미지 2" src="./img/01/idea_img2.png">
                 </div>
               </div>
               <div class="business-idea-box" id="business-idea-box">
-                <h3 class="business-idea-box-title" id="business-idea-box-title">비즈니스 아이디어</h3>
+                <h3 class="business-idea-box-title" id="business-idea-box-title">사업화 제안 포인트</h3>
                 <ul class="bullet-list tight" id="business-idea-box-list">
-                  <li id="business-idea-box-bullet-1">가</li>
-                  <li id="business-idea-box-bullet-2">나</li>
-                  <li id="business-idea-box-bullet-3">다</li>
+                  <li id="business-idea-box-bullet-1">배터리 3사, 완성차, 소재기업 대상 공동평가용 샘플 공급 및 NDA 기반 PoC 추진을 통한 데이터 조기 확보
+                  </li>
+                  <li id="business-idea-box-bullet-2">전극 복합화 레시피, 가공조건, 셀 적용 데이터를 연계한 패키지형 라이선스 모델 구축으로 기술이전 성공률 제고</li>
+                  <li id="business-idea-box-bullet-3">ESS, 로봇, 특수전원 등 고안전성 핵심 수요처 다변화를 통한 소재 판매 및 공정 라이선스 결합 복합 비즈니스 모델
+                    확장</li>
                 </ul>
               </div>
             </section>
 
             <section class="section-block maturity-section" id="section-maturity">
               <h2 class="section-heading" id="section-maturity-title">기술성숙도</h2>
-              <div class="maturity-scale" id="maturity-scale" data-level="7" aria-label="기술성숙도 5단계">
+              <div class="maturity-scale" id="maturity-scale" data-level="4" aria-label="기술성숙도 4단계">
                 <div class="maturity-item" id="maturity-item-1" style="--bar-level: 1;"><span class="maturity-number"
                     id="maturity-number-1">1</span><span class="maturity-bars" id="maturity-bars-1"><span
                       class="maturity-fill" id="maturity-fill-1"></span></span></div>
@@ -1029,17 +1038,22 @@
                   </svg>
                 </span>
               </div>
-              <p class="maturity-note" id="maturity-note">시제품 제작 및 평가 단계 : 다양한 제품 적용을 위한 향상성 연구 단계</p>
+              <p class="maturity-note" id="maturity-note">TRL 4 : 실험실 규모 소재 합성, 구조 분석, 이온전도도 측정 및 초기 셀 성능 평가 검증 완료 단계
+              </p>
             </section>
 
             <section class="section-block ip-portfolio-section" id="section-ip-portfolio">
               <h2 class="section-heading" id="section-ip-portfolio-title">IP Portfolio</h2>
               <table class="ip-table" id="ip-table" aria-label="IP Portfolio 표">
                 <colgroup>
-    <col style="width: 40%;"> <col style="width: 15%;"> <col style="width: 15%;"> <col style="width: 15%;"> <col style="width: 15%;"> </colgroup>
+                  <col style="width: 40%;">
+                  <col style="width: 15%;">
+                  <col style="width: 15%;">
+                  <col style="width: 15%;">
+                  <col style="width: 15%;">
+                </colgroup>
                 <thead>
                   <tr>
-                    
                     <th id="ip-table-header-title">발명의 명칭</th>
                     <th id="ip-table-header-application">출원번호</th>
                     <th id="ip-table-header-date">출원일자</th>
@@ -1049,12 +1063,11 @@
                 </thead>
                 <tbody>
                   <tr>
-                    
-                    <td id="ip-row-1-title">스쿠아릴륨 화합물, 이를 포함하는 근적외선 흡수용 수지 조성물 및 이를 이용하여 제조된 근적외선 차단 필터</td>
-                    <td id="ip-row-1-application">10-2022-0170203</td>
-                    <td id="ip-row-1-date">2023-03-24</td>
-                    <td id="ip-row-1-registration">10-2622663</td>
-                    <td id="ip-row-1-registration-date">2024-01-04</td>
+                    <td id="ip-row-1-title">고전도성의 비정질 고체전해질 및 이의 제조방법</td>
+                    <td id="ip-row-1-application">10-2025-0215267</td>
+                    <td id="ip-row-1-date">2025.12.30</td>
+                    <td id="ip-row-1-registration">-</td>
+                    <td id="ip-row-1-registration-date">-</td>
                   </tr>
                 </tbody>
               </table>
@@ -1064,6 +1077,7 @@
         </div>
       </article>
     </div>
+
   </main>
 
   <script>
@@ -1072,17 +1086,52 @@
       const designWidth = 1600;
       const designHeight = 900;
 
-      function fitSlide() {
-        const padding = 16;
-        const scale = Math.min(
-          (window.innerWidth - padding) / designWidth,
-          (window.innerHeight - padding) / designHeight,
-          1
-        );
-        document.documentElement.style.setProperty("--slide-scale", Math.max(scale, 0.1).toString());
+      let currentScale = 1;
+      let isManualZoom = false; // 사용자가 수동으로 줌을 조작했는지 여부 기록
+
+      function applyScale(scale) {
+        currentScale = scale;
+        document.documentElement.style.setProperty("--slide-scale", scale.toString());
       }
 
 
+      // 화면 크기에 맞게 자동 조정
+      function fitSlide() {
+        if (isManualZoom) return;
+
+        const padding = 48;
+        const scale = Math.min(
+          (document.documentElement.clientWidth - padding) / designWidth,
+          (document.documentElement.clientHeight - padding) / designHeight
+        );
+        applyScale(Math.max(scale, 0.1));
+      }
+
+      // 수동 확대/축소 로직 (20% ~ 400% 사이로 제한)
+      window.manualZoom = function (delta) {
+        isManualZoom = true;
+        let newScale = currentScale + delta;
+        newScale = Math.max(0.2, Math.min(newScale, 4.0));
+        applyScale(newScale);
+      };
+
+      // 화면 맞춤 리셋 로직
+      window.resetZoom = function () {
+        isManualZoom = false;
+        fitSlide();
+      };
+
+      // Ctrl + 마우스 휠 (혹은 트랙패드 확대/축소) 동작 매핑
+      document.addEventListener('wheel', function (e) {
+        if (e.ctrlKey || e.metaKey) {
+          e.preventDefault(); // 브라우저 기본 줌 방지
+          if (e.deltaY < 0) {
+            window.manualZoom(0.1); // 위로 스크롤 (확대)
+          } else {
+            window.manualZoom(-0.1); // 아래로 스크롤 (축소)
+          }
+        }
+      }, { passive: false });
 
       function syncPromotionHotspots() {
         document.querySelectorAll(".promotion-link-map").forEach((map) => {
@@ -1111,10 +1160,100 @@
 
       window.addEventListener("resize", fitSlide);
       window.addEventListener("resize", syncPromotionHotspots);
+
+      // 초기 로딩 시 화면에 맞춤
       fitSlide();
       syncBusinessImageCount();
       syncPromotionHotspots();
     })();
+    // ... 기존 코드 유지 (fitSlide, syncPromotionHotspots 등) ...
+
+    // ▼ 여기서부터 차트 생성 코드 추가 ▼
+    function renderMarketChart() {
+      const ctx = document.getElementById('marketChart');
+      if (!ctx) return;
+
+      // X축 라벨 설정
+      const labels = ["'25", "'26", "'27", "'28", "'29", "'30", "'31", "'32", "'33"];
+
+      // 데이터 계산 로직 (시작: 147.2, 종료: 828.9, 중간 CAGR 21.7%)
+      const startValue = 147.2;
+      const endValue = 828.9;
+      const cagr = 0.217; // 21.7%
+
+      const dataPoints = labels.map((_, index) => {
+        if (index === 0) return startValue;
+        if (index === labels.length - 1) return endValue;
+        // 중간 값들은 CAGR 적용하여 계산 후 소수점 1자리까지
+        return parseFloat((startValue * Math.pow(1 + cagr, index)).toFixed(1));
+      });
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Market Size (Million USD)',
+            data: dataPoints,
+            backgroundColor: '#7132f5', // --kraken-purple
+            borderRadius: 4,
+            barPercentage: 0.6
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false // 범례 숨김 (깔끔한 디자인을 위해)
+            },
+            tooltip: {
+              backgroundColor: '#101114',
+              titleFont: { family: 'Pretendard Variable' },
+              bodyFont: { family: 'Pretendard Variable' },
+              callbacks: {
+                label: function (context) {
+                  return context.parsed.y + 'M USD';
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: {
+                font: { family: 'Pretendard Variable', size: 11, weight: '600' },
+                color: '#686b82'
+              }
+            },
+            y: {
+              border: { display: false },
+              grid: {
+                color: 'rgba(104, 107, 130, 0.1)',
+                drawTicks: false,
+              },
+              ticks: {
+                font: { family: 'Pretendard Variable', size: 11 },
+                color: '#9497a9',
+                stepSize: 200,
+                callback: function (value) {
+                  return value;
+                }
+              },
+              title: {
+                display: true,
+                text: 'Million USD',
+                color: '#9497a9',
+                font: { family: 'Pretendard Variable', size: 10, weight: '600' }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // 차트 실행 함수 호출
+    renderMarketChart();
   </script>
 </body>
 
