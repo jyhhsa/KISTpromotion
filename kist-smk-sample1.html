@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KIST 기술설명회 01 - 고전도성의 비정질 고체전해질 및 이의 제조방법</title>
+  <title>KIST 기술설명회 01</title>
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 
@@ -129,7 +129,7 @@
       padding: 18px 28px 18px 38px;
       border-top: 5px solid var(--purple-dark);
       border-radius: 0 0 10px 10px;
-      background: linear-gradient(135deg, #f0edff 0%, #f9f8ff 62%, #ffffff 100%);
+      background: #f9f8ff;
       box-shadow: rgba(0, 0, 0, 0.03) 0 4px 24px;
     }
 
@@ -168,7 +168,7 @@
     .researcher-label {
       margin-bottom: 6px;
       color: var(--purple-dark);
-      font-size: 14px;
+      font-size: 22px;
       font-weight: 800;
     }
 
@@ -181,13 +181,13 @@
     }
 
     .researcher-name {
-      font-size: 19px;
+      font-size: 21px;
       font-weight: 800;
     }
 
     .researcher-position {
       color: var(--cool-gray);
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 600;
     }
 
@@ -195,7 +195,7 @@
     .researcher-affiliation {
       margin: 3px 0;
       color: var(--cool-gray);
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 500;
       line-height: 1.3;
     }
@@ -396,6 +396,19 @@
       height: 140px;
     }
 
+    .market-chart-panel {
+      min-width: 0;
+    }
+
+    .market-chart-source {
+      margin: 4px 0 0;
+      color: rgba(104, 107, 130, 0.68);
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1;
+      text-align: center;
+    }
+
     .caption-text {
       margin-top: 3px;
       color: var(--cool-gray);
@@ -452,7 +465,7 @@
       padding: 12px 16px;
       border: 1px solid rgba(113, 50, 245, 0.22);
       border-radius: 8px;
-      background: linear-gradient(135deg, #fbfaff 0%, #ffffff 100%);
+      background: #fbfaff;
     }
 
     .business-idea-box-title {
@@ -825,7 +838,7 @@
           </div>
           <section class="hero-box" id="hero-box" aria-label="기술명 및 연구책임자 정보">
             <div class="hero-copy" id="hero-copy">
-              <h1 class="technology-title" id="technology-title">고전도성의 비정질 고체전해질 및 이의 제조방법</h1>
+              <h1 class="technology-title" id="technology-title">이종 원소 도핑을 통한 할라이드계 비정질 소듐 슈퍼컨덕터 및 이의 제조방법</h1>
               <p class="technology-subtitle" id="technology-subtitle">이종 원소 도핑과 비정질화 제어로 합성시간 단축 및 상온 이온전도도 10^-3 S/cm급
                 구현 차세대 소듐 전고체전지용 할라이드 고체전해질</p>
             </div>
@@ -963,14 +976,15 @@
               <h2 class="section-heading" id="section-market-trend-title">관련시장동향</h2>
               <div class="market-layout" id="market-trend-layout">
                 <ul class="bullet-list" id="market-trend-list">
-
-                  <li id="market-trend-bullet-2">국내 배터리 산업의 광범위한 인프라(EV·ESS 기준 812GWh 판매, 99.9억 달러 수출) 및 2027~2030년
-                    전고체전지 상용화 본격화 전망에 따른 차세대 소재 진입기 선점</li>
-                  <li id="market-trend-bullet-3">한국의 전고체전지 특허출원 증가율 세계 2위 기록 및 정부의 차세대 배터리 기술개발 2,800억 원 투자 계획 기반
-                    기술이전·공동개발 우호적 환경 조성</li>
+                  <li id="market-trend-bullet-1">2030년대까지 연평균 21.7% 초고속 성장 예상</li>
+                  <li id="market-trend-bullet-2">글로벌 기업들이 2027년 상용화를 목표로 기술 경쟁을 벌이는 가운데, 한국 기업과 연구진이 특허 및 원천 기술 개발을 주도 中</li>
+                  <li id="market-trend-bullet-3">전기차를 시작으로 UAM 등 다양한 모빌리티로 도입이 확대될 예정이며, 황화물계 중심의 시장 성장과 원가 절감이 핵심 과제</li>
                 </ul>
-                <div class="image-slot market-image-slot" id="market-trend-image-slot">
-                  <canvas id="marketChart"></canvas>
+                <div class="market-chart-panel" id="market-chart-panel">
+                  <div class="image-slot market-image-slot" id="market-trend-image-slot">
+                    <canvas id="marketChart"></canvas>
+                  </div>
+                  <p class="market-chart-source" id="market-chart-source">&lt;grand view research&gt;</p>
                 </div>
               </div>
             </section>
@@ -979,9 +993,9 @@
               <h2 class="section-heading" id="section-business-idea-title">Business Idea / 응용·적용분야</h2>
               <div class="business-layout" id="business-idea-layout">
                 <ul class="bullet-list" id="business-idea-list">
-                  <li id="business-idea-bullet-1">산업분야 및 관련시장: 이차전지 소재, 전기차, ESS, 차세대 배터리 부품, 소듐이온전지 고체전해질 국산화 시장</li>
-                  <li id="business-idea-bullet-2">적용가능 제품: 전기차용 전고체 배터리 셀, ESS용 소듐 배터리 모듈, 고체전해질 분말 및 시트, 전극 복합화 첨가소재
-                  </li>
+                  <li id="business-idea-bullet-1">산업분야: 이차전지 소재/전기차/ESS/차세대 배터리 부품</li>
+                  <li id="business-idea-bullet-2">관련시장: 전고체전지/소듐이온전지/고체전해질/배터리 소재 국산화</li>
+                  <li id="business-idea-bullet-2">적용가능한 제품: 전기차용 전고체 배터리 셀/ESS용 소듐 배터리 모듈/고체전해질 분말 및 시트/전극 복합화 첨가소재</li>
                 </ul>
                 <div class="business-application-images" id="business-application-images" data-image-count="2">
                   <img id="business-image-1" class="business-image" alt="응용·적용분야 이미지 1" src="./img/01/idea_img1.jpg">
