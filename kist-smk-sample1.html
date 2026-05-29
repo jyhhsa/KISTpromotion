@@ -816,8 +816,9 @@
       <article class="smk-slide" id="smk-slide">
         <header class="slide-header" id="slide-header">
           <div class="document-id" id="document-id">| 제목 : 부제목 삽입 |</div>
+           <div class="tag-list" id="tag-list" aria-label="기술 태그"></div>
           <section class="hero-box" id="hero-box" aria-label="기술명 및 연구책임자 정보">
-            <h1 class="technology-title" id="technology-title">합성시간은 대폭 줄이고 상온 이온전도도는 10⁻³ S/cm급으로 끌어올린, 차세대 소듐 전고체전지용 고전도성 비정질 할라이드 고체전해질 기술</h1>
+            <h1 class="technology-title" id="technology-title">차세대 소듐 전고체전지용 고전도성 비정질 할라이드 고체전해질 기술</h1>
             <aside class="researcher-card" id="researcher-card">
               <div class="researcher-label" id="researcher-label">연구책임자</div>
               <div class="researcher-name-line" id="researcher-name-line">
@@ -834,12 +835,13 @@
             <section class="section-block classification-section" id="section-classification">
               <h2 class="section-heading" id="section-classification-title">기술활용영역 분류/활용 분야</h2>
               <table class="classification-table" id="classification-table" aria-label="기술활용영역 분류표">
+                <colgroup>
+    <col style="width: 25%;"> <col style="width: 25%;"> <col style="width: 50%;"></colgroup>
                 <thead>
                   <tr>
                     <th id="classification-header-major">대분류</th>
                     <th id="classification-header-middle">중분류</th>
                     <th id="classification-header-small">소분류</th>
-                    <th id="classification-header-detail">세분류</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -847,7 +849,6 @@
                     <td id="classification-major">에너지·환경</td>
                     <td id="classification-middle">이차전지/전고체전지 소재</td>
                     <td id="classification-small">소듐 전고체전지용 할라이드계 비정질 고체전해질 및 제조공정</td>
-                    <td id="classification-detail">유기염료</td>
                   </tr>
                 </tbody>
               </table>
@@ -857,8 +858,8 @@
               <h2 class="section-heading" id="section-overview-title">기술개요 및 개발배경</h2>
               <div class="overview-layout" id="overview-layout">
                 <ul class="bullet-list" id="overview-list">
-                  <li id="overview-bullet-1">기존 소듐 전고체전지용 할라이드계 고체전해질은 황화물계 대비 산화 안정성은 우수하지만, 상온 이온전도도가 낮고 비정질화를 위해 600 rpm급 고에너지와 40시간 이상의 긴 합성시간이 필요해 생산성과 사업성 제한</li>
-                  <li id="overview-bullet-2">이러한 한계를 해결하기 위해 이종 원소 도핑을 적용하여 비정질화 시간을 단축하면서도 이온전도도와 전지 성능을 동시에 향상시키는 방향으로 개발</li>
+                  <li id="overview-bullet-1">기존 소듐 전고체전지용 할라이드계 고체전해질은 상온 이온전도도가 낮고 고에너지와 긴 합성시간이 필요해 생산성과 사업성 제한</li>
+                  <li id="overview-bullet-2">이종 원소 도핑을 적용하여 비정질화 시간을 단축하면서도 이온전도도와 전지 성능을 동시에 향상시키는 방향으로 개발</li>
                 </ul>
                 <div class="keyword-panel" id="overview-keyword-panel">
   <div class="keyword-content-wrapper" style="width: 100%; height: 100%; padding: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; position: relative;">
@@ -875,7 +876,6 @@
       <span class="hashtag"># 근적외선 차단필터</span>
       <span class="hashtag"># 아크릴계 수지</span>
       <span class="hashtag"># 유리필터 수지</span>
-      <span class="hashtag"># 이미지게 수지</span>
     </div>
   </div>
 </div>
@@ -887,7 +887,7 @@
               <div class="tech-layout" id="tech-content-layout">
                 <div>
                   <ul class="bullet-list" id="tech-content-list">
-                    <li id="tech-content-bullet-1">Na-Ta-Cl 기반 할라이드계 고체전해질에 이종 원소 소스를 도입해 비정질 구조를 빠르게 형성하도록 설계한 것으로, 상온 이온전도도 10⁻³ S/cm 이상, 비도핑 대비 최대 37.5배 수준의 전도도 향상, 첫 사이클 방전용량 144.45 mAh/g, 초기 쿨롱효율 98% 이상이 실험적으로 확인</li>
+                    <li id="tech-content-bullet-1">Na-Ta-Cl 기반 할라이드계 고체전해질에 이종 원소 소스를 도입해 비정질 구조를 빠르게 형성하도록 설계, 상온 이온전도도 10⁻³ S/cm 이상, 비도핑 대비 최대 37.5배 수준의 전도도 향상이 실험적으로 확인</li>
                     <li id="tech-content-bullet-2">XRD, PDF 분석, 임피던스, 풀셀 충방전 평가를 통해 공정 단축(약 16~30시간)과 계면 안정성 개선이 함께 검증되어, 차세대 소듐 전고체전지용 핵심 전해질 후보로 제시</li>
                   </ul>
                 </div>
@@ -1010,9 +1010,10 @@
             <section class="section-block ip-portfolio-section" id="section-ip-portfolio">
               <h2 class="section-heading" id="section-ip-portfolio-title">IP Portfolio</h2>
               <table class="ip-table" id="ip-table" aria-label="IP Portfolio 표">
+                <colgroup>
+    <col style="width: 40%;"> <col style="width: 15%;"> <col style="width: 15%;"> <col style="width: 15%;"> <col style="width: 15%;"> </colgroup>
                 <thead>
                   <tr>
-                    <th id="ip-table-header-no">No</th>
                     <th id="ip-table-header-title">발명의 명칭</th>
                     <th id="ip-table-header-application">출원번호</th>
                     <th id="ip-table-header-date">출원일자</th>
@@ -1022,7 +1023,6 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td id="ip-row-1-no">250</td>
                     <td id="ip-row-1-title">스쿠아릴륨 화합물, 이를 포함하는 근적외선 흡수용 수지 조성물 및 이를 이용하여 제조된 근적외선 차단 필터</td>
                     <td id="ip-row-1-application">10-2022-0170203</td>
                     <td id="ip-row-1-date">2023-03-24</td>
@@ -1033,17 +1033,7 @@
               </table>
             </section>
 
-            <section class="section-block contact-section" id="section-contact">
-              <h2 class="section-heading" id="section-contact-title">기술이전 문의처 <span id="contact-office-name">한국화학연구원
-                  기술사업화실</span></h2>
-              <div class="contact-bar" id="contact-bar">
-                <span class="contact-item" id="contact-organization">한국화학연구원 기술사업화실</span>
-                <span class="contact-item" id="contact-phone"><span class="contact-icon"
-                    aria-hidden="true">☎</span>042-860-7079</span>
-                <span class="contact-item" id="contact-email"><span class="contact-icon"
-                    aria-hidden="true">@</span>ebcho@krict.re.kr</span>
-              </div>
-            </section>
+
           </div>
         </div>
       </article>
