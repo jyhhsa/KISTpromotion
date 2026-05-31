@@ -753,47 +753,6 @@
       text-align: left;
     }
 
-    /* 화면 우측 하단 줌 컨트롤 버튼 스타일 */
-    .zoom-controls {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      display: flex;
-      gap: 8px;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 6px;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(16, 17, 20, 0.15);
-      border: 1px solid var(--border-gray);
-    }
-
-    .zoom-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: #ffffff;
-      color: var(--near-black);
-      border: 1px solid var(--border-gray);
-      font-size: 20px;
-      font-weight: 500;
-      cursor: pointer;
-      display: grid;
-      place-items: center;
-      transition: all 0.2s;
-    }
-
-    .zoom-btn:hover {
-      background: var(--surface);
-      color: var(--kraken-purple);
-      border-color: var(--kraken-purple);
-    }
-
-    .zoom-btn svg {
-      width: 18px;
-      height: 18px;
-    }
-
     @media print {
       body {
         background: #ffffff;
@@ -885,9 +844,9 @@
               <h2 class="section-heading" id="section-overview-title">기술개요 및 개발배경</h2>
               <div class="overview-layout" id="overview-layout">
                 <ul class="bullet-list" id="overview-list">
-                  <li id="overview-bullet-1">리튬이온전지는 액체전해질 기반 화재·폭발 위험과 소재 공급망 부담이 상존하여, 안전하고 자원 접근성이 높은 차세대 전지 플랫폼이 요구됨
+                  <li id="overview-bullet-1">기존 습식 공정은 바인더·도전재의 마이그레이션으로 전극 균일도와 공정 안정성 확보에 한계
                   </li>
-                  <li id="overview-bullet-2">상온 작동이 가능한 소듐 전고체전지 구현을 위해 NASICON형 고체전해질의 낮은 전기화학 성능·계면저항·수지상 결정 문제를 개선하는 방향에서 개발됨
+                  <li id="overview-bullet-2">건식 공정은 차세대 대안이지만 전기화학 성능 저하 문제가 있어 조성·입자 구조를 최적화하는 기술 개발이 필요
                   </li>
                 </ul>
                 <div class="keyword-panel" id="overview-keyword-panel">
@@ -905,10 +864,11 @@
                     </span>
                     <div class="hashtag-container"
                       style="display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 10px; color: var(--cool-gray); font-size: 14px; font-weight: 700; text-align: center; word-break: keep-all;">
-                      <span class="hashtag">#소듐 전고체전지</span>
-                      <span class="hashtag">#NASICON 고체전해질</span>
-                      <span class="hashtag">#P-블록 원소 도핑</span>
-                      <span class="hashtag">#상온 고이온전도</span>
+                      <span class="hashtag">#건식 전극</span>
+                      <span class="hashtag">#분무건조</span>
+                      <span class="hashtag">#SWCNT 분산</span>
+                      <span class="hashtag">#Carbon Black 조성 최적화</span>
+                      
 
                     </div>
                   </div>
@@ -921,15 +881,19 @@
               <div class="tech-layout" id="tech-content-layout">
                 <div>
                   <ul class="bullet-list" id="tech-content-list">
-                    <li id="tech-content-bullet-1">Sb·Sn 계 p-블록 원소를 Zr 자리에 도핑한 NASICON형 소듐 고체전해질로, 졸-겔 공정을 통해 제조되며 상온 이온전도 성능을 높임</li>
-                    <li id="tech-content-bullet-2">저항 278.89Ω, 활성화에너지 0.10eV, 대칭셀 1673시간 안정성을 보여 고안전·장수명 전해질 경쟁력을 입증함</li>
+                    <li id="tech-content-bullet-1">
+                      활물질·도전재·바인더를 분무건조해 구형 복합입자를 형성하고, 건식 전극의 분산성·흐름성·계면저항을 동시에 개선함
+                    </li>
+                    <li id="tech-content-bullet-2">
+                      안식각은 71.24°→58.58°, 접착력은 1.18→5.34 gf/20mm, 체적저항은 21.26→6.14 Ω·cm로 개선됐고, LFP 코인셀은 40사이클 용량 유지율 95.9% 이상
+                    </li>
                   </ul>
                 </div>
                 <div>
                   <div class="image-slot tech-image-slot" id="tech-representative-image-slot">
                     <div class="image-slot tech-image-slot" id="tech-representative-image-slot">
-                      <img id="tech-representative-image" class="representative-image" alt="고전도성 비정질 소듐 고체전해질 구조 대표이미지"
-                        src="./img/02/present_img.jpg">
+                      <img id="tech-representative-image" class="representative-image" alt="대표이미지"
+                        src="./img/03/present_img.jpg">
                     </div>
                   </div>
                   <p class="caption-text" id="tech-representative-caption"></p>
@@ -943,8 +907,8 @@
                 <div class="comparison-side as-is" id="comparison-as-is">
                   <h3 class="comparison-title" id="comparison-as-is-title">[ 기존기술한계점 ]</h3>
                   <ul class="bullet-list tight" id="comparison-as-is-list">
-                    <li id="comparison-as-is-bullet-1">기존 NASICON형 소듐 고체전해질은 계면저항이 크고 치밀도가 낮아 상온 이온전도와 접촉 안정성이 떨어짐</li>
-                    <li id="comparison-as-is-bullet-2">Na 덴드라이트와 장기 안정성 한계로 수명·안전성 확보가 어려움</li>
+                    <li id="comparison-as-is-bullet-1">습식 공정은 후막 전극 구현 시 균일한 전극 구조 형성이 어려웠음</li>
+                    <li id="comparison-as-is-bullet-2">기존 건식 전극은 SWCNT 분산이 어렵고 파우더 흐름성이 낮아 생산성 저하, 기계적 강도 확보를 위해 PTFE 함량을 높여야 해 원가·성능 측면 부담 가중</li>
                   </ul>
                 </div>
                 <div class="comparison-chevron" id="comparison-chevron" aria-hidden="true">
@@ -959,8 +923,8 @@
                 <div class="comparison-side to-be" id="comparison-to-be">
                   <h3 class="comparison-title" id="comparison-to-be-title">[ 개발기술개선점 ]</h3>
                   <ul class="bullet-list tight" id="comparison-to-be-list">
-                    <li id="comparison-to-be-bullet-1">p-블록 원소 도핑으로 이온 이동 경로를 넓히고 활성화에너지를 낮춰 상온 성능을 높임</li>
-                    <li id="comparison-to-be-bullet-2">Sb 도핑은 안정시간을 147시간→465시간, Sn 도핑은 55시간→1673시간으로 늘려 안정성과 사업성을 강화함</li>
+                    <li id="comparison-to-be-bullet-1">분무건조 기반 구형 복합입자 설계로 도전재와 바인더를 사전 일체화해 SWCNT 분산성과 파우더 흐름성을 높이고, 공정 불량 가능성을 함께 낮춤</li>
+                    <li id="comparison-to-be-bullet-2">Carbon Black 조성 추가와 입도 제어를 통해 원가경쟁력과 양산 적합성을 동시에 확보함</li>
                   </ul>
                 </div>
               </div>
@@ -972,14 +936,15 @@
               <h2 class="section-heading" id="section-market-trend-title">관련시장동향</h2>
               <div class="market-layout" id="market-trend-layout">
                 <ul class="bullet-list" id="market-trend-list">
-                  <li id="market-trend-bullet-1">ESS 시장은 정부의 제11차 전력수급기본계획 및 ESS 산업 발전전략에 따라 2036년 목표 설비용량 23.3GW, 2025년 540MW 중앙계약시장 입찰 개시 등으로 중장기 확대가 예상</li>
-                  <li id="market-trend-bullet-2">정부가 2036년 글로벌 ESS 시장 점유율 35% 확보를 목표로 하고, 2025~2030년 3.7GW 구축·설치비 20% 절감·국내 산업기여도 반영 입찰을 추진 중이어서 국산 고체전해질·차세대 배터리 소재 채택 가능</li>
+                  <li id="market-trend-bullet-1">건식 전극 소재 시장 글로벌 시장규모 전망 - CAGR 46.5%</li>
+                  <li id="market-trend-bullet-2">국내 이차전지 산업은 2030년까지 50조 원 투자, 세계시장 점유율 40% 목표, 건식 전극용 복합소재 상용화 수요가 확대될 가능성이 높음</li>
+                  <li id="market-trend-bullet-3">LG에너지솔루션 및 삼성SDI 건식 전극 공정 도입 로드맵과 파일럿 라인 구축 추진 및 건식 극판 기반 배터리 검증 중으로, 본 기술의 수요처 발굴과 공동개발 가능성이 높아지는 추세</li>
                 </ul>
                 <div class="market-chart-panel" id="market-chart-panel">
                   <div class="image-slot market-image-slot" id="market-trend-image-slot">
                     <canvas id="marketChart"></canvas>
                   </div>
-                  <p class="market-chart-source" id="market-chart-source">&lt;Cognitive Market Research&gt;</p>
+                  <p class="market-chart-source" id="market-chart-source">&lt;QYR research&gt;</p>
                 </div>
               </div>
             </section>
@@ -988,22 +953,28 @@
               <h2 class="section-heading" id="section-business-idea-title">Business Idea / 응용·적용분야</h2>
               <div class="business-layout" id="business-idea-layout">
                 <ul class="bullet-list" id="business-idea-list">
-                  <li id="business-idea-bullet-1">산업분야: ESS/분산전원/마이크로모빌리티/저가형 전기차</li>
-                  <li id="business-idea-bullet-2">관련시장: 국내 ESS 구축시장/장주기 저장시장/저가형 소듐이온 배터리 응용시장</li>
-                  <li id="business-idea-bullet-2">적용가능한 제품: 컨테이너형 ESS/UPS·백업전원/배달·배송용 상용차</li>
+                  <li id="business-idea-bullet-1">산업분야: 전기차 배터리/ESS 배터리/이차전지 소재</li>
+                  <li id="business-idea-bullet-2">관련시장: 
+                    건식 전극 소재 시장/고니켈 NCM 양극재 시장/LFP 기반 안전성 강화 배터리 시장/이차전지 제조장비 시장
+                  </li>
+                  <li id="business-idea-bullet-2">적용가능한 제품: 
+                    전기차용 배터리 셀·모듈·팩/ESS 랙·컨테이너형 저장장치/고밀도 산업용 배터리 팩
+                  </li>
                 </ul>
                 <div class="business-application-images" id="business-application-images" data-image-count="2">
-                  <img id="business-image-1" class="business-image" alt="응용·적용분야 이미지 1" src="./img/02/idea_img1.jpg">
-                  <img id="business-image-2" class="business-image" alt="응용·적용분야 이미지 2" src="./img/02/idea_img2.png">
+                  <img id="business-image-1" class="business-image" alt="응용·적용분야 이미지 1" src="./img/03/idea_img1.jpg">
+                  <img id="business-image-2" class="business-image" alt="응용·적용분야 이미지 2" src="./img/03/idea_img2.jpg">
                 </div>
               </div>
               <div class="business-idea-box" id="business-idea-box">
                 <h3 class="business-idea-box-title" id="business-idea-box-title">사업화 제안 포인트</h3>
                 <ul class="bullet-list tight" id="business-idea-box-list">
-                  <li id="business-idea-box-bullet-1">고안전·장수명 소듐 전고체전지용 핵심 전해질 기술로, ESS와 저가형 모빌리티 시장에 바로 제안 가능한 차별화 포인트를 보유
+                  <li id="business-idea-box-bullet-1">원천특허 + 제조 레시피 + 공정조건 패키지를 전극소재 기업에 라이선스 이전하고, 기술료 + 경상 로열티 모델로 수익화
                   </li>
-                  <li id="business-idea-box-bullet-2">초기: 고체전해질 소재 공급과 셀 제조사 공동개발형 B2B 모델</li>
-                  <li id="business-idea-box-bullet-3">중기: 국내 ESS 입찰·실증사업과 연계한 레퍼런스 확보
+                  <li id="business-idea-box-bullet-2">배터리 셀 제조사와 공동개발(JDA) 방식으로 샘플 공급·파일럿 평가·양산조건 최적화를 연계하고, 이후 소재 납품 또는 공정기술 이전으로 확장
+
+                  </li>
+                  <li id="business-idea-box-bullet-3">분무건조 장비사·건식 전극 장비사와 협력해 “복합소재 + 공정 노하우 + 파일럿 검증”을 묶은 패키지 솔루션으로 사업화
                   </li>
                 </ul>
               </div>
@@ -1011,7 +982,7 @@
 
             <section class="section-block maturity-section" id="section-maturity">
               <h2 class="section-heading" id="section-maturity-title">기술성숙도</h2>
-              <div class="maturity-scale" id="maturity-scale" data-level="4" aria-label="기술성숙도 4단계">
+              <div class="maturity-scale" id="maturity-scale" data-level="5" aria-label="기술성숙도 5단계">
                 <div class="maturity-item" id="maturity-item-1" style="--bar-level: 1;"><span class="maturity-number"
                     id="maturity-number-1">1</span><span class="maturity-bars" id="maturity-bars-1"><span
                       class="maturity-fill" id="maturity-fill-1"></span></span></div>
@@ -1047,7 +1018,7 @@
                   </svg>
                 </span>
               </div>
-              <p class="maturity-note" id="maturity-note">TRL 4 : 실험실 규모 소재 합성, 구조 분석, 이온전도도 측정 및 초기 셀 성능 평가 검증 완료 단계
+              <p class="maturity-note" id="maturity-note">TRL 5 : 확정된 공법/재료/시스템의 실험실 시제품 제작 및 성능 평가가완료된 단계
               </p>
             </section>
 
@@ -1072,9 +1043,28 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td id="ip-row-1-title"></td>
-                    <td id="ip-row-1-application"></td>
-                    <td id="ip-row-1-date"></td>
+                    <td id="ip-row-1-title">
+                      리튬 이차전지 건식 공정용 복합소재 및 이의 제조방법
+                    </td>
+                    <td id="ip-row-1-application">
+                      10-2025-0036120
+                    </td>
+                    <td id="ip-row-1-date">
+                      2025.03.20
+                    </td>
+                    <td id="ip-row-1-registration">-</td>
+                    <td id="ip-row-1-registration-date">-</td>
+                  </tr>
+                  <tr>
+                    <td id="ip-row-2-title">
+                      고안정성 활물질-도전재-바인더 복합소재 및 이의 제조방법
+                    </td>
+                    <td id="ip-row-1-application">
+                      10-2025-0036146
+                    </td>
+                    <td id="ip-row-1-date">
+                      2025.03.20
+                    </td>
                     <td id="ip-row-1-registration">-</td>
                     <td id="ip-row-1-registration-date">-</td>
                   </tr>
@@ -1183,17 +1173,16 @@
       if (!ctx) return;
 
       // X축 라벨 설정
-      const labels = ["'21", "'22", "'23", "'24", "'25", "'26", "'27", "'28", "'29", "'30", "'31", "'32", "'33"];
+      const labels = ["'24", "'25", "'26", "'27", "'28", "'29", "'30"];
 
-      // 데이터 계산 로직 (시작: 147.2, 종료: 828.9, 중간 CAGR 21.7%)
-      const startValue = 763;
-      const endValue = 3440;
-      const cagr = 0.13917; // 13.917%
+      // 데이터 계산 로직
+      const startValue = 41;
+      const endValue = 405;
+      const cagr = 0.465;
 
       const dataPoints = labels.map((_, index) => {
         if (index === 0) return startValue;
         if (index === labels.length - 1) return endValue;
-        // 중간 값들은 CAGR 적용하여 계산 후 소수점 1자리까지
         return parseFloat((startValue * Math.pow(1 + cagr, index)).toFixed(1));
       });
 

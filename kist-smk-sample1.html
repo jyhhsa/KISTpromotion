@@ -753,46 +753,6 @@
       text-align: left;
     }
 
-    /* 화면 우측 하단 줌 컨트롤 버튼 스타일 */
-    .zoom-controls {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      display: flex;
-      gap: 8px;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 6px;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(16, 17, 20, 0.15);
-      border: 1px solid var(--border-gray);
-    }
-
-    .zoom-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: #ffffff;
-      color: var(--near-black);
-      border: 1px solid var(--border-gray);
-      font-size: 20px;
-      font-weight: 500;
-      cursor: pointer;
-      display: grid;
-      place-items: center;
-      transition: all 0.2s;
-    }
-
-    .zoom-btn:hover {
-      background: var(--surface);
-      color: var(--kraken-purple);
-      border-color: var(--kraken-purple);
-    }
-
-    .zoom-btn svg {
-      width: 18px;
-      height: 18px;
-    }
 
     @media print {
       body {
@@ -929,7 +889,7 @@
                 <div>
                   <div class="image-slot tech-image-slot" id="tech-representative-image-slot">
                     <div class="image-slot tech-image-slot" id="tech-representative-image-slot">
-                      <img id="tech-representative-image" class="representative-image" alt="고전도성 비정질 소듐 고체전해질 구조 대표이미지"
+                      <img id="tech-representative-image" class="representative-image" alt="대표이미지"
                         src="./img/01/present_img.png">
                     </div>
                   </div>
@@ -1190,15 +1150,14 @@
       // X축 라벨 설정
       const labels = ["'25", "'26", "'27", "'28", "'29", "'30", "'31", "'32", "'33"];
 
-      // 데이터 계산 로직 (시작: 147.2, 종료: 828.9, 중간 CAGR 21.7%)
+      // 데이터 계산 로직
       const startValue = 147.2;
       const endValue = 828.9;
-      const cagr = 0.217; // 21.7%
+      const cagr = 0.217;
 
       const dataPoints = labels.map((_, index) => {
         if (index === 0) return startValue;
         if (index === labels.length - 1) return endValue;
-        // 중간 값들은 CAGR 적용하여 계산 후 소수점 1자리까지
         return parseFloat((startValue * Math.pow(1 + cagr, index)).toFixed(1));
       });
 
@@ -1219,7 +1178,7 @@
           maintainAspectRatio: false,
           plugins: {
             legend: {
-              display: false // 범례 숨김 (깔끔한 디자인을 위해)
+              display: false // 범례 숨김
             },
             tooltip: {
               backgroundColor: '#101114',
