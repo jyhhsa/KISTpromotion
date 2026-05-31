@@ -2,169 +2,56 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>KIST CONNECT 2026</title>
     <style>
-      * {
-        box-sizing: border-box;
+      body {
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
       }
 
-      html,
-      body {
+      .newsletter {
         width: 100%;
-        min-height: 100%;
-        margin: 0;
-        padding: 0;
-        background: #ffffff;
-      }
-
-      body {
-        -webkit-text-size-adjust: 100%;
-        overflow-x: hidden;
-      }
-
-      .connect-stage {
-        width: 100vw;
-        min-height: 100svh;
-        display: grid;
-        place-items: start center;
-        margin: 0;
-        padding: 0;
-        background: #ffffff;
-      }
-
-      .connect-image-map {
+        max-width: 600px;
+        margin: 0 auto;
         position: relative;
-        display: block;
-        width: 100vw;
-        max-width: none;
-        margin: 0 auto;
-        padding: 0;
         line-height: 0;
-        font-size: 0;
-        overflow: hidden;
       }
 
-      .connect-image {
+      .newsletter img {
         display: block;
         width: 100%;
-        max-width: none;
         height: auto;
-        margin: 0 auto;
-        padding: 0;
         border: 0;
-        outline: none;
-        text-decoration: none;
       }
 
-      .kist-hotspot {
+      .hotspot {
         position: absolute;
-        z-index: 2;
         display: block;
-        box-sizing: border-box;
-        background: rgba(113, 50, 245, 0);
-        text-decoration: none;
-        cursor: pointer;
-        -webkit-tap-highlight-color: rgba(113, 50, 245, 0.18);
+        z-index: 2;
+        background: rgba(255, 255, 255, 0);
+        overflow: hidden;
+        text-indent: -9999px;
       }
 
-      .kist-hotspot:focus-visible {
-        outline: 3px solid rgba(113, 50, 245, 0.85);
-        outline-offset: 2px;
-      }
-
-      .connect-image-map[data-debug="true"] .kist-hotspot {
-        background: rgba(113, 50, 245, 0.2);
-        border: 1px solid rgba(113, 50, 245, 0.75);
-      }
     </style>
   </head>
   <body>
-    <main class="connect-stage" aria-label="KIST CONNECT 2026">
-      <div
-        class="connect-image-map"
-        id="kist-connect-map"
-        data-fit-mode="contain"
-        data-debug="false"
-      >
-        <img
-          id="kist-connect-image"
-          class="connect-image"
-          alt="KIST CONNECT 2026 Lab-to-Market"
-          src="kist-connect-2026.png"
-          border="0"
-        >
+    <div class="newsletter">
+      <img src="kist-connect-2026.png" alt="KIST CONNECT 2026 Lab-to-Market">
 
-        <a class="kist-hotspot" id="kist-link-1" href="https://jyhhsa.github.io/KISTpromotion/kist-smk-sample1.html" target="_blank" rel="noopener noreferrer" aria-label="KIST SMK sample 1" data-x="40" data-y="445" data-w="160" data-h="120"></a>
-        <a class="kist-hotspot" id="kist-link-2" href="https://jyhhsa.github.io/KISTpromotion/kist-smk-sample2.html" target="_blank" rel="noopener noreferrer" aria-label="KIST SMK sample 2" data-x="219" data-y="445" data-w="160" data-h="120"></a>
-        <a class="kist-hotspot" id="kist-link-3" href="https://jyhhsa.github.io/KISTpromotion/kist-smk-sample3.html" target="_blank" rel="noopener noreferrer" aria-label="KIST SMK sample 3" data-x="398" data-y="445" data-w="160" data-h="120"></a>
-        <a class="kist-hotspot" id="kist-link-4" href="https://jyhhsa.github.io/KISTpromotion/kist-smk-sample4.html" target="_blank" rel="noopener noreferrer" aria-label="KIST SMK sample 4" data-x="40" data-y="578" data-w="160" data-h="119"></a>
-        <a class="kist-hotspot" id="kist-link-5" href="https://jyhhsa.github.io/KISTpromotion/kist-smk-sample5.html" target="_blank" rel="noopener noreferrer" aria-label="KIST SMK sample 5" data-x="219" data-y="578" data-w="160" data-h="119"></a>
-        <a class="kist-hotspot" id="kist-link-6" href="https://jyhhsa.github.io/KISTpromotion/kist-smk-sample6.html" target="_blank" rel="noopener noreferrer" aria-label="KIST SMK sample 6" data-x="398" data-y="578" data-w="160" data-h="119"></a>
-        <a class="kist-hotspot" id="kist-link-7" href="https://drive.google.com/file/d/1U5H1lLm6mq_dEJGZ3HMVL0rPmuilXSf9/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="KIST 전체 기술자료" data-x="89" data-y="721" data-w="202" data-h="51"></a>
-        <a class="kist-hotspot" id="kist-link-8" href="https://form.naver.com/response/wDr_lo4H72tEgycEsCqaZQ" target="_blank" rel="noopener noreferrer" aria-label="참가 신청" data-x="306" data-y="721" data-w="201" data-h="51"></a>
-      </div>
-    </main>
+      <a class="hotspot" href="https://jyhhsa.github.io/KISTpromotion/kist-smk-1.html" target="_blank" rel="noopener noreferrer" aria-label="Blue folder left" title="Blue folder left" style="left:8.3053%; top:52.3545%; width:25.3273%; height:13.3862%;">Blue folder left</a>
+      <a class="hotspot" href="https://jyhhsa.github.io/KISTpromotion/kist-smk-2.html" target="_blank" rel="noopener noreferrer" aria-label="Blue folder center" title="Blue folder center" style="left:36.85%; top:52.3545%; width:25.3273%; height:13.3862%;">Blue folder center</a>
+      <a class="hotspot" href="https://jyhhsa.github.io/KISTpromotion/kist-smk-3.html" target="_blank" rel="noopener noreferrer" aria-label="Blue folder right" title="Blue folder right" style="left:65.3947%; top:52.3545%; width:25.3273%; height:13.3862%;">Blue folder right</a>
 
-    <script>
-      (function () {
-        const map = document.getElementById("kist-connect-map");
-        const image = document.getElementById("kist-connect-image");
-        const baseWidth = Number(map.dataset.baseWidth) || 600;
-        const hotspots = Array.from(map.querySelectorAll(".kist-hotspot"));
+      <a class="hotspot" href="https://jyhhsa.github.io/KISTpromotion/kist-smk-4.html" target="_blank" rel="noopener noreferrer" aria-label="Gray folder left" title="Gray folder left" style="left:8.3053%; top:67.2751%; width:25.3648%; height:13.3862%;">Gray folder left</a>
+      <a class="hotspot" href="https://jyhhsa.github.io/KISTpromotion/kist-smk-5.html" target="_blank" rel="noopener noreferrer" aria-label="Gray folder center" title="Gray folder center" style="left:36.85%; top:67.2751%; width:25.3648%; height:13.3862%;">Gray folder center</a>
+      <a class="hotspot" href="https://jyhhsa.github.io/KISTpromotion/kist-smk-6.html" target="_blank" rel="noopener noreferrer" aria-label="Gray folder right" title="Gray folder right" style="left:65.3947%; top:67.2751%; width:25.3648%; height:13.3862%;">Gray folder right</a>
 
-        function getTargetWidth() {
-          const fitMode = map.dataset.fitMode || "width";
-          const viewportWidth = window.innerWidth || document.documentElement.clientWidth || baseWidth;
-          const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
-          const naturalWidth = image.naturalWidth || baseWidth;
-          const naturalHeight = image.naturalHeight || 0;
-
-          if (fitMode === "contain" && naturalHeight > 0 && viewportHeight > 0) {
-            const aspectRatio = naturalWidth / naturalHeight;
-            return Math.max(1, Math.min(viewportWidth, viewportHeight * aspectRatio));
-          }
-
-          return Math.max(1, viewportWidth);
-        }
-
-        function fitImageAndHotspots() {
-          const targetWidth = getTargetWidth();
-          const scale = targetWidth / baseWidth;
-
-          map.style.width = `${targetWidth}px`;
-
-          hotspots.forEach((hotspot) => {
-            const x = Number(hotspot.dataset.x) || 0;
-            const y = Number(hotspot.dataset.y) || 0;
-            const w = Number(hotspot.dataset.w) || 0;
-            const h = Number(hotspot.dataset.h) || 0;
-
-            hotspot.style.left = `${x * scale}px`;
-            hotspot.style.top = `${y * scale}px`;
-            hotspot.style.width = `${w * scale}px`;
-            hotspot.style.height = `${h * scale}px`;
-          });
-        }
-
-        function run() {
-          fitImageAndHotspots();
-          requestAnimationFrame(fitImageAndHotspots);
-        }
-
-        window.addEventListener("resize", run);
-        window.addEventListener("orientationchange", run);
-
-        if (image.complete) {
-          run();
-        } else {
-          image.addEventListener("load", run, { once: true });
-        }
-
-        if ("ResizeObserver" in window) {
-          new ResizeObserver(run).observe(document.documentElement);
-        }
-      })();
-    </script>
+      <a class="hotspot" href="https://docs.google.com/spreadsheets/d/1JODegrn1_BZ5IjLdJTy0ZCv25m4JPj0_/edit?usp=sharing&ouid=106557672220355608970&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" aria-label="Oval left" title="Oval left" style="left:8.3053%; top:82.8571%; width:21.1373%; height:5.1058%;">Oval left</a>
+      <a class="hotspot" href="https://form.naver.com/response/wDr_lo4H72tEgycEsCqaZQ" target="_blank" rel="noopener noreferrer" aria-label="Oval center" title="Oval center" style="left:31.9491%; top:82.8571%; width:35.9895%; height:5.1058%;">Oval center</a>
+      <a class="hotspot" href="https://drive.google.com/file/d/1U5H1lLm6mq_dEJGZ3HMVL0rPmuilXSf9/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Oval right" title="Oval right" style="left:68.8365%; top:82.8571%; width:21.1373%; height:5.1058%;">Oval right</a>
+    </div>
   </body>
 </html>
