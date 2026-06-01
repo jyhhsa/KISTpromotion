@@ -72,13 +72,9 @@
       height: calc(900px * var(--slide-scale, 1));
       overflow: hidden;
       flex-shrink: 0;
-      cursor: grab;
-      touch-action: pan-y;
-      user-select: none;
-    }
-
-    .slide-wrapper.is-dragging {
-      cursor: grabbing;
+      cursor: default;
+      touch-action: auto;
+      user-select: text;
     }
 
     .slide-track {
@@ -110,10 +106,6 @@
       inset: auto;
       flex: 0 0 1600px;
       transform: none;
-    }
-
-    .slide-track.is-dragging {
-      transition: none;
     }
 
     .stage-nav-button {
@@ -953,12 +945,10 @@
                 <div class="overview-layout" id="overview-layout">
                   <ul class="bullet-list" id="overview-list">
                     <li id="overview-bullet-1">
-                      기존 수전해 전극은 고전위 산소발생반응(OER) 환경에서 탄소 부식, 촉매 응집 및 탈락, 귀금속 사용 부담, 복잡한 고온 공정 문제가 동시에 발생해 성능·수명·경제성을 함께
-                      확보하기 어려웠음
+                      기존 수전해 전극은 고전위 산소발생반응(OER) 환경에서 탄소 부식, 촉매 응집 및 탈락, 귀금속 사용 부담, 복잡한 고온 공정 문제 동시 발생해 성능·수명·경제성 확보 난항
                     </li>
                     <li id="overview-bullet-2">
-                      고결정성 탄소 지지체, Ti-O-C 앵커링, 전도성 금속산화물 코팅, LDH 활성층 설계를 결합해 촉매 고정력과 내구성, 전기화학 성능, 공정 단순성을 동시에 높이기 위해
-                      개발됨
+                      고결정성 탄소 지지체, Ti-O-C 앵커링, 전도성 금속산화물 코팅, LDH 활성층 설계를 결합하여 촉매 고정력, 내구성, 전기화학 성능, 공정 단순성 증가 목표로 개발
                     </li>
                   </ul>
                   <div class="keyword-panel" id="overview-keyword-panel">
@@ -988,9 +978,6 @@
                         <span class="hashtag">
                           #Ti-O-C 앵커링
                         </span>
-                        <span class="hashtag">
-                          저과전압
-                        </span>
                       </div>
                     </div>
                   </div>
@@ -1007,8 +994,8 @@
                         수 있는 구조
                       </li>
                       <li id="tech-content-bullet-2">
-                        OER 평가에서 η10 230 mV 수준의 활성과 전도성 금속산화물 코팅을 통한 촉매 응집 억제와 과전압 저감을, 1M KOH 기반 Qir 시험과 단전지 평가에서 탄소 부식
-                        저감을 확인함
+                        OER 평가에서 η10 230 mV 수준의 활성과 전도성 금속산화물 코팅을 통한 촉매 응집 억제와 과전압 저감 확인, 1M KOH 기반 Qir 시험과 단전지 평가에서 탄소 부식
+                        저감 확인
                       </li>
                     </ul>
                   </div>
@@ -1031,10 +1018,10 @@
                     <h3 class="comparison-title" id="comparison-as-is-title">[ 기존기술한계점 ]</h3>
                     <ul class="bullet-list tight" id="comparison-as-is-list">
                       <li id="comparison-as-is-bullet-1">
-                        일반 탄소 지지체는 수전해의 고전위 환경에서 장기 구동 안정성 확보가 어려웠음
+                        일반 탄소 지지체는 수전해의 고전위 환경에서 장기 구동 안정성 확보 난항
                       </li>
                       <li id="comparison-as-is-bullet-2">
-                        고결정성 탄소는 촉매 담지 효율이 낮고, 금속산화물 지지체는 성능과 수명의 균형 확보가 어려웠음
+                        고결정성 탄소는 촉매 담지 효율이 낮고, 금속산화물 지지체는 성능과 수명의 균형 달성 난해
                       </li>
                     </ul>
                   </div>
@@ -1051,10 +1038,10 @@
                     <h3 class="comparison-title" id="comparison-to-be-title">[ 개발기술개선점 ]</h3>
                     <ul class="bullet-list tight" id="comparison-to-be-list">
                       <li id="comparison-to-be-bullet-1">
-                        고결정성 탄소 + Ti-O-C 결합 + 전도성 금속산화물 코팅 + LDH/귀금속 활성층을 조합해 촉매 고정력과 계면 안정성을 높이고 탄소 부식을 억제함
+                        고결정성 탄소 + Ti-O-C 결합 + 전도성 금속산화물 코팅 + LDH/귀금속 활성층을 조합해 촉매 고정력과 계면 안정성을 높이고 탄소 부식 억제
                       </li>
                       <li id="comparison-to-be-bullet-2">
-                        상온·단시간 공정과 앵커링 사이트 설계를 통해 저과전압, 응집 억제, 장기 내구성, 공정 확장성을 동시에 확보해 실제 사업화 관점의 장점을 갖춤
+                        상온·단시간 공정과 앵커링 사이트 설계를 통해 저과전압, 응집 억제, 장기 내구성, 공정 확장성 동시 확보로 사업화에 장점
                       </li>
                     </ul>
                   </div>
@@ -1069,7 +1056,7 @@
                   <ul class="bullet-list" id="market-trend-list">
                     <li id="market-trend-bullet-1">
                       한국 수소 생산 시장은 2024년 32억8,760만 달러에서 2033년 47억8,260만 달러로 성장 전망(CAGR 4.25%)이며, 수전해 기술 고도화가 핵심 성장동력으로
-                      평가됨
+                      평가
                     </li>
                     <li id="market-trend-bullet-2">
                       정부는 2030년 25만 톤급 그린수소 생산 기반과 GW급 수전해 시스템 상용화를 추진 중이며, 수전해 설비 확산을 위한 제도 지원 병행 중
@@ -1111,10 +1098,10 @@
                   <h3 class="business-idea-box-title" id="business-idea-box-title">사업화 제안 포인트</h3>
                   <ul class="bullet-list tight" id="business-idea-box-list">
                     <li id="business-idea-box-bullet-1">
-                      비귀금속 고활성형 + 고내구 지지체형 + 귀금속 고효율형의 포트폴리오 제안이 가능해 고객사 요구 수준에 따라 맞춤형 사업화가 가능함
+                      비귀금속 고활성형 + 고내구 지지체형 + 귀금속 고효율형의 포트폴리오 제안이 가능해 고객사 요구 수준에 따라 맞춤형 사업화 가능
                     </li>
                     <li id="business-idea-box-bullet-2">
-                      기존 수전해 시스템 기업에는 기존 제품 성능 업그레이드 소재, 신규 진입 기업에는 애노드 핵심소재 라인업 확보용 패키지 기술로 용이함
+                      기존 수전해 시스템 기업에는 기존 제품 성능 업그레이드 소재, 신규 진입 기업에는 애노드 핵심소재 라인업 확보용 패키지 기술
                     </li>
 
                   </ul>
@@ -1320,11 +1307,10 @@
                 <div class="overview-layout" id="overview-layout-2">
                   <ul class="bullet-list" id="overview-list-2">
                     <li id="overview-bullet-1-2">
-                      기존 연료전지 촉매는 결정성 탄소 지지체의 낮은 Pt 담지 효율, 촉매 응집, 장기 구동 시 내구 저하 문제가 있었고, 전극 제조 공정에서는 코팅 균일도와 전극 성능이 흔들리는
-                      한계가 있었음
+                      기존 연료전지 촉매는 결정성 탄소 지지체의 낮은 Pt 담지 효율, 촉매 응집, 장기 구동 시 내구 저하 문제 발생, 전극 제조 공정에서는 코팅 균일도와 전극 성능 저하 한계 존재
                     </li>
                     <li id="overview-bullet-2-2">
-                      할로겐 도핑, 무첨가 고분산 슬러리 공정으로 전극 품질 개선을 동시에 구현해 연료전지 MEA 성능과 수명을 함께 끌어올리기 위해 개발됨
+                      할로겐 도핑, 무첨가 고분산 슬러리 공정으로 전극 품질 개선을 동시 구현해 연료전지 MEA 성능과 수명을 함께 향상하는 기술
                     </li>
                   </ul>
                   <div class="keyword-panel" id="overview-keyword-panel-2">
@@ -1367,11 +1353,10 @@
                   <div>
                     <ul class="bullet-list" id="tech-content-list-2">
                       <li id="tech-content-bullet-1-2">
-                        촉매 담지체 개질, 초미세 촉매 합성, 전극 슬러리·코팅 공정을 하나의 밸류체인으로 묶은 구조로, 연료전지 전극 소재를 분말 단계부터 전극 단계까지 일관되게 고도화 가능
+                        촉매 담지체 개질, 초미세 촉매 합성, 전극 슬러리·코팅 공정을 하나의 밸류체인으로 묶은 구조로, 연료전지 전극 소재를 분말 단계부터 전극 단계까지 일관적 고도화 가능
                       </li>
                       <li id="tech-content-bullet-2-2">
-                        ADT 후 반파전위 감소폭이 1.62 mV, 초임계 압력 650 bar 조건에서 3 nm급 Pt 입자를 구현, 가속노화 후 전극 출력 905 mW/cm²와 열화율 3.31%
-                        달성
+                        ADT 후 반파전위 감소폭 1.62 mV, 초임계 압력 650 bar 조건에서 3 nm급 Pt 입자 구현, 가속노화 후 전극 출력 905 mW/cm²와 열화율 3.31% 달성
                       </li>
                     </ul>
                   </div>
@@ -1394,10 +1379,10 @@
                     <h3 class="comparison-title" id="comparison-as-is-title-2">[ 기존기술한계점 ]</h3>
                     <ul class="bullet-list tight" id="comparison-as-is-list-2">
                       <li id="comparison-as-is-bullet-1-2">
-                        고결정성 탄소는 백금 나노입자 분산과 담지 효율이 낮아지고, 장기 운전 시 촉매 탈락과 활성 저하가 발생하기 쉬웠음
+                        고결정성 탄소는 백금 나노입자 분산과 담지 효율이 저하, 장기 운전 시 촉매 탈락과 활성 저하 발생 가능
                       </li>
                       <li id="comparison-as-is-bullet-2-2">
-                        기존 전극 제조는 슬러리 응집체 제거 한계, 코팅 불균일, 첨가제 잔류에 따른 전극 품질 저하 문제가 있었음
+                        기존 전극 제조는 슬러리 응집체 제거 한계, 코팅 불균일, 첨가제 잔류에 따른 전극 품질 저하 문제 발생
                       </li>
                     </ul>
                   </div>
@@ -1414,10 +1399,10 @@
                     <h3 class="comparison-title" id="comparison-to-be-title-2">[ 개발기술개선점 ]</h3>
                     <ul class="bullet-list tight" id="comparison-to-be-list-2">
                       <li id="comparison-to-be-bullet-1-2">
-                        할로겐 도핑과 초임계 공정을 통해 동일 귀금속 사용량 대비 성능과 내구성을 동시에 높임
+                        할로겐 도핑과 초임계 공정을 통해 동일 귀금속 사용량 대비 성능과 내구성 동시 향상
                       </li>
                       <li id="comparison-to-be-bullet-2-2">
-                        무첨가 고분산 슬러리 공정으로 전극 코팅 품질과 재현성을 높여 촉매-전극-MEA 일체형 성능 개선이 가능하고, 실제 양산 공정으로의 확장성도 우수함
+                        무첨가 고분산 슬러리 공정으로 전극 코팅 품질과 재현성을 높여 촉매-전극-MEA 일체형 성능 개선이 가능하고, 실제 양산 공정으로의 확장성 우수
                       </li>
                     </ul>
                   </div>
@@ -1472,7 +1457,7 @@
                   <h3 class="business-idea-box-title" id="business-idea-box-title-2">사업화 제안 포인트</h3>
                   <ul class="bullet-list tight" id="business-idea-box-list-2">
                     <li id="business-idea-box-bullet-1-2">
-                      “담지체-촉매-전극 공정” 제안으로 고객사 입장에서는 부품 단위가 아니라 MEA 성능 향상 솔루션으로 도입하기 쉬움
+                      “담지체-촉매-전극 공정” 제안으로 고객사 입장에서는 부품 단위가 아니라 MEA 성능 향상 솔루션으로 도입
                     </li>
                     <li id="business-idea-box-bullet-2-2">
                       연료전지 기업에는 기존 Pt/C 기반 전극 업그레이드 기술, 신규 진입 기업에는 촉매·전극 밸류체인을 한 번에 확보하는 패키지 기술
@@ -1676,12 +1661,8 @@
         const nextButton = document.getElementById("slide-nav-next");
         if (!wrapper || !track || !firstSlide) return;
         let activeIndex = 0;
-        let startX = 0;
-        let dragDelta = 0;
-        let isDragging = false;
         const maxIndex = track.children.length - 1;
         const slideWidth = 1600;
-        const dragThreshold = 140;
 
         function setOffset(offset) {
           document.documentElement.style.setProperty("--carousel-offset", `${offset}px`);
@@ -1709,49 +1690,6 @@
           setOffset(-activeIndex * slideWidth);
           updateNavButtons();
         }
-
-        function startDrag(clientX) {
-          isDragging = true;
-          startX = clientX;
-          dragDelta = 0;
-          wrapper.classList.add("is-dragging");
-          track.classList.add("is-dragging");
-        }
-
-        function moveDrag(clientX) {
-          if (!isDragging) return;
-          dragDelta = (clientX - startX) / currentScale;
-          setOffset((-activeIndex * slideWidth) + dragDelta);
-        }
-
-        function endDrag() {
-          if (!isDragging) return;
-          isDragging = false;
-          wrapper.classList.remove("is-dragging");
-          track.classList.remove("is-dragging");
-
-          if (dragDelta < -dragThreshold) {
-            goToSlide(activeIndex + 1);
-          } else if (dragDelta > dragThreshold) {
-            goToSlide(activeIndex - 1);
-          } else {
-            goToSlide(activeIndex);
-          }
-        }
-
-        wrapper.addEventListener("pointerdown", (event) => {
-          if (event.button !== 0) return;
-          wrapper.setPointerCapture(event.pointerId);
-          startDrag(event.clientX);
-        });
-
-        wrapper.addEventListener("pointermove", (event) => {
-          moveDrag(event.clientX);
-        });
-
-        wrapper.addEventListener("pointerup", endDrag);
-        wrapper.addEventListener("pointercancel", endDrag);
-        wrapper.addEventListener("lostpointercapture", endDrag);
 
         if (prevButton) {
           prevButton.addEventListener("click", () => {
