@@ -762,25 +762,50 @@
       text-align: center;
     }
 
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
     @media print {
+      html,
       body {
+        width: 297mm;
+        height: 210mm;
+        margin: 0;
         background: #ffffff;
-        overflow: visible;
+        overflow: hidden;
       }
 
       .slide-stage {
-        width: 100%;
-        /* 스크롤바 영역 제외 */
-        height: 100vh;
-        overflow: auto;
+        width: 297mm;
+        height: 210mm;
+        overflow: hidden;
         display: flex;
-        padding: 24px;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        background: #ffffff;
       }
 
       .slide-wrapper {
         width: 1600px;
         height: 900px;
         margin: 0;
+        overflow: hidden;
+        zoom: 0.64;
+      }
+
+      .slide-track {
+        width: 1600px;
+        height: 900px;
+        transform: none !important;
+        transform-origin: top left;
+        transition: none !important;
+      }
+
+      .slide-track .smk-slide:not(:first-child) {
+        display: none !important;
       }
 
       .smk-slide {
@@ -788,6 +813,7 @@
         transform: none !important;
       }
 
+      .stage-nav-button,
       .zoom-controls {
         display: none !important;
       }
