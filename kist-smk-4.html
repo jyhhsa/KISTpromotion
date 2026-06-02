@@ -1,23 +1,17 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ko">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KIST 기술설명회 04</title>
-  <link rel="stylesheet" as="style" crossorigin
-    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+  
 
+
+  
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
   <style>
-    #section-business-idea {
-  margin-top: -20px;
-}
-#section-ip-portfolio-title{
-  margin-top: -10px;
-}
     :root {
       --kraken-purple: #7132f5;
       --purple-dark: #5741d8;
@@ -56,7 +50,6 @@
     }
 
     .slide-stage {
-      position: relative;
       width: 100%;
       height: 100vh;
       overflow: auto;
@@ -70,23 +63,7 @@
       margin: auto;
       width: calc(1600px * var(--slide-scale, 1));
       height: calc(900px * var(--slide-scale, 1));
-      overflow: hidden;
       flex-shrink: 0;
-      cursor: default;
-      touch-action: auto;
-      user-select: text;
-    }
-
-    .slide-track {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      width: 3200px;
-      height: 900px;
-      transform: translateX(calc(var(--carousel-offset, 0px) * var(--slide-scale, 1))) scale(var(--slide-scale, 1));
-      transform-origin: top left;
-      transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: transform;
     }
 
     .smk-slide {
@@ -99,58 +76,6 @@
       box-shadow: rgba(0, 0, 0, 0.08) 0 16px 50px;
       transform: scale(var(--slide-scale, 1));
       transform-origin: top left;
-    }
-
-    .slide-track .smk-slide {
-      position: relative;
-      inset: auto;
-      flex: 0 0 1600px;
-      transform: none;
-    }
-
-    .stage-nav-button {
-      position: fixed;
-      top: 50%;
-      z-index: 20;
-      display: grid;
-      width: 74px;
-      height: 42px;
-      place-items: center;
-      border: 0;
-      background: transparent;
-      opacity: 0;
-      transform: translateY(-50%);
-      cursor: pointer;
-      pointer-events: none;
-      transition: opacity 180ms ease;
-    }
-
-    .stage-nav-button.is-visible {
-      opacity: 0.72;
-      pointer-events: auto;
-    }
-
-    .stage-nav-button.is-visible:hover {
-      opacity: 0.9;
-    }
-
-    .stage-nav-button.prev {
-      left: 24px;
-    }
-
-    .stage-nav-button.next {
-      right: 24px;
-    }
-
-    .stage-nav-icon {
-      display: block;
-      width: 58px;
-      height: 20px;
-      color: rgba(87, 65, 216, 0.88);
-    }
-
-    .stage-nav-button.prev .stage-nav-icon {
-      transform: rotate(180deg);
     }
 
     .slide-header {
@@ -212,7 +137,7 @@
     }
 
     .technology-title {
-      max-width: 100%;
+      max-width: 1010px;
       margin: 0;
       color: var(--near-black);
       font-size: 31px;
@@ -420,19 +345,7 @@
       display: block;
       width: 100%;
       height: 100%;
-      min-width: 0;
-      min-height: 0;
-
-      max-height: 100%;
-
-      border: 1px solid var(--border-gray);
-      border-radius: 8px;
-      background: #ffffff;
-
-
       object-fit: contain;
-      padding: 6px;
-      box-sizing: border-box;
     }
 
     .keyword-panel .image-slot {
@@ -876,702 +789,267 @@
 <body>
   <main class="slide-stage" aria-label="SMK 16:9 기술소개 장표">
     <div class="slide-wrapper" id="slide-wrapper">
-      <div class="slide-track" id="slide-track">
-        <article class="smk-slide" id="smk-slide">
-          <header class="slide-header" id="slide-header">
-            <div class="document-id" id="document-id">| 2026 차세대 전지 기술이전 유망기술 설명회 |</div>
-            <div class="tag-list" id="tag-list" aria-label="기술 태그">
-              <span class="slide-tag primary" id="tag-primary">04-1</span>
+      <article class="smk-slide" id="smk-slide">
+        <header class="slide-header" id="slide-header">
+          <div class="document-id" id="document-id">| 2026 차세대 전지 기술이전 유망기술 설명회 |</div>
+          <div class="tag-list" id="tag-list" aria-label="기술 태그">
+            <span class="slide-tag primary" id="tag-primary">04</span>
+          </div>
+          <section class="hero-box" id="hero-box" aria-label="기술명 및 연구책임자 정보">
+            <div class="hero-copy" id="hero-copy">
+              <h1 class="technology-title" id="technology-title">이종 원소 도핑을 통한 할라이드계 비정질 소듐 슈퍼컨덕터 및 이의 제조방법</h1>
+              <p class="technology-subtitle" id="technology-subtitle">이종 원소 도핑과 비정질화 제어로 합성시간 단축 및 상온 이온전도도 10⁻³ S/cm급
+                구현 차세대 소듐 전고체전지용 할라이드 고체전해질</p>
             </div>
-            <section class="hero-box" id="hero-box" aria-label="기술명 및 연구책임자 정보">
-              <div class="hero-copy" id="hero-copy">
-                <h1 class="technology-title" id="technology-title">
-                  고성능 고내구성 수전해 담지 촉매
-                </h1>
-                <p class="technology-subtitle" id="technology-subtitle">
-                  고결정성 탄소 기반 촉매·지지체·복합코팅 기술을 통합해 저과전압, 고내구성, 공정 확장성을 동시에 구현한 차세대 수전해 애노드 소재 패키지
-                </p>
+            <aside class="researcher-card" id="researcher-card">
+              <div class="researcher-label" id="researcher-label">연구책임자</div>
+              <div class="researcher-name-line" id="researcher-name-line">
+                <strong class="researcher-name" id="researcher-name">김 세 영</strong>
+                <span class="researcher-position" id="researcher-position">선임연구원</span>
               </div>
-              <aside class="researcher-card" id="researcher-card">
-                <div class="researcher-label" id="researcher-label">연구책임자</div>
-                <div class="researcher-name-line" id="researcher-name-line">
-                  <strong class="researcher-name" id="researcher-name">
-                    유 성 종
-                  </strong>
-                  <span class="researcher-position" id="researcher-position">
-                    책임연구원
-                  </span>
-                </div>
-                <p class="researcher-affiliation" id="researcher-affiliation">수소ㆍ연료전지연구단</p>
-              </aside>
+              <p class="researcher-affiliation" id="researcher-affiliation">에너지저장연구센터</p>
+            </aside>
+          </section>
+        </header>
+
+        <div class="content-grid" id="content-grid">
+          <div class="content-column left-column" id="left-column">
+            <section class="section-block classification-section" id="section-classification">
+              <h2 class="section-heading" id="section-classification-title">기술활용영역 분류/활용 분야</h2>
+              <table class="classification-table" id="classification-table" aria-label="기술활용영역 분류표">
+                <colgroup>
+                  <col style="width: 25%;">
+                  <col style="width: 25%;">
+                  <col style="width: 50%;">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th id="classification-header-major">대분류</th>
+                    <th id="classification-header-middle">중분류</th>
+                    <th id="classification-header-small">소분류</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="classification-major">에너지·환경 소재기술</td>
+                    <td id="classification-middle">이차전지 소재기술</td>
+                    <td id="classification-small">소듐전고체전지용 할라이드계 비정질 고체전해질, 제조공정기술</td>
+                  </tr>
+                </tbody>
+              </table>
             </section>
-          </header>
 
-          <div class="content-grid" id="content-grid">
-            <div class="content-column left-column" id="left-column">
-              <section class="section-block classification-section" id="section-classification">
-                <h2 class="section-heading" id="section-classification-title">기술활용영역 분류/활용 분야</h2>
-                <table class="classification-table" id="classification-table" aria-label="기술활용영역 분류표">
-                  <colgroup>
-                    <col style="width: 25%;">
-                    <col style="width: 25%;">
-                    <col style="width: 50%;">
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th id="classification-header-major">대분류</th>
-                      <th id="classification-header-middle">중분류</th>
-                      <th id="classification-header-small">소분류</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td id="classification-major">
-                        친환경 에너지소재
-                      </td>
-                      <td id="classification-middle">
-                        그린수소 생산용 수전해 핵심소재
-                      </td>
-                      <td id="classification-small">
-                        고결정성 탄소 기반 수전해 애노드 촉매·지지체 패키지
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </section>
+            <section class="section-block overview-section" id="section-overview">
+              <h2 class="section-heading" id="section-overview-title">기술개요 및 개발배경</h2>
+              <div class="overview-layout" id="overview-layout">
+                <ul class="bullet-list" id="overview-list">
+                  <li id="overview-bullet-1">기존 황화물계 중심 연구의 수분 민감성, 공정 부담, 낮은 상온 전도도로 인한 사업화 제약 및 고안정·고전도 대체 소재 필요성 증대
+                  </li>
+                  <li id="overview-bullet-2">할라이드계 소재에 이종 원소 및 음이온을 도입하여 비정질 구조를 구현함으로써 기존의 낮은 이온전도도와 긴 밀링 공정시간 한계 동시 극복
+                  </li>
+                </ul>
+                <div class="keyword-panel" id="overview-keyword-panel">
+                  <div class="keyword-content-wrapper"
+                    style="width: 100%; height: 100%; padding: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; position: relative;">
+                    <span class="keyword-search-badge" style="position: static; transform: none; margin-bottom: 4px;"
+                      aria-hidden="true">
+                      <svg class="keyword-search-icon lucide lucide-search" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                      </svg>
+                      <span>Core Keyword</span>
+                    </span>
+                    <div class="hashtag-container"
+                      style="display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 10px; color: var(--cool-gray); font-size: 14px; font-weight: 700; text-align: center; word-break: keep-all;">
+                      <span class="hashtag">#고전도성</span>
+                      <span class="hashtag">#비정질 할라이드</span>
+                      <span class="hashtag">#이종원소 도핑</span>
+                      <span class="hashtag">#소듐 전고체전지</span>
 
-              <section class="section-block overview-section" id="section-overview">
-                <h2 class="section-heading" id="section-overview-title">기술개요 및 개발배경</h2>
-                <div class="overview-layout" id="overview-layout">
-                  <ul class="bullet-list" id="overview-list">
-                    <li id="overview-bullet-1">
-                      기존 수전해 전극은 고전위 산소발생반응(OER) 환경에서 탄소 부식, 촉매 응집 및 탈락, 귀금속 사용 부담, 복잡한 고온 공정 문제 동시 발생해 성능·수명·경제성 확보 난항
-                    </li>
-                    <li id="overview-bullet-2">
-                      고결정성 탄소 지지체, Ti-O-C 앵커링, 전도성 금속산화물 코팅, LDH 활성층 설계를 결합하여 촉매 고정력, 내구성, 전기화학 성능, 공정 단순성 증가 목표로 개발
-                    </li>
-                  </ul>
-                  <div class="keyword-panel" id="overview-keyword-panel">
-                    <div class="keyword-content-wrapper"
-                      style="width: 100%; height: 100%; padding: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; position: relative;">
-                      <span class="keyword-search-badge" style="position: static; transform: none; margin-bottom: 4px;"
-                        aria-hidden="true">
-                        <svg class="keyword-search-icon lucide lucide-search" xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                          stroke-linejoin="round">
-                          <circle cx="11" cy="11" r="8"></circle>
-                          <path d="m21 21-4.3-4.3"></path>
-                        </svg>
-                        <span>Core Keyword</span>
-                      </span>
-                      <div class="hashtag-container"
-                        style="display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 10px; color: var(--cool-gray); font-size: 14px; font-weight: 700; text-align: center; word-break: keep-all;">
-                        <span class="hashtag">
-                          #고결정성 탄소
-                        </span>
-                        <span class="hashtag">
-                          #LDH 촉매
-                        </span>
-                        <span class="hashtag">
-                          #저과전압
-                        </span>
-                        <span class="hashtag">
-                          #Ti-O-C 앵커링
-                        </span>
-                      </div>
                     </div>
                   </div>
                 </div>
-              </section>
+              </div>
+            </section>
 
-              <section class="section-block tech-content-section" id="section-tech-content">
-                <h2 class="section-heading" id="section-tech-content-title">기술내용 및 대표이미지</h2>
-                <div class="tech-layout" id="tech-content-layout">
-                  <div>
-                    <ul class="bullet-list" id="tech-content-list">
-                      <li id="tech-content-bullet-1">
-                        비귀금속 고활성 촉매, 고내구 하이브리드 지지체, 귀금속 고효율 복합촉매를 묶은 형태로, 수전해 애노드 소재를 고객 목적에 따라 고성능형·장수명형·고효율형으로 조합 제안할
-                        수 있는 구조
-                      </li>
-                      <li id="tech-content-bullet-2">
-                        OER 평가에서 η10 230 mV 수준의 활성과 전도성 금속산화물 코팅을 통한 촉매 응집 억제와 과전압 저감 확인, 1M KOH 기반 Qir 시험과 단전지 평가에서 탄소 부식
-                        저감 확인
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
+            <section class="section-block tech-content-section" id="section-tech-content">
+              <h2 class="section-heading" id="section-tech-content-title">기술내용 및 대표이미지</h2>
+              <div class="tech-layout" id="tech-content-layout">
+                <div>
+                  <ul class="bullet-list" id="tech-content-list">
+                    <li id="tech-content-bullet-1">NayTa1-xMxA(5-5x+y)Z2x 계열 기반 Te, Se 등 이종 원소와 O, S, N 계열 음이온 도입으로 구조적
+                      무질서도를 향상시킨 비정질 할라이드 구조 제어 기술</li>
+                    <li id="tech-content-bullet-2">Na0.7Ta0.75Te0.25Cl4.45O0.5 대표 조성 기준 상온 이온전도도 10^-3 S/cm 이상 구현(미도핑 대비
+                      37.5배 증가), 합성시간 16시간 이내 단축, 초기 방전용량 144.45 mAh/g, 초기 쿨롱효율 98% 이상</li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="image-slot tech-image-slot" id="tech-representative-image-slot">
                     <div class="image-slot tech-image-slot" id="tech-representative-image-slot">
-                      <div class="image-slot tech-image-slot" id="tech-representative-image-inner-slot">
-                        <img id="tech-representative-image" class="representative-image" alt="대표이미지"
-                          src="./img/04/present_img1.png">
-                      </div>
+                      <img id="tech-representative-image" class="representative-image" alt="대표이미지"
+                        src="./img/01/present_img.png">
                     </div>
-                    <p class="caption-text" id="tech-representative-caption"></p>
                   </div>
+                  <p class="caption-text" id="tech-representative-caption"></p>
                 </div>
-              </section>
-
-              <section class="section-block limit-improvement-section" id="section-limit-improvement">
-                <h2 class="section-heading" id="section-limit-improvement-title">기술 한계점 VS 개선점</h2>
-                <div class="comparison-panel" id="comparison-panel">
-                  <div class="comparison-side as-is" id="comparison-as-is">
-                    <h3 class="comparison-title" id="comparison-as-is-title">[ 기존기술한계점 ]</h3>
-                    <ul class="bullet-list tight" id="comparison-as-is-list">
-                      <li id="comparison-as-is-bullet-1">
-                        일반 탄소 지지체는 수전해의 고전위 환경에서 장기 구동 안정성 확보 난항
-                      </li>
-                      <li id="comparison-as-is-bullet-2">
-                        고결정성 탄소는 촉매 담지 효율이 낮고, 금속산화물 지지체는 성능과 수명의 균형 달성 난해
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="comparison-chevron" id="comparison-chevron" aria-hidden="true">
-                    <svg id="comparison-arrow-icon" class="comparison-arrow-icon lucide lucide-circle-arrow-right"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <path d="M8 12h8"></path>
-                      <path d="m12 16 4-4-4-4"></path>
-                    </svg>
-                  </div>
-                  <div class="comparison-side to-be" id="comparison-to-be">
-                    <h3 class="comparison-title" id="comparison-to-be-title">[ 개발기술개선점 ]</h3>
-                    <ul class="bullet-list tight" id="comparison-to-be-list">
-                      <li id="comparison-to-be-bullet-1">
-                        고결정성 탄소 + Ti-O-C 결합 + 전도성 금속산화물 코팅 + LDH/귀금속 활성층을 조합해 촉매 고정력과 계면 안정성을 높이고 탄소 부식 억제
-                      </li>
-                      <li id="comparison-to-be-bullet-2">
-                        상온·단시간 공정과 앵커링 사이트 설계를 통해 저과전압, 응집 억제, 장기 내구성, 공정 확장성 동시 확보로 사업화에 장점
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </section>
-            </div>
-
-            <div class="content-column right-column" id="right-column">
-              <section class="section-block market-trend-section" id="section-market-trend">
-                <h2 class="section-heading" id="section-market-trend-title">관련시장동향</h2>
-                <div class="market-layout" id="market-trend-layout">
-                  <ul class="bullet-list" id="market-trend-list">
-                    <li id="market-trend-bullet-1">
-                      한국 수소 생산 시장은 2024년 32억8,760만 달러에서 2033년 47억8,260만 달러로 성장 전망(CAGR 4.25%)이며, 수전해 기술 고도화가 핵심 성장동력으로
-                      평가
-                    </li>
-                    <li id="market-trend-bullet-2">
-                      정부는 2030년 25만 톤급 그린수소 생산 기반과 GW급 수전해 시스템 상용화를 추진 중이며, 수전해 설비 확산을 위한 제도 지원 병행 중
-                    </li>
-
-                  </ul>
-                  <div class="market-chart-panel" id="market-chart-panel">
-                    <div class="image-slot market-image-slot" id="market-trend-image-slot">
-                      <canvas id="marketChart" class="market-chart-canvas"></canvas>
-                    </div>
-                    <p class="market-chart-source" id="market-chart-source">&lt;IMARC Group&gt;</p>
-                  </div>
-                </div>
-              </section>
-
-              <section class="section-block business-idea-section" id="section-business-idea">
-                <h2 class="section-heading" id="section-business-idea-title">Business Idea / 응용·적용분야</h2>
-                <div class="business-layout" id="business-idea-layout">
-                  <ul class="bullet-list" id="business-idea-list">
-                    <li id="business-idea-bullet-1">산업분야:
-                      수전해/그린수소/전극소재/에너지플랜트
-
-                    </li>
-                    <li id="business-idea-bullet-2">관련시장:
-                      AEMWE/PEMWE/수전해 스택 소재/수소생산 설비
-                    </li>
-                    <li id="business-idea-bullet-3">적용가능한 제품:
-                      애노드 촉매/촉매 코팅 전극(CCM)/수전해 MEA
-                    </li>
-                  </ul>
-                  <div class="business-application-images" id="business-application-images" data-image-count="2">
-                    <img id="business-image-1" class="business-image" alt="응용·적용분야 이미지 1"
-                      src="./img/04/idea_img1-1.png">
-                    <img id="business-image-2" class="business-image" alt="응용·적용분야 이미지 2"
-                      src="./img/04/idea_img1-2.jpg">
-                  </div>
-                </div>
-                <div class="business-idea-box" id="business-idea-box">
-                  <h3 class="business-idea-box-title" id="business-idea-box-title">사업화 제안 포인트</h3>
-                  <ul class="bullet-list tight" id="business-idea-box-list">
-                    <li id="business-idea-box-bullet-1">
-                      비귀금속 고활성형 + 고내구 지지체형 + 귀금속 고효율형의 포트폴리오 제안이 가능해 고객사 요구 수준에 따라 맞춤형 사업화 가능
-                    </li>
-                    <li id="business-idea-box-bullet-2">
-                      기존 수전해 시스템 기업에는 기존 제품 성능 업그레이드 소재, 신규 진입 기업에는 애노드 핵심소재 라인업 확보용 패키지 기술
-                    </li>
-
-                  </ul>
-                </div>
-              </section>
-
-              <section class="section-block maturity-section" id="section-maturity">
-                <h2 class="section-heading" id="section-maturity-title">기술성숙도</h2>
-                <div class="maturity-scale" id="maturity-scale" data-level="5" aria-label="기술성숙도">
-                  <div class="maturity-item" id="maturity-item-1" style="--bar-level: 1;"><span class="maturity-number"
-                      id="maturity-number-1">1</span><span class="maturity-bars" id="maturity-bars-1"><span
-                        class="maturity-fill" id="maturity-fill-1"></span></span></div>
-                  <div class="maturity-item" id="maturity-item-2" style="--bar-level: 2;"><span class="maturity-number"
-                      id="maturity-number-2">2</span><span class="maturity-bars" id="maturity-bars-2"><span
-                        class="maturity-fill" id="maturity-fill-2"></span></span></div>
-                  <div class="maturity-item" id="maturity-item-3" style="--bar-level: 3;"><span class="maturity-number"
-                      id="maturity-number-3">3</span><span class="maturity-bars" id="maturity-bars-3"><span
-                        class="maturity-fill" id="maturity-fill-3"></span></span></div>
-                  <div class="maturity-item" id="maturity-item-4" style="--bar-level: 4;"><span class="maturity-number"
-                      id="maturity-number-4">4</span><span class="maturity-bars" id="maturity-bars-4"><span
-                        class="maturity-fill" id="maturity-fill-4"></span></span></div>
-                  <div class="maturity-item" id="maturity-item-5" style="--bar-level: 5;"><span class="maturity-number"
-                      id="maturity-number-5">5</span><span class="maturity-bars" id="maturity-bars-5"><span
-                        class="maturity-fill" id="maturity-fill-5"></span></span></div>
-                  <div class="maturity-item" id="maturity-item-6" style="--bar-level: 6;"><span class="maturity-number"
-                      id="maturity-number-6">6</span><span class="maturity-bars" id="maturity-bars-6"><span
-                        class="maturity-fill" id="maturity-fill-6"></span></span></div>
-                  <div class="maturity-item" id="maturity-item-7" style="--bar-level: 7;"><span class="maturity-number"
-                      id="maturity-number-7">7</span><span class="maturity-bars" id="maturity-bars-7"><span
-                        class="maturity-fill" id="maturity-fill-7"></span></span></div>
-                  <div class="maturity-item" id="maturity-item-8" style="--bar-level: 8;"><span class="maturity-number"
-                      id="maturity-number-8">8</span><span class="maturity-bars" id="maturity-bars-8"><span
-                        class="maturity-fill" id="maturity-fill-8"></span></span></div>
-                  <div class="maturity-item" id="maturity-item-9" style="--bar-level: 9;"><span class="maturity-number"
-                      id="maturity-number-9">9</span><span class="maturity-bars" id="maturity-bars-9"><span
-                        class="maturity-fill" id="maturity-fill-9"></span></span></div>
-                  <span class="maturity-marker" id="maturity-marker" aria-hidden="true">
-                    <svg id="maturity-marker-icon" class="maturity-marker-icon lucide lucide-circle-check"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                      <circle class="maturity-marker-bg" cx="12" cy="12" r="10"></circle>
-                      <path class="maturity-marker-check" d="m9 12 2 2 4-4"></path>
-                    </svg>
-                  </span>
-                </div>
-                <p class="maturity-note" id="maturity-note">TRL 5 : 확정된 공법/재료/시스템의 실험실 시제품 제작 및 성능 평가가완료된 단계
-                </p>
-              </section>
-
-              <section class="section-block ip-portfolio-section" id="section-ip-portfolio">
-                <h2 class="section-heading" id="section-ip-portfolio-title">IP Portfolio</h2>
-                <table class="ip-table" id="ip-table" aria-label="IP Portfolio 표">
-                  <colgroup>
-                    <col style="width: 40%;">
-                    <col style="width: 15%;">
-                    <col style="width: 15%;">
-                    <col style="width: 15%;">
-                    <col style="width: 15%;">
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th id="ip-table-header-title">발명의 명칭</th>
-                      <th id="ip-table-header-application">출원번호</th>
-                      <th id="ip-table-header-date">출원일자</th>
-                      <th id="ip-table-header-registration">등록번호</th>
-                      <th id="ip-table-header-registration-date">등록일자</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td id="ip-row-1-title">
-                        수전해용 전극촉매, 이를 포함하는 수전해 전지 및 이의 제조방법
-                      </td>
-                      <td id="ip-row-1-application">
-                        10-2022-0111917
-                      </td>
-                      <td id="ip-row-1-date">2022.09.05</td>
-                      <td id="ip-row-1-registration">10-2024-0171520</td>
-                      <td id="ip-row-1-registration-date">2024.12.09</td>
-                    </tr>
-                    <tr>
-                      <td id="ip-row-1-title">
-                        고결정성 탄소 기반 수전해 촉매용 하이브리드 지지체 및 이를 포함하는 수전해용 촉매 복합체
-                      </td>
-                      <td id="ip-row-1-application">
-                        10-2025-0055276
-                      </td>
-                      <td id="ip-row-1-date">
-                        2025.04.28
-                      </td>
-                      <td id="ip-row-1-registration">
-                        미공개
-                      </td>
-                      <td id="ip-row-1-registration-date">
-                        -
-                      </td>
-                    </tr>
-                    <tr>
-                      <td id="ip-row-1-title">
-                        수전해용 촉매, 이의 제조방법 및 이를 포함하는 수전해 전지
-                      </td>
-                      <td id="ip-row-1-application">
-                        10-2025-0070330
-                      </td>
-                      <td id="ip-row-1-date">
-                        2025.05.29
-                      </td>
-                      <td id="ip-row-1-registration">
-                        미공개
-                      </td>
-                      <td id="ip-row-1-registration-date">
-                        -
-                      </td>
-                    </tr>
-                    <tr>
-                      <td id="ip-row-1-title">
-                        할로겐화 탄소 담지체 기반 고내구성 연료전지용 촉매의 제조 방법
-                      </td>
-                      <td id="ip-row-1-application">
-                        10-2025-0129848
-                      </td>
-                      <td id="ip-row-1-date">
-                        2025.09.11
-                      </td>
-                      <td id="ip-row-1-registration">
-                        미공개
-                      </td>
-                      <td id="ip-row-1-registration-date">
-                        -
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </section>
-
-            </div>
-          </div>
-        </article>
-        <article class="smk-slide" id="smk-slide-2">
-          <header class="slide-header" id="slide-header-2">
-            <div class="document-id" id="document-id-2">| 2026 차세대 전지 기술이전 유망기술 설명회 |</div>
-            <div class="tag-list" id="tag-list-2" aria-label="기술 태그">
-              <span class="slide-tag primary" id="tag-primary-2">04-2</span>
-            </div>
-            <section class="hero-box" id="hero-box-2" aria-label="기술명 및 연구책임자 정보">
-              <div class="hero-copy" id="hero-copy-2">
-                <h1 class="technology-title" id="technology-title-2">
-                  초임계 유체를 이용한 귀금속 함량 제어 고성능 연료전지 및 수전해 촉매
-                </h1>
-                <p class="technology-subtitle" id="technology-subtitle-2">
-                  할로겐 도핑 탄소 담지체, 초임계 촉매 합성, 고분산 전극 슬러리 공정을 통합해 연료전지의 촉매 효율·전극 균일도·장기 내구성을 동시에 높인 차세대 촉매·전극 패키지 기술
-                </p>
               </div>
-              <aside class="researcher-card" id="researcher-card-2">
-                <div class="researcher-label" id="researcher-label-2">연구책임자</div>
-                <div class="researcher-name-line" id="researcher-name-line-2">
-                  <strong class="researcher-name" id="researcher-name-2">
-                    유 성 종
-                  </strong>
-                  <span class="researcher-position" id="researcher-position-2">
-                    책임연구원
-                  </span>
-                </div>
-                <p class="researcher-affiliation" id="researcher-affiliation-2">수소ㆍ연료전지연구단</p>
-              </aside>
             </section>
-          </header>
 
-          <div class="content-grid" id="content-grid-2">
-            <div class="content-column left-column" id="left-column-2">
-              <section class="section-block classification-section" id="section-classification-2">
-                <h2 class="section-heading" id="section-classification-title-2">기술활용영역 분류/활용 분야</h2>
-                <table class="classification-table" id="classification-table-2" aria-label="기술활용영역 분류표">
-                  <colgroup>
-                    <col style="width: 25%;">
-                    <col style="width: 25%;">
-                    <col style="width: 50%;">
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th id="classification-header-major-2">대분류</th>
-                      <th id="classification-header-middle-2">중분류</th>
-                      <th id="classification-header-small-2">소분류</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td id="classification-major-2">
-                        친환경 에너지소재·공정기술
-                      </td>
-                      <td id="classification-middle-2">
-                        수소연료전지용 촉매 및 전극 제조기술
-                      </td>
-                      <td id="classification-small-2">
-                        할로겐 도핑 탄소 촉매 + 초임계 촉매 제조 + 고분산 전극 슬러리 패키지
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </section>
-
-              <section class="section-block overview-section" id="section-overview-2">
-                <h2 class="section-heading" id="section-overview-title-2">기술개요 및 개발배경</h2>
-                <div class="overview-layout" id="overview-layout-2">
-                  <ul class="bullet-list" id="overview-list-2">
-                    <li id="overview-bullet-1-2">
-                      기존 연료전지 촉매는 결정성 탄소 지지체의 낮은 Pt 담지 효율, 촉매 응집, 장기 구동 시 내구 저하 문제 발생, 전극 제조 공정에서는 코팅 균일도와 전극 성능 저하 한계 존재
-                    </li>
-                    <li id="overview-bullet-2-2">
-                      할로겐 도핑, 무첨가 고분산 슬러리 공정으로 전극 품질 개선을 동시 구현해 연료전지 MEA 성능과 수명을 함께 향상하는 기술
-                    </li>
-                  </ul>
-                  <div class="keyword-panel" id="overview-keyword-panel-2">
-                    <div class="keyword-content-wrapper"
-                      style="width: 100%; height: 100%; padding: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; position: relative;">
-                      <span class="keyword-search-badge" style="position: static; transform: none; margin-bottom: 4px;"
-                        aria-hidden="true">
-                        <svg class="keyword-search-icon lucide lucide-search" xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                          stroke-linejoin="round">
-                          <circle cx="11" cy="11" r="8"></circle>
-                          <path d="m21 21-4.3-4.3"></path>
-                        </svg>
-                        <span>Core Keyword</span>
-                      </span>
-                      <div class="hashtag-container"
-                        style="display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 10px; color: var(--cool-gray); font-size: 14px; font-weight: 700; text-align: center; word-break: keep-all;">
-                        <span class="hashtag">
-                          #할로겐 도핑 탄소
-                        </span>
-                        <span class="hashtag">
-                          #초임계 이산화탄소
-                        </span>
-                        <span class="hashtag">
-                          #고분산 Pt 촉매
-                        </span>
-                        <span class="hashtag">
-                          #촉매 담지효율 향상
-                        </span>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              <section class="section-block tech-content-section" id="section-tech-content-2">
-                <h2 class="section-heading" id="section-tech-content-title-2">기술내용 및 대표이미지</h2>
-                <div class="tech-layout" id="tech-content-layout-2">
-                  <div>
-                    <ul class="bullet-list" id="tech-content-list-2">
-                      <li id="tech-content-bullet-1-2">
-                        촉매 담지체 개질, 초미세 촉매 합성, 전극 슬러리·코팅 공정을 하나의 밸류체인으로 묶은 구조로, 연료전지 전극 소재를 분말 단계부터 전극 단계까지 일관적 고도화 가능
-                      </li>
-                      <li id="tech-content-bullet-2-2">
-                        ADT 후 반파전위 감소폭 1.62 mV, 초임계 압력 650 bar 조건에서 3 nm급 Pt 입자 구현, 가속노화 후 전극 출력 905 mW/cm²와 열화율 3.31% 달성
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <div class="image-slot tech-image-slot" id="tech-representative-image-slot-2">
-                      <div class="image-slot tech-image-slot" id="tech-representative-image-inner-slot-2">
-                        <img id="tech-representative-image-2" class="representative-image" alt="대표이미지"
-                          src="./img/04/present_img2.jpg">
-                      </div>
-                    </div>
-                    <p class="caption-text" id="tech-representative-caption-2"></p>
-                  </div>
-                </div>
-              </section>
-
-              <section class="section-block limit-improvement-section" id="section-limit-improvement-2">
-                <h2 class="section-heading" id="section-limit-improvement-title-2">기술 한계점 VS 개선점</h2>
-                <div class="comparison-panel" id="comparison-panel-2">
-                  <div class="comparison-side as-is" id="comparison-as-is-2">
-                    <h3 class="comparison-title" id="comparison-as-is-title-2">[ 기존기술한계점 ]</h3>
-                    <ul class="bullet-list tight" id="comparison-as-is-list-2">
-                      <li id="comparison-as-is-bullet-1-2">
-                        고결정성 탄소는 백금 나노입자 분산과 담지 효율이 저하, 장기 운전 시 촉매 탈락과 활성 저하 발생 가능
-                      </li>
-                      <li id="comparison-as-is-bullet-2-2">
-                        기존 전극 제조는 슬러리 응집체 제거 한계, 코팅 불균일, 첨가제 잔류에 따른 전극 품질 저하 문제 발생
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="comparison-chevron" id="comparison-chevron-2" aria-hidden="true">
-                    <svg id="comparison-arrow-icon-2" class="comparison-arrow-icon lucide lucide-circle-arrow-right"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <path d="M8 12h8"></path>
-                      <path d="m12 16 4-4-4-4"></path>
-                    </svg>
-                  </div>
-                  <div class="comparison-side to-be" id="comparison-to-be-2">
-                    <h3 class="comparison-title" id="comparison-to-be-title-2">[ 개발기술개선점 ]</h3>
-                    <ul class="bullet-list tight" id="comparison-to-be-list-2">
-                      <li id="comparison-to-be-bullet-1-2">
-                        할로겐 도핑과 초임계 공정을 통해 동일 귀금속 사용량 대비 성능과 내구성 동시 향상
-                      </li>
-                      <li id="comparison-to-be-bullet-2-2">
-                        무첨가 고분산 슬러리 공정으로 전극 코팅 품질과 재현성을 높여 촉매-전극-MEA 일체형 성능 개선이 가능하고, 실제 양산 공정으로의 확장성 우수
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </section>
-            </div>
-
-            <div class="content-column right-column" id="right-column-2">
-              <section class="section-block market-trend-section" id="section-market-trend-2">
-                <h2 class="section-heading" id="section-market-trend-title-2">관련시장동향</h2>
-                <div class="market-layout" id="market-trend-layout-2">
-                  <ul class="bullet-list" id="market-trend-list-2">
-                    <li id="market-trend-bullet-1-2">
-                      국내 연료전지 시장은 2024년 1억 2,580만 달러에서 2033년 5억 6,220만 달러로 성장할 전망 - CAGR 18.1%
-                    </li>
-                    <li id="market-trend-bullet-2-2">
-                      정부는 연료전지 보급 속도를 세계 최고 수준으로 평가하면서, 도심 수요지 중심으로 연료전지 설치 확대를 추진 중
-                    </li>
-
-                  </ul>
-                  <div class="market-chart-panel" id="market-chart-panel-2">
-                    <div class="image-slot market-image-slot" id="market-trend-image-slot-2">
-                      <canvas id="marketChart-2" class="market-chart-canvas"></canvas>
-                    </div>
-                    <p class="market-chart-source" id="market-chart-source-2">&lt;IMARC group&gt;</p>
-                  </div>
-                </div>
-              </section>
-
-              <section class="section-block business-idea-section" id="section-business-idea-2">
-                <h2 class="section-heading" id="section-business-idea-title-2">Business Idea / 응용·적용분야</h2>
-                <div class="business-layout" id="business-idea-layout-2">
-                  <ul class="bullet-list" id="business-idea-list-2">
-                    <li id="business-idea-bullet-1-2">산업분야:
-                      수소연료전지/촉매소재/전극·MEA 제조/전극 코팅 공정
-                    </li>
-                    <li id="business-idea-bullet-2-2">관련시장:
-                      PEMFC스택/FCEV용 촉매/발전용 연료전지
-                    </li>
-                    <li id="business-idea-bullet-3-2">적용가능한 제품:
-                      Pt 촉매 분말/할로겐 도핑 촉매 담지체/코팅 전극
-                    </li>
-                  </ul>
-                  <div class="business-application-images" id="business-application-images-2" data-image-count="2">
-                    <img id="business-image-1-2" class="business-image" alt="응용·적용분야 이미지 1"
-                      src="./img/04/idea_img2-1.png">
-                    <img id="business-image-2-2" class="business-image" alt="응용·적용분야 이미지 2"
-                      src="./img/04/idea_img2-2.jpg">
-                  </div>
-                </div>
-                <div class="business-idea-box" id="business-idea-box-2">
-                  <h3 class="business-idea-box-title" id="business-idea-box-title-2">사업화 제안 포인트</h3>
-                  <ul class="bullet-list tight" id="business-idea-box-list-2">
-                    <li id="business-idea-box-bullet-1-2">
-                      “담지체-촉매-전극 공정” 제안으로 고객사 입장에서는 부품 단위가 아니라 MEA 성능 향상 솔루션으로 도입
-                    </li>
-                    <li id="business-idea-box-bullet-2-2">
-                      연료전지 기업에는 기존 Pt/C 기반 전극 업그레이드 기술, 신규 진입 기업에는 촉매·전극 밸류체인을 한 번에 확보하는 패키지 기술
-                    </li>
+            <section class="section-block limit-improvement-section" id="section-limit-improvement">
+              <h2 class="section-heading" id="section-limit-improvement-title">기술 한계점 VS 개선점</h2>
+              <div class="comparison-panel" id="comparison-panel">
+                <div class="comparison-side as-is" id="comparison-as-is">
+                  <h3 class="comparison-title" id="comparison-as-is-title">[ 기존기술한계점 ]</h3>
+                  <ul class="bullet-list tight" id="comparison-as-is-list">
+                    <li id="comparison-as-is-bullet-1">통상 10^-4 S/cm 이하의 낮은 상온 이온전도도로 고출력 구동이 제약되며 기계적 밀링 기반 합성 공정이 40시간
+                      이상 소요되어 생산성 확보 불가</li>
+                    <li id="comparison-as-is-bullet-2">전해질-전극 간 계면 적합성 및 변형성 부족으로 전지 구동 시 계면 저항 증가 및 수명 저하 우려</li>
                   </ul>
                 </div>
-              </section>
-
-              <section class="section-block maturity-section" id="section-maturity-2">
-                <h2 class="section-heading" id="section-maturity-title-2">기술성숙도</h2>
-                <div class="maturity-scale" id="maturity-scale-2" data-level="5" aria-label="기술성숙도">
-                  <div class="maturity-item" id="maturity-item-1-2" style="--bar-level: 1;"><span
-                      class="maturity-number" id="maturity-number-1-2">1</span><span class="maturity-bars"
-                      id="maturity-bars-1-2"><span class="maturity-fill" id="maturity-fill-1-2"></span></span></div>
-                  <div class="maturity-item" id="maturity-item-2-2" style="--bar-level: 2;"><span
-                      class="maturity-number" id="maturity-number-2-2">2</span><span class="maturity-bars"
-                      id="maturity-bars-2-2"><span class="maturity-fill" id="maturity-fill-2-2"></span></span></div>
-                  <div class="maturity-item" id="maturity-item-3-2" style="--bar-level: 3;"><span
-                      class="maturity-number" id="maturity-number-3-2">3</span><span class="maturity-bars"
-                      id="maturity-bars-3-2"><span class="maturity-fill" id="maturity-fill-3-2"></span></span></div>
-                  <div class="maturity-item" id="maturity-item-4-2" style="--bar-level: 4;"><span
-                      class="maturity-number" id="maturity-number-4-2">4</span><span class="maturity-bars"
-                      id="maturity-bars-4-2"><span class="maturity-fill" id="maturity-fill-4-2"></span></span></div>
-                  <div class="maturity-item" id="maturity-item-5-2" style="--bar-level: 5;"><span
-                      class="maturity-number" id="maturity-number-5-2">5</span><span class="maturity-bars"
-                      id="maturity-bars-5-2"><span class="maturity-fill" id="maturity-fill-5-2"></span></span></div>
-                  <div class="maturity-item" id="maturity-item-6-2" style="--bar-level: 6;"><span
-                      class="maturity-number" id="maturity-number-6-2">6</span><span class="maturity-bars"
-                      id="maturity-bars-6-2"><span class="maturity-fill" id="maturity-fill-6-2"></span></span></div>
-                  <div class="maturity-item" id="maturity-item-7-2" style="--bar-level: 7;"><span
-                      class="maturity-number" id="maturity-number-7-2">7</span><span class="maturity-bars"
-                      id="maturity-bars-7-2"><span class="maturity-fill" id="maturity-fill-7-2"></span></span></div>
-                  <div class="maturity-item" id="maturity-item-8-2" style="--bar-level: 8;"><span
-                      class="maturity-number" id="maturity-number-8-2">8</span><span class="maturity-bars"
-                      id="maturity-bars-8-2"><span class="maturity-fill" id="maturity-fill-8-2"></span></span></div>
-                  <div class="maturity-item" id="maturity-item-9-2" style="--bar-level: 9;"><span
-                      class="maturity-number" id="maturity-number-9-2">9</span><span class="maturity-bars"
-                      id="maturity-bars-9-2"><span class="maturity-fill" id="maturity-fill-9-2"></span></span></div>
-                  <span class="maturity-marker" id="maturity-marker-2" aria-hidden="true">
-                    <svg id="maturity-marker-icon-2" class="maturity-marker-icon lucide lucide-circle-check"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                      <circle class="maturity-marker-bg" cx="12" cy="12" r="10"></circle>
-                      <path class="maturity-marker-check" d="m9 12 2 2 4-4"></path>
-                    </svg>
-                  </span>
+                <div class="comparison-chevron" id="comparison-chevron" aria-hidden="true">
+                  <svg id="comparison-arrow-icon" class="comparison-arrow-icon lucide lucide-circle-arrow-right"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M8 12h8"></path>
+                    <path d="m12 16 4-4-4-4"></path>
+                  </svg>
                 </div>
-                <p class="maturity-note" id="maturity-note-2">TRL 5 : 확정된 공법/재료/시스템의 실험실 시제품 제작 및 성능 평가가 완료된 단계
-                  단계
-                </p>
-              </section>
-
-              <section class="section-block ip-portfolio-section" id="section-ip-portfolio-2">
-                <h2 class="section-heading" id="section-ip-portfolio-title-2">IP Portfolio</h2>
-                <table class="ip-table" id="ip-table-2" aria-label="IP Portfolio 표">
-                  <colgroup>
-                    <col style="width: 40%;">
-                    <col style="width: 15%;">
-                    <col style="width: 15%;">
-                    <col style="width: 15%;">
-                    <col style="width: 15%;">
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th id="ip-table-header-title-2">발명의 명칭</th>
-                      <th id="ip-table-header-application-2">출원번호</th>
-                      <th id="ip-table-header-date-2">출원일자</th>
-                      <th id="ip-table-header-registration-2">등록번호</th>
-                      <th id="ip-table-header-registration-date-2">등록일자</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td id="ip-row-1-title-2">
-                        초임계 유체를 이용한 촉매의 제조방법 및 이를 통해 제조된 촉매
-                      </td>
-                      <td id="ip-row-1-application-2">
-                        10-2024-0054491
-                      </td>
-                      <td id="ip-row-1-date-2">2024.04.24</td>
-                      <td id="ip-row-1-registration-2">미공개</td>
-                      <td id="ip-row-1-registration-date-2">-</td>
-                    </tr>
-                    <tr>
-                      <td id="ip-row-1-title-2">
-                        초임계 유체를 이용한 촉매 및 전극 제조방법
-                      </td>
-                      <td id="ip-row-1-application-2">
-                        10-2024-0034154
-                      </td>
-                      <td id="ip-row-1-date-2">2024.03.11</td>
-                      <td id="ip-row-1-registration-2">미공개</td>
-                      <td id="ip-row-1-registration-date-2">-</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </section>
-
-            </div>
+                <div class="comparison-side to-be" id="comparison-to-be">
+                  <h3 class="comparison-title" id="comparison-to-be-title">[ 개발기술개선점 ]</h3>
+                  <ul class="bullet-list tight" id="comparison-to-be-list">
+                    <li id="comparison-to-be-bullet-1">이종 원소 도핑 기반 비정질화 설계 기술을 적용하여 10^-3 S/cm급 상온 전도도를 달성하고 상온 전도성을 대폭
+                      향상</li>
+                    <li id="comparison-to-be-bullet-2">합성 공정시간을 16시간 이내로 단축하여 양산 친화성을 제고하고, 우수한 변형성 및 계면 안정성 확보로 셀 적용성
+                      강화</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
           </div>
-        </article>
-      </div>
+
+          <div class="content-column right-column" id="right-column">
+            <section class="section-block market-trend-section" id="section-market-trend">
+              <h2 class="section-heading" id="section-market-trend-title">관련시장동향</h2>
+              <div class="market-layout" id="market-trend-layout">
+                <ul class="bullet-list" id="market-trend-list">
+                  <li id="market-trend-bullet-1">2030년대까지 연평균 21.7% 초고속 성장 예상</li>
+                  <li id="market-trend-bullet-2">글로벌 기업들이 2027년 상용화를 목표로 기술 경쟁을 벌이는 가운데, 한국 기업과 연구진이 특허 및 원천 기술 개발을 주도 中</li>
+                  <li id="market-trend-bullet-3">전기차를 시작으로 UAM 등 다양한 모빌리티로 도입이 확대될 예정이며, 황화물계 중심의 시장 성장과 원가 절감이 핵심 과제</li>
+                </ul>
+                <div class="market-chart-panel" id="market-chart-panel">
+                  <div class="image-slot market-image-slot" id="market-trend-image-slot">
+                    <canvas id="marketChart"></canvas>
+                  </div>
+                  <p class="market-chart-source" id="market-chart-source">&lt;grand view research&gt;</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="section-block business-idea-section" id="section-business-idea">
+              <h2 class="section-heading" id="section-business-idea-title">Business Idea / 응용·적용분야</h2>
+              <div class="business-layout" id="business-idea-layout">
+                <ul class="bullet-list" id="business-idea-list">
+                  <li id="business-idea-bullet-1">산업분야: 이차전지 소재/전기차/ESS/차세대 배터리 부품</li>
+                  <li id="business-idea-bullet-2">관련시장: 전고체전지/소듐이온전지/고체전해질/배터리 소재 국산화</li>
+                  <li id="business-idea-bullet-2">적용가능한 제품: 전기차용 전고체 배터리 셀/ESS용 소듐 배터리 모듈/고체전해질 분말 및 시트/전극 복합화 첨가소재</li>
+                </ul>
+                <div class="business-application-images" id="business-application-images" data-image-count="2">
+                  <img id="business-image-1" class="business-image" alt="응용·적용분야 이미지 1" src="./img/01/idea_img1.jpg">
+                  <img id="business-image-2" class="business-image" alt="응용·적용분야 이미지 2" src="./img/01/idea_img2.png">
+                </div>
+              </div>
+              <div class="business-idea-box" id="business-idea-box">
+                <h3 class="business-idea-box-title" id="business-idea-box-title">사업화 제안 포인트</h3>
+                <ul class="bullet-list tight" id="business-idea-box-list">
+                  <li id="business-idea-box-bullet-1">배터리 3사, 완성차, 소재기업 대상 공동평가용 샘플 공급 및 NDA 기반 PoC 추진을 통한 데이터 조기 확보
+                  </li>
+                  <li id="business-idea-box-bullet-2">전극 복합화 레시피, 가공조건, 셀 적용 데이터를 연계한 패키지형 라이선스 모델 구축으로 기술이전 성공률 제고</li>
+                  <li id="business-idea-box-bullet-3">ESS, 로봇, 특수전원 등 고안전성 핵심 수요처 다변화를 통한 소재 판매 및 공정 라이선스 결합 복합 비즈니스 모델
+                    확장</li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="section-block maturity-section" id="section-maturity">
+              <h2 class="section-heading" id="section-maturity-title">기술성숙도</h2>
+              <div class="maturity-scale" id="maturity-scale" data-level="4" aria-label="기술성숙도 4단계">
+                <div class="maturity-item" id="maturity-item-1" style="--bar-level: 1;"><span class="maturity-number"
+                    id="maturity-number-1">1</span><span class="maturity-bars" id="maturity-bars-1"><span
+                      class="maturity-fill" id="maturity-fill-1"></span></span></div>
+                <div class="maturity-item" id="maturity-item-2" style="--bar-level: 2;"><span class="maturity-number"
+                    id="maturity-number-2">2</span><span class="maturity-bars" id="maturity-bars-2"><span
+                      class="maturity-fill" id="maturity-fill-2"></span></span></div>
+                <div class="maturity-item" id="maturity-item-3" style="--bar-level: 3;"><span class="maturity-number"
+                    id="maturity-number-3">3</span><span class="maturity-bars" id="maturity-bars-3"><span
+                      class="maturity-fill" id="maturity-fill-3"></span></span></div>
+                <div class="maturity-item" id="maturity-item-4" style="--bar-level: 4;"><span class="maturity-number"
+                    id="maturity-number-4">4</span><span class="maturity-bars" id="maturity-bars-4"><span
+                      class="maturity-fill" id="maturity-fill-4"></span></span></div>
+                <div class="maturity-item" id="maturity-item-5" style="--bar-level: 5;"><span class="maturity-number"
+                    id="maturity-number-5">5</span><span class="maturity-bars" id="maturity-bars-5"><span
+                      class="maturity-fill" id="maturity-fill-5"></span></span></div>
+                <div class="maturity-item" id="maturity-item-6" style="--bar-level: 6;"><span class="maturity-number"
+                    id="maturity-number-6">6</span><span class="maturity-bars" id="maturity-bars-6"><span
+                      class="maturity-fill" id="maturity-fill-6"></span></span></div>
+                <div class="maturity-item" id="maturity-item-7" style="--bar-level: 7;"><span class="maturity-number"
+                    id="maturity-number-7">7</span><span class="maturity-bars" id="maturity-bars-7"><span
+                      class="maturity-fill" id="maturity-fill-7"></span></span></div>
+                <div class="maturity-item" id="maturity-item-8" style="--bar-level: 8;"><span class="maturity-number"
+                    id="maturity-number-8">8</span><span class="maturity-bars" id="maturity-bars-8"><span
+                      class="maturity-fill" id="maturity-fill-8"></span></span></div>
+                <div class="maturity-item" id="maturity-item-9" style="--bar-level: 9;"><span class="maturity-number"
+                    id="maturity-number-9">9</span><span class="maturity-bars" id="maturity-bars-9"><span
+                      class="maturity-fill" id="maturity-fill-9"></span></span></div>
+                <span class="maturity-marker" id="maturity-marker" aria-hidden="true">
+                  <svg id="maturity-marker-icon" class="maturity-marker-icon lucide lucide-circle-check"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <circle class="maturity-marker-bg" cx="12" cy="12" r="10"></circle>
+                    <path class="maturity-marker-check" d="m9 12 2 2 4-4"></path>
+                  </svg>
+                </span>
+              </div>
+              <p class="maturity-note" id="maturity-note">TRL 4 : 실험실 규모 소재 합성, 구조 분석, 이온전도도 측정 및 초기 셀 성능 평가 검증 완료 단계
+              </p>
+            </section>
+
+            <section class="section-block ip-portfolio-section" id="section-ip-portfolio">
+              <h2 class="section-heading" id="section-ip-portfolio-title">IP Portfolio</h2>
+              <table class="ip-table" id="ip-table" aria-label="IP Portfolio 표">
+                <colgroup>
+                  <col style="width: 40%;">
+                  <col style="width: 15%;">
+                  <col style="width: 15%;">
+                  <col style="width: 15%;">
+                  <col style="width: 15%;">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th id="ip-table-header-title">발명의 명칭</th>
+                    <th id="ip-table-header-application">출원번호</th>
+                    <th id="ip-table-header-date">출원일자</th>
+                    <th id="ip-table-header-registration">등록번호</th>
+                    <th id="ip-table-header-registration-date">등록일자</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="ip-row-1-title">고전도성의 비정질 고체전해질 및 이의 제조방법</td>
+                    <td id="ip-row-1-application">10-2025-0215267</td>
+                    <td id="ip-row-1-date">2025.12.30</td>
+                    <td id="ip-row-1-registration">미공개</td>
+                    <td id="ip-row-1-registration-date">-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+          </div>
+        </div>
+      </article>
     </div>
-    <button class="stage-nav-button prev" id="slide-nav-prev" type="button" aria-label="이전 장표">
-      <svg class="stage-nav-icon" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M0 9.5H28V8.5H0V9.5ZM27.6464 9.35355L28.3536 8.64645L20.3536 0.646447L19.6464 1.35355L27.6464 9.35355Z"
-          fill="currentColor" />
-      </svg>
-    </button>
-    <button class="stage-nav-button next is-visible" id="slide-nav-next" type="button" aria-label="다음 장표">
-      <svg class="stage-nav-icon" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M0 9.5H28V8.5H0V9.5ZM27.6464 9.35355L28.3536 8.64645L20.3536 0.646447L19.6464 1.35355L27.6464 9.35355Z"
-          fill="currentColor" />
-      </svg>
-    </button>
 
   </main>
 
@@ -1653,192 +1131,98 @@
         gallery.dataset.imageCount = String(Math.min(Math.max(visibleImages, 1), 3));
       }
 
-      function setupCarousel() {
-        const wrapper = document.getElementById("slide-wrapper");
-        const track = document.getElementById("slide-track");
-        const firstSlide = document.getElementById("smk-slide");
-        const prevButton = document.getElementById("slide-nav-prev");
-        const nextButton = document.getElementById("slide-nav-next");
-        if (!wrapper || !track || !firstSlide) return;
-        let activeIndex = 0;
-        const maxIndex = track.children.length - 1;
-        const slideWidth = 1600;
-
-        function setOffset(offset) {
-          document.documentElement.style.setProperty("--carousel-offset", `${offset}px`);
-        }
-
-        function updateNavButtons() {
-          const wrapperRect = wrapper.getBoundingClientRect();
-          const buttonWidth = 74;
-          const leftSpace = wrapperRect.left;
-          const rightSpace = window.innerWidth - wrapperRect.right;
-
-          if (prevButton) {
-            prevButton.style.left = `${Math.max(12, (leftSpace - buttonWidth) / 2)}px`;
-            prevButton.classList.toggle("is-visible", activeIndex > 0 && leftSpace >= buttonWidth);
-          }
-
-          if (nextButton) {
-            nextButton.style.left = `${wrapperRect.right + Math.max(12, (rightSpace - buttonWidth) / 2)}px`;
-            nextButton.classList.toggle("is-visible", activeIndex < maxIndex && rightSpace >= buttonWidth);
-          }
-        }
-
-        function goToSlide(index) {
-          activeIndex = Math.max(0, Math.min(index, maxIndex));
-          setOffset(-activeIndex * slideWidth);
-          updateNavButtons();
-        }
-
-        if (prevButton) {
-          prevButton.addEventListener("click", () => {
-            goToSlide(activeIndex - 1);
-          });
-        }
-
-        if (nextButton) {
-          nextButton.addEventListener("click", () => {
-            goToSlide(activeIndex + 1);
-          });
-        }
-
-        window.addEventListener("resize", updateNavButtons);
-
-        let wheelDelta = 0;
-        let isWheelLocked = false;
-
-        wrapper.addEventListener("wheel", (event) => {
-          if (event.ctrlKey || event.metaKey) return;
-          event.preventDefault();
-          if (isWheelLocked) return;
-
-          const mainDelta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
-          wheelDelta += mainDelta;
-
-          if (Math.abs(wheelDelta) < 80) return;
-
-          if (wheelDelta > 0) {
-            goToSlide(activeIndex + 1);
-          } else {
-            goToSlide(activeIndex - 1);
-          }
-
-          wheelDelta = 0;
-          isWheelLocked = true;
-          window.setTimeout(() => {
-            isWheelLocked = false;
-          }, 430);
-        }, { passive: false });
-
-        goToSlide(0);
-      }
-
       window.addEventListener("resize", fitSlide);
       window.addEventListener("resize", syncPromotionHotspots);
 
       // 초기 로딩 시 화면에 맞춤
       fitSlide();
-      setupCarousel();
       syncBusinessImageCount();
       syncPromotionHotspots();
     })();
+    // ... 기존 코드 유지 (fitSlide, syncPromotionHotspots 등) ...
 
-
-    // ▼ 여기서부터 차트 생성 코드 추가 ▼
     // ▼ 여기서부터 차트 생성 코드 추가 ▼
     function renderMarketChart() {
-      if (typeof Chart === 'undefined') return;
+      const ctx = document.getElementById('marketChart');
+      if (!ctx) return;
 
       // X축 라벨 설정
-      const labels = ["'24", "'25", "'26", "'27", "'28", "'29", "'30", "'31", "'32", "'33"];
+      const labels = ["'25", "'26", "'27", "'28", "'29", "'30", "'31", "'32", "'33"];
 
-      // 차트 생성 도우미 함수 (캔버스 ID와 데이터를 받아서 각각 그려줌)
-      function createChart(canvasId, startValue, endValue, cagr) {
-        const ctx = document.getElementById(canvasId);
-        if (!ctx) return;
+      // 데이터 계산 로직
+      const startValue = 147.2;
+      const endValue = 828.9;
+      const cagr = 0.217;
 
-        // 데이터 계산 로직
-        const dataPoints = labels.map((_, index) => {
-          if (index === 0) return startValue;
-          if (index === labels.length - 1) return endValue;
-          return parseFloat((startValue * Math.pow(1 + cagr, index)).toFixed(1));
-        });
+      const dataPoints = labels.map((_, index) => {
+        if (index === 0) return startValue;
+        if (index === labels.length - 1) return endValue;
+        return parseFloat((startValue * Math.pow(1 + cagr, index)).toFixed(1));
+      });
 
-        new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: labels,
-            datasets: [{
-              label: 'Market Size (Million USD)',
-              data: dataPoints,
-              backgroundColor: '#7132f5', // --kraken-purple
-              borderRadius: 4,
-              barPercentage: 0.6
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                display: false // 범례 숨김 (깔끔한 디자인을 위해)
-              },
-              tooltip: {
-                backgroundColor: '#101114',
-                titleFont: { family: 'Pretendard Variable' },
-                bodyFont: { family: 'Pretendard Variable' },
-                callbacks: {
-                  label: function (context) {
-                    return context.parsed.y + 'M USD';
-                  }
-                }
-              }
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Market Size (Million USD)',
+            data: dataPoints,
+            backgroundColor: '#7132f5', // --kraken-purple
+            borderRadius: 4,
+            barPercentage: 0.6
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false // 범례 숨김
             },
-            scales: {
-              x: {
-                grid: { display: false },
-                ticks: {
-                  font: { family: 'Pretendard Variable', size: 11, weight: '600' },
-                  color: '#686b82'
-                }
-              },
-              y: {
-                border: { display: false },
-                grid: {
-                  color: 'rgba(104, 107, 130, 0.1)',
-                  drawTicks: false,
-                },
-                ticks: {
-                  font: { family: 'Pretendard Variable', size: 11 },
-                  color: '#9497a9',
-                  callback: function (value) {
-                    return value;
-                  }
-                },
-                title: {
-                  display: true,
-                  text: 'Million USD',
-                  color: '#9497a9',
-                  font: { family: 'Pretendard Variable', size: 10, weight: '600' }
+            tooltip: {
+              backgroundColor: '#101114',
+              titleFont: { family: 'Pretendard Variable' },
+              bodyFont: { family: 'Pretendard Variable' },
+              callbacks: {
+                label: function (context) {
+                  return context.parsed.y + 'M USD';
                 }
               }
             }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: {
+                font: { family: 'Pretendard Variable', size: 11, weight: '600' },
+                color: '#686b82'
+              }
+            },
+            y: {
+              border: { display: false },
+              grid: {
+                color: 'rgba(104, 107, 130, 0.1)',
+                drawTicks: false,
+              },
+              ticks: {
+                font: { family: 'Pretendard Variable', size: 11 },
+                color: '#9497a9',
+                stepSize: 200,
+                callback: function (value) {
+                  return value;
+                }
+              },
+              title: {
+                display: true,
+                text: 'Million USD',
+                color: '#9497a9',
+                font: { family: 'Pretendard Variable', size: 10, weight: '600' }
+              }
+            }
           }
-        });
-      }
-
-      // [1번 슬라이드 차트] 04-1 데이터 적용
-      
-      createChart('marketChart', 3287.6, 4782.6, 0.0425);
-
-      // [2번 슬라이드 차트] 04-2 데이터 적용
-      
-      createChart('marketChart-2', 125.8, 562.2, 0.181);
+        }
+      });
     }
-
-    // 차트 실행 함수 호출
-    renderMarketChart();
 
     // 차트 실행 함수 호출
     renderMarketChart();

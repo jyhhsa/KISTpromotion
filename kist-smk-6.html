@@ -5,11 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KIST 기술설명회 06</title>
-  <link rel="stylesheet" as="style" crossorigin
-    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+  
 
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
@@ -138,7 +137,7 @@
     }
 
     .technology-title {
-      max-width: 100%;
+      max-width: 1010px;
       margin: 0;
       color: var(--near-black);
       font-size: 31px;
@@ -346,7 +345,19 @@
       display: block;
       width: 100%;
       height: 100%;
+      min-width: 0;
+      min-height: 0;
+
+      max-height: 100%;
+
+      border: 1px solid var(--border-gray);
+      border-radius: 8px;
+      background: #ffffff;
+
+
       object-fit: contain;
+      padding: 6px;
+      box-sizing: border-box;
     }
 
     .keyword-panel .image-slot {
@@ -438,7 +449,7 @@
       border-radius: 8px;
       background: #ffffff;
 
-
+      
       object-fit: contain;
       padding: 6px;
       box-sizing: border-box;
@@ -797,20 +808,18 @@
           </div>
           <section class="hero-box" id="hero-box" aria-label="기술명 및 연구책임자 정보">
             <div class="hero-copy" id="hero-copy">
-              <h1 class="technology-title" id="technology-title">
-                산화방지제 함유 강화복합막을 포함하는 연료전지
-              </h1>
-              <p class="technology-subtitle" id="technology-subtitle">
-                초기 성능 저하 없이 라디컬을 제어해 PEMFC 내구성을 높이는 세리아 나노튜브 전극 기술
+              <h1 class="technology-title" id="technology-title">고성능 리튬이차전지용 후막 전극 소재 및 공정기술</h1>
+              <p class="technology-subtitle" id="technology-subtitle">분무건조 기반 조성·형상 제어로 SWCNT 분산성, 파우더 흐름성, 전극 저항, 바인더 사용량을 동시에 개선하는 리튬이차전지 건식공정용 복합소재 플랫폼 기술
+
               </p>
             </div>
             <aside class="researcher-card" id="researcher-card">
               <div class="researcher-label" id="researcher-label">연구책임자</div>
               <div class="researcher-name-line" id="researcher-name-line">
-                <strong class="researcher-name" id="researcher-name">김 진 영</strong>
+                <strong class="researcher-name" id="researcher-name">유 정 근</strong>
                 <span class="researcher-position" id="researcher-position">책임연구원</span>
               </div>
-              <p class="researcher-affiliation" id="researcher-affiliation">수소ㆍ연료전지연구단</p>
+              <p class="researcher-affiliation" id="researcher-affiliation">에너지저장연구센터</p>
             </aside>
           </section>
         </header>
@@ -834,9 +843,9 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td id="classification-major">수소에너지·친환경 에너지</td>
-                    <td id="classification-middle">고분자전해질 연료전지(PEMFC) 핵심소재</td>
-                    <td id="classification-small">전극용 산화방지제·MEA 고내구화·세리아 나노구조 전극 기술</td>
+                    <td id="classification-major">이차전지 소재·공정 기술</td>
+                    <td id="classification-middle">리튬이온전지 전극소재 및 전극 제조공정 기술</td>
+                    <td id="classification-small">건식 전극용 활물질-도전재-바인더 복합소재 및 분무건조 기반 조성·형상 제어 기술</td>
                   </tr>
                 </tbody>
               </table>
@@ -846,11 +855,9 @@
               <h2 class="section-heading" id="section-overview-title">기술개요 및 개발배경</h2>
               <div class="overview-layout" id="overview-layout">
                 <ul class="bullet-list" id="overview-list">
-                  <li id="overview-bullet-1">
-                    세리아 나노튜브를 전극층에 적용한 PEMFC 고내구화 기술로 라디컬을 효과적으로 제거해 초기 성능 저하 없이 수명 향상 기대
+                  <li id="overview-bullet-1">기존 습식 공정은 바인더·도전재의 마이그레이션으로 전극 균일도와 공정 안정성 확보에 한계
                   </li>
-                  <li id="overview-bullet-2">
-                    PEMFC는 구동 중 생성되는 라디컬 때문에 MEA 내구성 저하 발생, 기존 세륨계 산화방지제는 용출·응집 및 이온전도 저하로 성능 저하. 이를 개선하는 세리아 나노튜브 기술 개발
+                  <li id="overview-bullet-2">건식 공정은 차세대 대안이지만 전기화학 성능 저하 문제가 있어 조성·입자 구조를 최적화하는 기술 개발이 필요
                   </li>
                 </ul>
                 <div class="keyword-panel" id="overview-keyword-panel">
@@ -868,11 +875,11 @@
                     </span>
                     <div class="hashtag-container"
                       style="display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 10px; color: var(--cool-gray); font-size: 14px; font-weight: 700; text-align: center; word-break: keep-all;">
-                      <span class="hashtag">#PEMFC</span>
-                      <span class="hashtag">#라디컬 소거</span>
-                      <span class="hashtag">#세리아 나노튜브</span>
-                      <span class="hashtag">#고내구 MEA</span>
-
+                      <span class="hashtag">#건식 전극</span>
+                      <span class="hashtag">#분무건조</span>
+                      <span class="hashtag">#SWCNT 분산</span>
+                      <span class="hashtag">#Carbon Black 조성 최적화</span>
+                      
 
                     </div>
                   </div>
@@ -886,13 +893,10 @@
                 <div>
                   <ul class="bullet-list" id="tech-content-list">
                     <li id="tech-content-bullet-1">
-                      세리아 나노튜브 산화방지제를 백금 촉매와 함께 전극층에 적용한 PEMFC 고내구 전극 기술
+                      활물질·도전재·바인더를 분무건조해 구형 복합입자를 형성하고, 건식 전극의 분산성·흐름성·계면저항 동시 개선
                     </li>
                     <li id="tech-content-bullet-2">
-                      나노튜브의 높은 비표면적과 Ce(III) 반응성을 활용해 구동 중 발생하는 라디컬을 효과적으로 제거
-                    </li>
-                    <li id="tech-content-bullet-3">
-                      전극층에 적용해 초기 성능 저하 없이 내구성과 성능 안정성 상승
+                      안식각 71.24°→58.58°, 접착력 1.18→5.34 gf/20mm, 체적저항 21.26→6.14 Ω·cm 개선. LFP 코인셀 40사이클 용량 유지율 95.9% 이상
                     </li>
                   </ul>
                 </div>
@@ -900,7 +904,7 @@
                   <div class="image-slot tech-image-slot" id="tech-representative-image-slot">
                     <div class="image-slot tech-image-slot" id="tech-representative-image-slot">
                       <img id="tech-representative-image" class="representative-image" alt="대표이미지"
-                        src="./img/06/present_img.jpg">
+                        src="./img/03/present_img.jpg">
                     </div>
                   </div>
                   <p class="caption-text" id="tech-representative-caption"></p>
@@ -914,12 +918,8 @@
                 <div class="comparison-side as-is" id="comparison-as-is">
                   <h3 class="comparison-title" id="comparison-as-is-title">[ 기존기술한계점 ]</h3>
                   <ul class="bullet-list tight" id="comparison-as-is-list">
-                    <li id="comparison-as-is-bullet-1">
-                      기존 산화방지제는 전해질막 내부에 포함되는 경우가 많아 PFSA 고분자 분포 불균일과 양성자 전도 저하를 유발해 초기 성능 저하
-                    </li>
-                    <li id="comparison-as-is-bullet-2">
-                      기존 세륨 산화물 나노입자는 산성 구동 환경에서 용출·응집되어 장기 구동 시 성능 저하와 내구성 한계 초래
-                    </li>
+                    <li id="comparison-as-is-bullet-1">습식 공정은 후막 전극 구현 시 균일한 전극 구조 형성 난항</li>
+                    <li id="comparison-as-is-bullet-2">기존 건식 전극은 SWCNT 분산이 어렵고 파우더 흐름성이 낮아 생산성 저하, 기계적 강도 확보를 위해 PTFE 고함량으로 원가·성능 측면 부담 가중</li>
                   </ul>
                 </div>
                 <div class="comparison-chevron" id="comparison-chevron" aria-hidden="true">
@@ -934,12 +934,8 @@
                 <div class="comparison-side to-be" id="comparison-to-be">
                   <h3 class="comparison-title" id="comparison-to-be-title">[ 개발기술개선점 ]</h3>
                   <ul class="bullet-list tight" id="comparison-to-be-list">
-                    <li id="comparison-to-be-bullet-1">
-                      산화방지제를 캐소드 전극층에 도입해 초기 성능 저하 없이 라디컬을 직접 제어할 수 있도록 설계
-                    </li>
-                    <li id="comparison-to-be-bullet-2">
-                      나노튜브 구조는 촉매층과의 접촉면 확대, 높은 Ce(III) 반응성, 용출 저항성 향상에 유리해 내구성과 안정성을 동시에 개선
-                    </li>
+                    <li id="comparison-to-be-bullet-1">분무건조 기반 구형 복합입자 설계로 도전재와 바인더를 사전 일체화해 SWCNT 분산성과 파우더 흐름성을 높이고, 공정 불량 가능성을 함께 경감</li>
+                    <li id="comparison-to-be-bullet-2">Carbon Black 조성 추가와 입도 제어를 통해 원가경쟁력과 양산 적합성 동시 확보</li>
                   </ul>
                 </div>
               </div>
@@ -951,19 +947,15 @@
               <h2 class="section-heading" id="section-market-trend-title">관련시장동향</h2>
               <div class="market-layout" id="market-trend-layout">
                 <ul class="bullet-list" id="market-trend-list">
-                  <li id="market-trend-bullet-1">
-                    국내 연료전지 시장은 24년 1억 2,580만 달러에서 33년까지 약 5억 6,220만 달러로 전망 - CAGR 18.1%
-                  </li>
-                  <li id="market-trend-bullet-2">
-                    정부가 2040년 발전용 연료전지 15GW, 가정·건물용 2.1GW 보급 목표를 제시하고, 연료전지 전용 LNG 요금제와 REC 가중치 유지 등으로 시장 확대 기반을 지원 중
-                  </li>
-
+                  <li id="market-trend-bullet-1">건식 전극 소재 시장 글로벌 시장규모 전망 - CAGR 46.5%</li>
+                  <li id="market-trend-bullet-2">국내 이차전지 산업은 2030년까지 50조 원 투자, 세계시장 점유율 40% 목표, 건식 전극용 복합소재 상용화 수요가 확대될 가능성 높음</li>
+                  <li id="market-trend-bullet-3">LG에너지솔루션 및 삼성SDI 건식 전극 공정 도입 로드맵과 파일럿 라인 구축 추진 및 건식 극판 기반 배터리 검증 중으로, 수요처 발굴과 공동개발 가능성 상승 추세</li>
                 </ul>
                 <div class="market-chart-panel" id="market-chart-panel">
                   <div class="image-slot market-image-slot" id="market-trend-image-slot">
                     <canvas id="marketChart"></canvas>
                   </div>
-                  <p class="market-chart-source" id="market-chart-source">&lt;IMARC Group&gt;</p>
+                  <p class="market-chart-source" id="market-chart-source">&lt;QYR research&gt;</p>
                 </div>
               </div>
             </section>
@@ -972,33 +964,28 @@
               <h2 class="section-heading" id="section-business-idea-title">Business Idea / 응용·적용분야</h2>
               <div class="business-layout" id="business-idea-layout">
                 <ul class="bullet-list" id="business-idea-list">
-                  <li id="business-idea-bullet-1">산업분야:
-                    수소모빌리티/차량용 연료전지/분산전원/고기능 에너지소재
+                  <li id="business-idea-bullet-1">산업분야: 전기차 배터리/ESS 배터리/이차전지 소재</li>
+                  <li id="business-idea-bullet-2">관련시장: 
+                    건식 전극 소재 시장/고니켈 NCM 양극재 시장/LFP 기반 안전성 강화 배터리 시장/이차전지 제조장비 시장
                   </li>
-                  <li id="business-idea-bullet-2">관련시장:
-                    PEMFC 스택/전극·촉매층 소재/MEA 고내구화 소재/수소연료전지 부품
-                  </li>
-                  <li id="business-idea-bullet-2">적용가능한 제품:
-                    수소연료전지 드론 파워팩/UAM 보조전원/차량용 PEMFC 스택/장수명 연료전지 모듈
+                  <li id="business-idea-bullet-2">적용가능한 제품: 
+                    전기차용 배터리 셀·모듈·팩/ESS 랙·컨테이너형 저장장치/고밀도 산업용 배터리 팩
                   </li>
                 </ul>
                 <div class="business-application-images" id="business-application-images" data-image-count="2">
-                  <img id="business-image-1" class="business-image" alt="응용·적용분야 이미지 1" src="./img/06/idea_img1.png">
-                  <img id="business-image-2" class="business-image" alt="응용·적용분야 이미지 2" src="./img/06/idea_img2.png">
+                  <img id="business-image-1" class="business-image" alt="응용·적용분야 이미지 1" src="./img/03/idea_img1.JPG">
+                  <img id="business-image-2" class="business-image" alt="응용·적용분야 이미지 2" src="./img/03/idea_img2.jpg">
                 </div>
               </div>
               <div class="business-idea-box" id="business-idea-box">
                 <h3 class="business-idea-box-title" id="business-idea-box-title">사업화 제안 포인트</h3>
                 <ul class="bullet-list tight" id="business-idea-box-list">
-                  <li id="business-idea-box-bullet-1">
-                    사업화 대상 기업: 연료전지 스택 제조사 / 촉매·전극 소재 기업 / 수소드론·UAM 시스템 기업 / MEA 제조사
+                  <li id="business-idea-box-bullet-1">원천특허 + 제조 레시피 + 공정조건 패키지를 전극소재 기업에 라이선스 이전하고, 기술료 + 경상 로열티 모델로 수익화
                   </li>
-                  <li id="business-idea-box-bullet-2">
-                    드론·항공 모빌리티처럼 경량화와 장수명이 동시에 필요한 응용처에서 프리미엄 성능소재로 포지셔닝
+                  <li id="business-idea-box-bullet-2">배터리 셀 제조사와 공동개발(JDA) 방식으로 샘플 공급·파일럿 평가·양산조건 최적화를 연계하고, 이후 소재 납품 또는 공정기술 이전으로 확장
 
                   </li>
-                  <li id="business-idea-box-bullet-3">
-                    소재 공급, 전극 슬러리 공급, 공동개발 라이선스, 특정 응용처 전용 패키지 등 다양한 BM 설계
+                  <li id="business-idea-box-bullet-3">분무건조 장비사·건식 전극 장비사와 협력해 “복합소재 + 공정 노하우 + 파일럿 검증”을 묶은 패키지 솔루션으로 사업화
                   </li>
                 </ul>
               </div>
@@ -1068,20 +1055,29 @@
                 <tbody>
                   <tr>
                     <td id="ip-row-1-title">
-                      세리아 나노튜브 산화방지제를 포함하는 전극 및 이를 포함하는 막-전극접합체 및 연료전지
+                      리튬 이차전지 건식 공정용 복합소재 및 이의 제조방법
                     </td>
                     <td id="ip-row-1-application">
-                      10-2023-0183329
+                      10-2025-0036120
                     </td>
                     <td id="ip-row-1-date">
-                      2023.12.15
+                      2025.03.20
                     </td>
-                    <td id="ip-row-1-registration">
-                      10-2025-0092785
+                    <td id="ip-row-1-registration">미공개</td>
+                    <td id="ip-row-1-registration-date">-</td>
+                  </tr>
+                  <tr>
+                    <td id="ip-row-2-title">
+                      고안정성 활물질-도전재-바인더 복합소재 및 이의 제조방법
                     </td>
-                    <td id="ip-row-1-registration-date">
-                      2025.06.24
+                    <td id="ip-row-1-application">
+                      10-2025-0036146
                     </td>
+                    <td id="ip-row-1-date">
+                      2025.03.20
+                    </td>
+                    <td id="ip-row-1-registration">정보 미공개</td>
+                    <td id="ip-row-1-registration-date">-</td>
                   </tr>
                 </tbody>
               </table>
@@ -1101,7 +1097,7 @@
       const designHeight = 900;
 
       let currentScale = 1;
-      let isManualZoom = false; // 사용자가 수동으로 줌을 조작했는지 여부 기록
+      let isManualZoom = false; 
 
       function applyScale(scale) {
         currentScale = scale;
@@ -1188,12 +1184,12 @@
       if (!ctx) return;
 
       // X축 라벨 설정
-      const labels = ["'24", "'25", "'26", "'27", "'28", "'29", "'30", "'31", "'32", "'33"];
+      const labels = ["'24", "'25", "'26", "'27", "'28", "'29", "'30"];
 
       // 데이터 계산 로직
-      const startValue = 125.8;
-      const endValue = 562.2;
-      const cagr = 0.181;
+      const startValue = 41;
+      const endValue = 405;
+      const cagr = 0.465;
 
       const dataPoints = labels.map((_, index) => {
         if (index === 0) return startValue;
@@ -1218,7 +1214,7 @@
           maintainAspectRatio: false,
           plugins: {
             legend: {
-              display: false // 범례 숨김
+              display: false // 범례 숨김 (깔끔한 디자인을 위해)
             },
             tooltip: {
               backgroundColor: '#101114',
