@@ -1772,7 +1772,7 @@
           const mainDelta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
           wheelDelta += mainDelta;
 
-          if (Math.abs(wheelDelta) < 80) return;
+          if (Math.abs(wheelDelta) < 35) return;
 
           if (wheelDelta > 0) {
             goToSlide(activeIndex + 1);
@@ -1784,7 +1784,7 @@
           isWheelLocked = true;
           window.setTimeout(() => {
             isWheelLocked = false;
-          }, 430);
+          }, 320);
         }, { passive: false });
 
         goToSlide(0);
