@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KIST 기술설명회 01</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -110,12 +112,16 @@
       position: fixed;
       top: 50%;
       z-index: 20;
-      display: grid;
-      width: 74px;
-      height: 42px;
-      place-items: center;
+      display: inline-flex;
+      width: 88px;
+      height: 64px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
       border: 0;
       background: transparent;
+      font-family: inherit;
       opacity: 0;
       transform: translateY(-50%);
       cursor: pointer;
@@ -132,6 +138,12 @@
       opacity: 0.9;
     }
 
+    .stage-nav-button:focus-visible {
+      outline: 2px solid rgba(87, 65, 216, 0.48);
+      outline-offset: 4px;
+      border-radius: 999px;
+    }
+
     .stage-nav-button.prev {
       left: 24px;
     }
@@ -142,13 +154,27 @@
 
     .stage-nav-icon {
       display: block;
-      width: 58px;
-      height: 20px;
+      width: 36px;
+      height: 36px;
       color: rgba(87, 65, 216, 0.88);
+      filter: drop-shadow(0 4px 10px rgba(87, 65, 216, 0.18));
     }
 
     .stage-nav-button.prev .stage-nav-icon {
       transform: rotate(180deg);
+    }
+
+    .stage-nav-label {
+      display: block;
+      width: 58px;
+      color: rgba(104, 107, 130, 0.78);
+      font-family: inherit;
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: 0;
+      text-align: center;
+      white-space: nowrap;
     }
 
     .slide-header {
@@ -1558,17 +1584,23 @@
         </article>
       </div>
     </div>
-    <button class="stage-nav-button prev" id="slide-nav-prev" type="button" aria-label="이전 장표">
-      <svg class="stage-nav-icon" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M0 9.5H28V8.5H0V9.5ZM27.6464 9.35355L28.3536 8.64645L20.3536 0.646447L19.6464 1.35355L27.6464 9.35355Z"
-          fill="currentColor" />
+    <button class="stage-nav-button prev" id="slide-nav-prev" type="button" aria-label="이전 페이지로">
+      <svg class="stage-nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+        stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="9.2"></circle>
+        <path d="M8 12h8"></path>
+        <path d="m12 8 4 4-4 4"></path>
       </svg>
+      <span class="stage-nav-label">이전 페이지로</span>
     </button>
-    <button class="stage-nav-button next is-visible" id="slide-nav-next" type="button" aria-label="다음 장표">
-      <svg class="stage-nav-icon" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M0 9.5H28V8.5H0V9.5ZM27.6464 9.35355L28.3536 8.64645L20.3536 0.646447L19.6464 1.35355L27.6464 9.35355Z"
-          fill="currentColor" />
+    <button class="stage-nav-button next is-visible" id="slide-nav-next" type="button" aria-label="다음 페이지로">
+      <svg class="stage-nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+        stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="9.2"></circle>
+        <path d="M8 12h8"></path>
+        <path d="m12 8 4 4-4 4"></path>
       </svg>
+      <span class="stage-nav-label">다음 페이지로</span>
     </button>
 
   </main>
@@ -1668,7 +1700,7 @@
 
         function updateNavButtons() {
           const wrapperRect = wrapper.getBoundingClientRect();
-          const buttonWidth = 74;
+          const buttonWidth = 88;
           const leftSpace = wrapperRect.left;
           const rightSpace = window.innerWidth - wrapperRect.right;
 
@@ -1678,7 +1710,7 @@
           }
 
           if (nextButton) {
-            nextButton.style.left = `${wrapperRect.right + Math.max(12, (rightSpace - buttonWidth) / 2)}px`;
+            nextButton.style.left = `${wrapperRect.right + Math.max(12, (rightSpace - buttonWidth) / 2 - 14)}px`;
             nextButton.classList.toggle("is-visible", activeIndex < maxIndex && rightSpace >= buttonWidth);
           }
         }
