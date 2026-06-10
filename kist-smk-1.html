@@ -873,46 +873,56 @@
       html,
       body {
         width: 297mm;
-        height: 210mm;
+        height: auto;
         margin: 0;
         background: #ffffff;
-        overflow: hidden;
+        overflow: visible;
       }
 
       .slide-stage {
         width: 297mm;
-        height: 210mm;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        height: auto;
+        overflow: visible;
+        display: block;
         padding: 0;
         background: #ffffff;
       }
 
       .slide-wrapper {
         width: 1600px;
-        height: 900px;
-        margin: 0;
-        overflow: hidden;
+        height: auto;
+        margin: 0 auto;
+        overflow: visible;
         zoom: 0.64;
       }
 
       .slide-track {
+        position: static !important;
+        inset: auto !important;
+        display: block;
         width: 1600px;
-        height: 900px;
+        height: auto;
         transform: none !important;
         transform-origin: top left;
         transition: none !important;
       }
 
-      .slide-track .smk-slide:not(:first-child) {
-        display: none !important;
-      }
-
       .smk-slide {
+        position: relative !important;
+        inset: auto !important;
+        display: block !important;
+        width: 1600px;
+        height: 900px;
+        flex: none !important;
+        page-break-after: always;
+        break-after: page;
         box-shadow: none;
         transform: none !important;
+      }
+
+      .smk-slide:last-child {
+        page-break-after: auto;
+        break-after: auto;
       }
 
       .stage-nav-button,
